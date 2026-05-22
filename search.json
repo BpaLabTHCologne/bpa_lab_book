@@ -1,0 +1,509 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The BPA Lab",
+    "section": "",
+    "text": "0.1 About this book\nThis book documents the Business Process Automation Lab (BPA Lab) at TH Köln — a small-scale, modular model factory that demonstrates and teaches concepts and technologies for business process automation and analytics.\nThe BPA Lab combines software components (Business Process Management Systems, Robotic Process Automation, Process Mining) with hardware components (a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and IoT devices) to simulate the production and logistics processes of a bicycle manufacturer.\nThis book aims to provide:\nIt is structured as follows:\nThe appendices contain:",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#about-this-book",
+    "href": "index.html#about-this-book",
+    "title": "The BPA Lab",
+    "section": "",
+    "text": "A high-level overview of the BPA Lab and its goals.\nA description of the business scenario — the end-to-end ordering, manufacturing, and shipment process implemented in the lab.\nA description of the software architecture and the design decisions taken along the way.\n\n\n\nIntroduction: Motivation, goals, and scope of the BPA Lab.\nSolution overview: The three architectural layers — controllers, process applications, workflow engine.\nBusiness scenario: The end-to-end bicycle ordering, manufacturing, and shipment process, broken down into its sub-processes (order management, production control, purchasing, manufacturing, shipment, warehouse operations).\nData and data sources: Data model, data flows, and persistence in the BPA Lab.\nSoftware architecture: Requirements and a C4 view of the system.\nArchitecture decisions: Documented decisions and their rationales.\n\n\n\nAppendix A: Overview of related components and sister repositories.\nAppendix B: A glossary of key terms.\nReferences: All cited literature.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#who-this-book-is-for",
+    "href": "index.html#who-this-book-is-for",
+    "title": "The BPA Lab",
+    "section": "0.2 Who this book is for",
+    "text": "0.2 Who this book is for\nThis book is written for:\n\nLecturers and researchers who want to teach business process automation with a tangible, end-to-end reference system.\nStudents working on bachelor’s or master’s projects inside the BPA Lab.\nPractitioners looking for a concrete reference architecture combining a BPMS, IoT hardware, and process mining.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#source-code-and-related-repositories",
+    "href": "index.html#source-code-and-related-repositories",
+    "title": "The BPA Lab",
+    "section": "0.3 Source code and related repositories",
+    "text": "0.3 Source code and related repositories\nThe implementation of the demonstration factory is maintained as a separate repository: bpa_lab_demonstration_factory.\nDocumentation for student component projects is available in the wiki of bpa_lab_student_docs.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#status-and-roadmap",
+    "href": "index.html#status-and-roadmap",
+    "title": "The BPA Lab",
+    "section": "0.4 Status and roadmap",
+    "text": "0.4 Status and roadmap\n\n\n\n\n\n\nImportantWork in progress\n\n\n\nThe BPA Lab — and this book — are under continuous development. Several sections are marked as work in progress and will be expanded in future revisions. Bug reports and suggestions are very welcome via the issue tracker.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#licence-and-citation",
+    "href": "index.html#licence-and-citation",
+    "title": "The BPA Lab",
+    "section": "0.5 Licence and citation",
+    "text": "0.5 Licence and citation\nThis work is published under the Creative Commons Attribution-ShareAlike 4.0 licence (CC BY-SA 4.0).\nSuggested citation:\n\nZapp, Matthias (2026). The BPA Lab — Architecture and Documentation of a Demonstration Factory for Business Process Automation and Analytics. TH Köln (University of Applied Sciences). Online: https://bpalabthcologne.github.io/bpa_lab_book/.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "chapter01-introduction.html",
+    "href": "chapter01-introduction.html",
+    "title": "2  Introduction",
+    "section": "",
+    "text": "2.1 What is the BPA Lab?\nThe Business Process Automation Lab (BPA Lab) at TH Köln is a small, modular model factory dedicated to business process automation and analytics. It combines real-world software components used in industry — Business Process Management Systems (BPMS), Robotic Process Automation (RPA), and process-mining tools — with physical hardware: a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and a range of IoT devices.\nTogether, these components simulate the production and logistics processes of a bicycle manufacturer — from the customer order to the delivery of a custom-built bike.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapter01-introduction.html#two-goals-demonstration-and-teaching",
+    "href": "chapter01-introduction.html#two-goals-demonstration-and-teaching",
+    "title": "2  Introduction",
+    "section": "2.2 Two goals: demonstration and teaching",
+    "text": "2.2 Two goals: demonstration and teaching\nThe BPA Lab pursues two complementary goals.\n\n2.2.1 Demonstration\nThe lab demonstrates concepts and technologies for business process automation and analytics in a tangible way. It shows how:\n\na central BPMS (Camunda 8) orchestrates end-to-end business processes,\nmodular job workers implement the actual work and interact with hardware,\nprocess mining can be used to analyse process executions and identify improvement opportunities.\n\nBy bringing together software and hardware in one running system, the lab makes abstract concepts immediately visible.\n\n\n2.2.2 Teaching\nIndividual building blocks of the BPA Lab — for instance the Fischertechnik warehouse robot — are also used in student projects (bachelor’s and master’s level) as starting points for self-defined process implementations. This enables a hands-on form of teaching for process-oriented application integration: students do not merely model processes on paper but see them execute in a real, physical system.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapter01-introduction.html#why-a-demonstration-factory",
+    "href": "chapter01-introduction.html#why-a-demonstration-factory",
+    "title": "2  Introduction",
+    "section": "2.3 Why a demonstration factory?",
+    "text": "2.3 Why a demonstration factory?\nBusiness process management theory and notations like BPMN are often taught using abstract examples — pizza ordering, expense approvals, generic procurement workflows. These examples are accessible but rarely convey:\n\nthe technical complexity of integrating heterogeneous systems,\nthe operational concerns of running long-lived process instances,\nthe data perspective that is at the heart of process mining and analytics.\n\nA demonstration factory bridges this gap. Students and visitors can observe how a customer order arrives via a web form, triggers a workflow in Camunda 8, dispatches commands via MQTT to physical hardware, and eventually leads to a real, manufactured product being moved through a real, physical warehouse.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapter01-introduction.html#a-birds-eye-view",
+    "href": "chapter01-introduction.html#a-birds-eye-view",
+    "title": "2  Introduction",
+    "section": "2.4 A bird’s-eye view",
+    "text": "2.4 A bird’s-eye view\nThe next chapter — Solution overview — introduces the three architectural layers of the BPA Lab. Subsequent chapters describe the business scenario, the data perspective, the software architecture, and the architecture decisions taken so far.\n\n\n\n\n\n\nTipHow to read this book\n\n\n\nIf you are new to the BPA Lab, read the chapters in order. If you are already familiar with the lab and want to consult a specific aspect — for example a particular sub-process or an architectural decision — feel free to jump directly to the relevant chapter using the sidebar or the search box at the top of the page.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02-solution-overview.html",
+    "href": "chapter02-solution-overview.html",
+    "title": "3  Solution Overview",
+    "section": "",
+    "text": "3.1 Three architectural layers\nThe architecture and implementation of the BPA Lab are under continuous development. The solution is structured into three clearly separated layers.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02-solution-overview.html#three-architectural-layers",
+    "href": "chapter02-solution-overview.html#three-architectural-layers",
+    "title": "3  Solution Overview",
+    "section": "",
+    "text": "3.1.1 Layer 1 — Controllers\nControllers are responsible for the direct control of hardware components: the Fischertechnik Industry 4.0 factory, the Fischertechnik warehouse robots, and IoT devices. They are predominantly implemented in Python and translate high-level commands (for example “transport workpiece from slot A to slot B”) into the low-level signals that move motors and read sensors.\n\n\n3.1.2 Layer 2 — Process applications (job workers)\nProcess applications are middleware components that implement the actual business logic of individual work steps. In Camunda 8 terms, they are job workers: they subscribe to specific service tasks and execute them when activated by the workflow engine.\nJob workers communicate:\n\nwith the workflow engine via gRPC (the standard Camunda 8 / Zeebe protocol),\nwith the controllers via MQTT (a lightweight publish-subscribe protocol that is well established in the IoT space).\n\nProcess applications are predominantly implemented in Java.\n\n\n3.1.3 Layer 3 — BPMS workflow engine\nThe central workflow engine is Camunda 8 (self-managed). It executes:\n\nBPMN process models — describing how work flows through the system,\nDMN decision models — encoding business rules.\n\nCamunda 8 maintains the state of each running process instance, handles incidents, and provides the data foundation for process mining and analytics.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02-solution-overview.html#a-modular-domain-driven-design",
+    "href": "chapter02-solution-overview.html#a-modular-domain-driven-design",
+    "title": "3  Solution Overview",
+    "section": "3.2 A modular, domain-driven design",
+    "text": "3.2 A modular, domain-driven design\nA key design principle in the BPA Lab is modularity. The system follows a Domain-Driven Design (DDD) approach so that:\n\nmultiple students and developers can work in parallel on different parts of the system without stepping on each other’s toes,\ncomponents can be reused in student projects to build new process applications,\ncomponents can be replaced or upgraded independently.\n\nThe primary criterion for splitting job workers and process models is the business domain:\n\nOrder management\nManufacturing\nShipping\nPurchasing\nLogistics / warehouse operations\n\nThis separation aligns with the bounded contexts familiar from DDD and makes the system easier to reason about, both for teachers explaining it and for students extending it.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02-solution-overview.html#a-simplified-birds-eye-view",
+    "href": "chapter02-solution-overview.html#a-simplified-birds-eye-view",
+    "title": "3  Solution Overview",
+    "section": "3.3 A simplified bird’s-eye view",
+    "text": "3.3 A simplified bird’s-eye view\nThe following diagram summarises the interaction between the three layers and the hardware they ultimately drive.\n\n\n\n\n\n\nFigure 3.1: Simplified architecture of the BPA Lab\n\n\n\nThe customer-facing entry point is typically a web application for order capture. From there, work flows downwards through Camunda 8 and the job workers and eventually reaches the physical Fischertechnik components. Events generated along the way flow back upwards and are persisted in databases for later analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02-solution-overview.html#the-demonstration-factory-implementation",
+    "href": "chapter02-solution-overview.html#the-demonstration-factory-implementation",
+    "title": "3  Solution Overview",
+    "section": "3.4 The demonstration factory implementation",
+    "text": "3.4 The demonstration factory implementation\nThe latest version of the BPA Lab as a runnable demonstration factory is available in a separate repository:\n➡️ github.com/BpaLabTHCologne/bpa_lab_demonstration_factory\nThe implementation is fully containerised with Docker. This makes local setup straightforward and ensures that the environment is reproducible across different machines — a key requirement when students set up the system on their own laptops.\n\n\n\n\n\n\nTipGetting started in practice\n\n\n\nIf you are setting up the BPA Lab for the first time, start with the docker-compose.yml of the demonstration factory and follow the installation guide there. To develop your own components on top of the lab, the student-docs wiki provides component-level guides.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03-business-scenario.html",
+    "href": "chapter03-business-scenario.html",
+    "title": "4  Business Scenario of the Demonstration Factory",
+    "section": "",
+    "text": "4.1 The scenario in a nutshell\nA bicycle manufacturer offers highly customisable bicycles to consumers.\nThe entire end-to-end process is orchestrated by the order management process, which in turn initiates purchasing, manufacturing, and shipping processes as needed.\nThe manufacturing processes use the Fischertechnik Industry 4.0 factory to post goods receipts of components and to perform the actual manufacturing steps. Order management and shipping additionally use the distribution warehouse (a separate Fischertechnik robot) to post goods receipts and goods issues for finished products.\nThe following sections describe each sub-process in turn. The process models do not include technical aspects and show only the happy path of execution.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03-business-scenario.html#the-scenario-in-a-nutshell",
+    "href": "chapter03-business-scenario.html#the-scenario-in-a-nutshell",
+    "title": "4  Business Scenario of the Demonstration Factory",
+    "section": "",
+    "text": "Figure 4.1: Process landscape of the BPA Lab",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03-business-scenario.html#order-management",
+    "href": "chapter03-business-scenario.html#order-management",
+    "title": "4  Business Scenario of the Demonstration Factory",
+    "section": "4.2 Order management",
+    "text": "4.2 Order management\n\n\n\n\n\n\nFigure 4.2: Order management process\n\n\n\nThe order management process governs the fulfilment of customer orders.\nIt starts when a customer order is entered into a web form, which is pre-filled with product data (bicycle models) from the database. During execution, the availability of the ordered products is checked.\nTwo main scenarios apply:\n\nAll products in stock: the shipping process is triggered directly. Once shipping completes successfully, the process is finished.\nOne or more products out of stock: for each unavailable product, the production control process is triggered, which creates a production order. The production order specifies the required components.\n\nIf the components are also unavailable, a purchasing process is started first.\nOtherwise, the manufacturing process is triggered immediately.\n\n\nOnce the missing products are manufactured, shipping is initiated.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03-business-scenario.html#production-control",
+    "href": "chapter03-business-scenario.html#production-control",
+    "title": "4  Business Scenario of the Demonstration Factory",
+    "section": "4.3 Production control",
+    "text": "4.3 Production control\n\n\n\n\n\n\nFigure 4.3: Production control process\n\n\n\nThe production control process manages the creation and execution of one production order for one product. It determines the component demand and — if needed — triggers a purchasing process to procure the missing components. Once components are available, it triggers the actual manufacturing process.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03-business-scenario.html#purchasing",
+    "href": "chapter03-business-scenario.html#purchasing",
+    "title": "4  Business Scenario of the Demonstration Factory",
+    "section": "4.4 Purchasing",
+    "text": "4.4 Purchasing\n\n\n\n\n\n\nFigure 4.4: Purchasing process\n\n\n\nThe purchasing process manages the procurement of required components. It starts whenever a component is needed and creates a purchase order.\nThe purchase order can be adjusted by the user — for example by selecting a specific vendor. Materials are then stored and stock levels are updated. Upon user confirmation (or after a configurable timeout), the stock level is increased in the inventory database.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03-business-scenario.html#manufacturing",
+    "href": "chapter03-business-scenario.html#manufacturing",
+    "title": "4  Business Scenario of the Demonstration Factory",
+    "section": "4.5 Manufacturing",
+    "text": "4.5 Manufacturing\n\n\n\n\n\n\nFigure 4.5: Manufacturing process\n\n\n\nThe manufacturing process governs the physical manufacturing simulation on the Fischertechnik factory for one item of one product type.\nIt starts after a production order has been created by the production control process and sufficient components are available.\nThe process must place a manufacturing order that produces a new bicycle from the specified material. Before that, however, it must check whether a physical workpiece is already available in the warehouse of the Fischertechnik factory. If not, a physical workpiece must first be transferred to the factory so that the control program can store and recognise it. Once the bicycle has been produced from the material (workpiece), the process is complete.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03-business-scenario.html#shipment",
+    "href": "chapter03-business-scenario.html#shipment",
+    "title": "4  Business Scenario of the Demonstration Factory",
+    "section": "4.6 Shipment",
+    "text": "4.6 Shipment\n\n\n\n\n\n\nFigure 4.6: Shipment process\n\n\n\nThe shipment process manages the dispatch of finished goods to the customer. It is only triggered if a product is in stock and ready to be shipped.\nThe flow is:\n\nShipping data is checked.\nThe distance and duration from the warehouse to the delivery address are computed — the Openrouteservice API is used for this.\nThe logistics sub-process retrieves the customer order from the warehouse.\nA message is sent to the customer to inform them about the dispatch.\nUpon handover of the order to the customer, both the shipping process and the surrounding end-to-end process instance are completed.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03-business-scenario.html#warehouse-operations",
+    "href": "chapter03-business-scenario.html#warehouse-operations",
+    "title": "4  Business Scenario of the Demonstration Factory",
+    "section": "4.7 Warehouse operations",
+    "text": "4.7 Warehouse operations\nThe warehouse operations process governs the flow of finished goods in a distribution warehouse — represented physically by the Fischertechnik warehouse robot.\nIt starts when a transfer order for the warehouse is received from another business process. A transfer order can be either an instruction to store products in the warehouse or to retrieve products from it.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03-business-scenario.html#teaching-note",
+    "href": "chapter03-business-scenario.html#teaching-note",
+    "title": "4  Business Scenario of the Demonstration Factory",
+    "section": "4.8 Teaching note",
+    "text": "4.8 Teaching note\n\n\n\n\n\n\nTipProcess landscape as a teaching tool\n\n\n\nThis process landscape works well to introduce key BPMN concepts in context:\n\ncall activities (e.g. order management calling production control),\nmessage-based communication between long-running processes,\nboundary events to handle exceptions raised by job workers,\nmulti-instance activities for handling several products in a single order.\n\nBy stepping through the running system together with students, abstract notation suddenly becomes concrete.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+    ]
+  },
+  {
+    "objectID": "chapter04-data.html",
+    "href": "chapter04-data.html",
+    "title": "5  Data and Data Sources",
+    "section": "",
+    "text": "5.1 Overview of data sources\nThe BPA Lab integrates data from several sources — from master data in a relational database, via process state maintained by the workflow engine, to sensor and telemetry data from the Fischertechnik components.\nThe following figure gives an overview of the main data sources and the kinds of data they hold:",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+    ]
+  },
+  {
+    "objectID": "chapter04-data.html#overview-of-data-sources",
+    "href": "chapter04-data.html#overview-of-data-sources",
+    "title": "5  Data and Data Sources",
+    "section": "",
+    "text": "Figure 5.1: Data overview in the BPA Lab",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+    ]
+  },
+  {
+    "objectID": "chapter04-data.html#the-mysql-data-model",
+    "href": "chapter04-data.html#the-mysql-data-model",
+    "title": "5  Data and Data Sources",
+    "section": "5.2 The MySQL data model",
+    "text": "5.2 The MySQL data model\nThe following diagram shows the concrete data model of the MySQL database, including the entities and attributes of the current implementation:\n\n\n\n\n\n\nFigure 5.2: MySQL data model\n\n\n\nThe database serves as the central store for:\n\nProduct master data — bicycle models and their components,\nCustomer data and delivery addresses,\nStock levels for components and finished goods,\nOrders — customer orders, production orders, purchase orders — together with their status history,\nVendor data.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+    ]
+  },
+  {
+    "objectID": "chapter04-data.html#sample-and-master-data",
+    "href": "chapter04-data.html#sample-and-master-data",
+    "title": "5  Data and Data Sources",
+    "section": "5.3 Sample and master data",
+    "text": "5.3 Sample and master data\nDocumentation and sample data of the Fischertechnik factory are available in the Sample_data folder of the documentation repository. This data serves as:\n\ninitial master data when setting up a new instance of the BPA Lab,\ntest data for developing new components,\na demonstration baseline for teaching sessions and presentations.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+    ]
+  },
+  {
+    "objectID": "chapter04-data.html#process-data-and-the-foundation-for-process-mining",
+    "href": "chapter04-data.html#process-data-and-the-foundation-for-process-mining",
+    "title": "5  Data and Data Sources",
+    "section": "5.4 Process data and the foundation for process mining",
+    "text": "5.4 Process data and the foundation for process mining\nIn addition to persistent master data, the running processes generate substantial amounts of process data:\n\nCamunda 8 stores process instance data, variables, tokens, and lifecycle events.\nMQTT messages record the communication between job workers and controllers.\nJob worker logs capture technical operations and exceptions.\n\nThis event data is the foundation for process mining — a central teaching and demonstration component of the BPA Lab. Process mining allows students to:\n\ndiscover the actual flow of processes from event logs (and compare them to the modelled flow),\ncheck conformance between modelled and actual behaviour,\nanalyse performance — durations, bottlenecks, rework loops.\n\n\n\n\n\n\n\nTipExtension idea\n\n\n\nFor process-mining exercises, it is worth writing an event-log export script that converts Camunda 8 data into the XES (eXtensible Event Stream) format. This enables direct integration with tools such as ProM, Disco, or PM4Py, and gives students a realistic data pipeline from running process to analytical tool.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+    ]
+  },
+  {
+    "objectID": "chapter04-data.html#data-lifecycle-and-analytics",
+    "href": "chapter04-data.html#data-lifecycle-and-analytics",
+    "title": "5  Data and Data Sources",
+    "section": "5.5 Data lifecycle and analytics",
+    "text": "5.5 Data lifecycle and analytics\nLooking at the data lifecycle as a whole:\n\nMaster data is loaded once when the lab is set up and updated when new products, customers, or vendors are added.\nOperational data — orders, stock movements, production orders — is created continuously as processes run.\nEvent data is emitted by the workflow engine, the job workers, and the MQTT broker as side effects of process execution.\nAnalytical data is derived from the above by export and transformation pipelines, then fed into process-mining and BI tools.\n\nThis layered view of data is itself a teaching opportunity: it mirrors the classical separation of OLTP and OLAP systems that students will encounter in industry.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+    ]
+  },
+  {
+    "objectID": "chapter05-architecture.html",
+    "href": "chapter05-architecture.html",
+    "title": "6  Software Architecture",
+    "section": "",
+    "text": "6.1 Requirements\nThe following high-level requirements were gathered at the very beginning of the BPA Lab project (originally as part of a thesis project). They served as the basis for the first software architecture and remain the reference point against which architectural choices are evaluated.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Software Architecture</span>"
+    ]
+  },
+  {
+    "objectID": "chapter05-architecture.html#requirements",
+    "href": "chapter05-architecture.html#requirements",
+    "title": "6  Software Architecture",
+    "section": "",
+    "text": "6.1.1 R1 — Independent operation of components\nThe individual components and processes should be able to run independently of each other. Each process must be startable on its own, without depending on a triggering instance from a higher layer.\n\n\n6.1.2 R2 — Integration of external IT systems\nThe system must allow integration with existing IT components — for example with the web application used for order capture, or with tools that flexibly extract data for process mining and analytics.\n\n\n6.1.3 R3 — Clear and distinct responsibilities\nThe responsibilities of individual components must be clearly defined and demarcated from one another, so that the system remains understandable as it grows.\n\n\n6.1.4 R4 — Easy extensibility\nThe system must be easy to extend with additional, self-developed components.\n\n\n6.1.5 R5 — Interchangeability and independent evolution\nComponents must be developable, deployable, and replaceable independently of one another.\n\n\n6.1.6 R6 — Comprehensive and flexible process data capture\nProcess data must be comprehensively capturable. It must be stored and made flexibly available for a range of analytical use cases — in particular process mining.\n\n\n6.1.7 R7 — User-friendliness (operator perspective)\nThe user interface must be intuitive and easy to understand, ensuring a positive user experience for those interacting with the lab during demonstrations and student sessions.\n\n\n6.1.8 R8 — Easy installation and low infrastructure requirements (developer perspective)\nThe system must be easy to install. Students must be able to host their own instances on standard laptops without specialised infrastructure.\n\n\n6.1.9 R9 — Robustness\nThe architecture must be robust. Failures must be minimised and reliable functionality must be ensured under a wide range of operating conditions.\n\n\n6.1.10 R10 — Maintainability and operation\nThe system must be easy to maintain over its lifetime.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Software Architecture</span>"
+    ]
+  },
+  {
+    "objectID": "chapter05-architecture.html#architecture-in-the-c4-model",
+    "href": "chapter05-architecture.html#architecture-in-the-c4-model",
+    "title": "6  Software Architecture",
+    "section": "6.2 Architecture in the C4 model",
+    "text": "6.2 Architecture in the C4 model\nThe architecture is documented using the C4 model (Brown 2018) — a notation for describing software systems at different levels of abstraction: Context, Container, Component, and Code. Note that containers in the C4 sense are not the same as Docker containers.\n\n6.2.1 Context diagram\nThe context diagram shows the BPA Lab in relation to its users and external systems.\n\n\n\n\n\n\nFigure 6.1: C4 context diagram\n\n\n\n\n\n6.2.2 Container diagram\nThe container diagram shows the main technical building blocks of the BPA Lab and how they interact.\n\n\n\n\n\n\nFigure 6.2: C4 container diagram",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Software Architecture</span>"
+    ]
+  },
+  {
+    "objectID": "chapter05-architecture.html#mapping-requirements-to-architecture",
+    "href": "chapter05-architecture.html#mapping-requirements-to-architecture",
+    "title": "6  Software Architecture",
+    "section": "6.3 Mapping requirements to architecture",
+    "text": "6.3 Mapping requirements to architecture\nThe following table illustrates how individual requirements are addressed by architectural choices. It is not exhaustive — but it shows the line of reasoning from requirement to design.\n\n\n\n\n\n\n\nRequirement\nRealisation in the architecture\n\n\n\n\nR1 — Independent operation\nLoose coupling via MQTT and gRPC; self-contained job workers\n\n\nR2 — Integration of external systems\nStandard protocols (REST, MQTT, gRPC); Camunda connector concept\n\n\nR3 — Clear responsibilities\nDomain-driven separation of job workers and process models\n\n\nR6 — Process data capture\nCamunda 8 as central event hub; MySQL for operational data\n\n\nR8 — Easy installation\nDocker Compose setup; self-managed Camunda 8 Core\n\n\nR5/R9 — Interchangeability / robustness\nAsynchronous messaging; clear interfaces between layers",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Software Architecture</span>"
+    ]
+  },
+  {
+    "objectID": "chapter05-architecture.html#going-deeper",
+    "href": "chapter05-architecture.html#going-deeper",
+    "title": "6  Software Architecture",
+    "section": "6.4 Going deeper",
+    "text": "6.4 Going deeper\n\n\n\n\n\n\nTipFurther reading\n\n\n\nThe original sources on the C4 model — including examples, decision records, and tools like Structurizr — are available at https://c4model.com/. For a deeper dive into Domain-Driven Design as the principle behind the modular separation, see Evans (Evans 2003).\n\n\n\n\n\n\nBrown, Simon. 2018. The C4 Model for Visualising Software Architecture. Leanpub. https://c4model.com/.\n\n\nEvans, Eric. 2003. Domain-Driven Design: Tackling Complexity in the Heart of Software. Addison-Wesley.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Software Architecture</span>"
+    ]
+  },
+  {
+    "objectID": "chapter06-decisions.html",
+    "href": "chapter06-decisions.html",
+    "title": "7  Architecture Decisions",
+    "section": "",
+    "text": "7.1 ADR-001 — MQTT broker for job-worker–controller communication\nThis chapter records selected architecture questions raised during the BPA Lab project, together with the corresponding decisions and justifications. The list is not exhaustive and is updated as the lab evolves.\nEach decision follows a lightweight ADR (Architecture Decision Record) schema: context, decision, and rationale are captured succinctly.\nStatus: Decided.\nDecision: A MQTT broker is used for communication between process applications (job workers) and controllers.\nRationale:",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+    ]
+  },
+  {
+    "objectID": "chapter06-decisions.html#adr-001-mqtt-broker-for-job-workercontroller-communication",
+    "href": "chapter06-decisions.html#adr-001-mqtt-broker-for-job-workercontroller-communication",
+    "title": "7  Architecture Decisions",
+    "section": "",
+    "text": "decoupling of senders and receivers through the publish-subscribe pattern,\nMQTT is a well-established standard protocol in the IoT space,\nlightweight footprint, well suited to the hardware components in use.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+    ]
+  },
+  {
+    "objectID": "chapter06-decisions.html#adr-002-message-sendreceive-tasks-instead-of-events-for-inter-process-communication",
+    "href": "chapter06-decisions.html#adr-002-message-sendreceive-tasks-instead-of-events-for-inter-process-communication",
+    "title": "7  Architecture Decisions",
+    "section": "7.2 ADR-002 — Message Send/Receive Tasks instead of Events for inter-process communication",
+    "text": "7.2 ADR-002 — Message Send/Receive Tasks instead of Events for inter-process communication\nStatus: Decided.\nDecision: Inter-process communication is modelled in BPMN using Message Send Tasks and Message Receive Tasks, not events.\nRationale:\n\nTasks allow the use of boundary events — for example to handle errors raised by job workers,\ncomplex error paths and timeouts are easier to express.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+    ]
+  },
+  {
+    "objectID": "chapter06-decisions.html#adr-003-messaging-between-processes-and-process-applications",
+    "href": "chapter06-decisions.html#adr-003-messaging-between-processes-and-process-applications",
+    "title": "7  Architecture Decisions",
+    "section": "7.3 ADR-003 — Messaging between processes and process applications",
+    "text": "7.3 ADR-003 — Messaging between processes and process applications\nStatus: Decided.\nDecision: Communication between processes and process applications is implemented using messages as well.\nRationale:\n\na simple, uniform solution,\nconsistent with the communication pattern between process applications and process control.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+    ]
+  },
+  {
+    "objectID": "chapter06-decisions.html#adr-004-camunda-8-self-managed-with-docker-compose-camunda-8-core",
+    "href": "chapter06-decisions.html#adr-004-camunda-8-self-managed-with-docker-compose-camunda-8-core",
+    "title": "7  Architecture Decisions",
+    "section": "7.4 ADR-004 — Camunda 8 self-managed with Docker Compose (Camunda 8 Core)",
+    "text": "7.4 ADR-004 — Camunda 8 self-managed with Docker Compose (Camunda 8 Core)\nStatus: Decided.\nDecision: The self-managed variant of Camunda 8 is used in combination with Docker Compose and Camunda 8 Core.\nRationale:\n\navoids interferences between contributors during the development phase,\ndevelopment and production-like environments are identical,\nKubernetes is intentionally not used — the BPA Lab is not a production environment in the classical sense.\n\nOpen question: Performance with Docker and the resulting number of containers needs to be verified as the system grows.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+    ]
+  },
+  {
+    "objectID": "chapter06-decisions.html#adr-005-job-worker-for-sending-emails",
+    "href": "chapter06-decisions.html#adr-005-job-worker-for-sending-emails",
+    "title": "7  Architecture Decisions",
+    "section": "7.5 ADR-005 — Job worker for sending emails",
+    "text": "7.5 ADR-005 — Job worker for sending emails\nStatus: Decided (reversible).\nDecision: Email sending is implemented through a dedicated job worker rather than via the SendGrid connector.\nRationale:\n\nissues encountered with the SendGrid connector at the time of the decision,\nan existing solution was already in place in the project,\nto be re-evaluated as Camunda 8 connectors continue to evolve.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+    ]
+  },
+  {
+    "objectID": "chapter06-decisions.html#adr-006-job-worker-for-database-transactions-mysql-in-a-docker-container",
+    "href": "chapter06-decisions.html#adr-006-job-worker-for-database-transactions-mysql-in-a-docker-container",
+    "title": "7  Architecture Decisions",
+    "section": "7.6 ADR-006 — Job worker for database transactions; MySQL in a Docker container",
+    "text": "7.6 ADR-006 — Job worker for database transactions; MySQL in a Docker container\nStatus: Decided.\nDecision: Database transactions are handled by a dedicated job worker; the MySQL database runs in a Docker container.\nRationale:\n\nexisting solution available in the project,\ngreater flexibility than the connectors available at the time of the decision.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+    ]
+  },
+  {
+    "objectID": "chapter06-decisions.html#reflection-questions",
+    "href": "chapter06-decisions.html#reflection-questions",
+    "title": "7  Architecture Decisions",
+    "section": "7.7 Reflection questions",
+    "text": "7.7 Reflection questions\n\n\n\n\n\n\nTipFor your own consideration\n\n\n\n\nADR-001 selects MQTT. What alternative protocols could have been considered, and what trade-offs would they imply?\nADR-005 is explicitly marked as reversible. Which criteria would you use to decide whether to switch back to a connector-based solution?\nADR-004 deliberately avoids Kubernetes. Under which circumstances would that decision need to be revisited?",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+    ]
+  },
+  {
+    "objectID": "appendix-a-components.html",
+    "href": "appendix-a-components.html",
+    "title": "Appendix A — Components and Sister Repositories",
+    "section": "",
+    "text": "A.1 Main repositories\nThis appendix gives an overview of the repositories that together make up the BPA Lab ecosystem, and lists the main hardware and software components.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Components and Sister Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "appendix-a-components.html#main-repositories",
+    "href": "appendix-a-components.html#main-repositories",
+    "title": "Appendix A — Components and Sister Repositories",
+    "section": "",
+    "text": "A.1.1 bpa_lab_docs\n➡️ https://github.com/BpaLabTHCologne/bpa_lab_docs\nRole: central documentation and architecture of the BPA Lab as a demonstration factory. The source of the content in this book.\nContains:\n\noverarching architecture diagrams,\nsample data of the Fischertechnik factory,\nBPMN process models (overview),\nC4 architecture diagrams,\nupdated graphics.\n\n\n\nA.1.2 bpa_lab_demonstration_factory\n➡️ https://github.com/BpaLabTHCologne/bpa_lab_demonstration_factory\nRole: current implementation of the demonstration factory. A complete, runnable setup based on Docker.\nContains:\n\nself-managed Camunda 8 setup,\nall job worker implementations (Java),\nBPMN and DMN models of the business processes,\ncontroller implementations (Python),\ndocker-compose.yml for local deployment.\n\n\n\nA.1.3 bpa_lab_student_docs\n➡️ https://github.com/BpaLabTHCologne/bpa_lab_student_docs/wiki\nRole: documentation for student projects. Describes how individual components (e.g. the warehouse robot) can be used in self-developed process implementations.\nContains:\n\nper-component how-to guides,\nexample projects,\nnotes on setting up subsystems independently.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Components and Sister Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "appendix-a-components.html#hardware-components",
+    "href": "appendix-a-components.html#hardware-components",
+    "title": "Appendix A — Components and Sister Repositories",
+    "section": "A.2 Hardware components",
+    "text": "A.2 Hardware components\n\n\n\n\n\n\n\n\nComponent\nPurpose\nControl\n\n\n\n\nFischertechnik Industry 4.0 factory\nGoods receipt and manufacturing\nPython controller, MQTT\n\n\nFischertechnik warehouse robot\nStorage and retrieval in the distribution warehouse\nPython controller, MQTT\n\n\nIoT devices\nSensor data and supplementary telemetry\nPython controller, MQTT",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Components and Sister Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "appendix-a-components.html#software-components",
+    "href": "appendix-a-components.html#software-components",
+    "title": "Appendix A — Components and Sister Repositories",
+    "section": "A.3 Software components",
+    "text": "A.3 Software components\n\n\n\n\n\n\n\n\nComponent\nTechnology\nMain responsibility\n\n\n\n\nCamunda 8 (self-managed)\nBPMS, based on Zeebe\nWorkflow engine and process orchestration\n\n\nJob workers\nJava, gRPC\nExecution of service tasks\n\n\nControllers\nPython\nHardware control\n\n\nMQTT broker\ne.g. Mosquitto\nAsynchronous communication\n\n\nMySQL\nRelational database\nMaster data and stock data\n\n\nWeb application\nFrontend\nOrder capture and user interaction\n\n\nOpenrouteservice\nExternal API\nDistance and routing calculation in the shipment process",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Components and Sister Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "appendix-a-components.html#further-reading",
+    "href": "appendix-a-components.html#further-reading",
+    "title": "Appendix A — Components and Sister Repositories",
+    "section": "A.4 Further reading",
+    "text": "A.4 Further reading\nAs the BPA Lab is under continuous development, it is always worth checking the respective repository READMEs for the most current information.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Components and Sister Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "appendix-b-glossary.html",
+    "href": "appendix-b-glossary.html",
+    "title": "Appendix B — Glossary",
+    "section": "",
+    "text": "This appendix explains the technical terms used throughout the book.\n\nADR (Architecture Decision Record)\n\nLightweight documentation format for recording architectural decisions in a structured way — context, decision, and rationale.\n\nBPA (Business Process Automation)\n\nThe use of technology to automate the execution of business processes.\n\nBPMN (Business Process Model and Notation)\n\nA standard of the Object Management Group (OMG) for graphical modelling of business processes. Current version: 2.0.2 (Object Management Group 2014).\n\nBPMS (Business Process Management System)\n\nA platform for modelling, executing, monitoring, and optimising business processes. The BPA Lab uses Camunda 8.\n\nCamunda 8\n\nA cloud-native BPMS built around the Zeebe workflow engine. The BPA Lab uses the self-managed variant (Camunda Services GmbH 2026).\n\nController\n\nIn the BPA Lab, a software component that directly controls hardware (Fischertechnik components, IoT devices). Predominantly implemented in Python.\n\nC4 model\n\nA notation for visualising software architecture at four levels of abstraction: Context, Container, Component, Code. Introduced by Simon Brown — https://c4model.com/ (Brown 2018).\n\nDDD (Domain-Driven Design)\n\nAn approach to software development that places the business domain at the centre. The guiding principle for the modular decomposition of the BPA Lab (Evans 2003).\n\nDMN (Decision Model and Notation)\n\nAn OMG standard for modelling business decisions (Object Management Group 2024). Supported in Camunda 8 as a complement to BPMN.\n\nEnd-to-end process\n\nA business process viewed from its triggering event through to its final business outcome — in the BPA Lab, from the arrival of a customer order to the delivery of a bicycle.\n\nFischertechnik Industry 4.0 factory\n\nA modular model of an Industry-4.0 factory by Fischertechnik. In the BPA Lab, it serves as the physical demonstration system.\n\ngRPC\n\nA high-performance Remote Procedure Call framework originated at Google. In the BPA Lab, Camunda 8 uses gRPC to communicate with job workers.\n\nHappy path\n\nThe path through a process in which no errors, exceptions, or edge cases occur.\n\nIoT (Internet of Things)\n\nThe networking of physical devices with the internet and with each other.\n\nJob worker\n\nIn Camunda 8, an external application that picks up service tasks from the workflow and executes them. In the BPA Lab, job workers are implemented in Java.\n\nMQTT (Message Queuing Telemetry Transport)\n\nA lightweight publish-subscribe protocol widely used in the IoT space. In the BPA Lab, MQTT is the communication protocol between job workers and controllers.\n\nOpenrouteservice\n\nA public API for routing and distance calculation based on OpenStreetMap data. Used in the BPA Lab’s shipment process.\n\nProcess mining\n\nData-driven analysis of business processes based on event logs from information systems. A central teaching and demonstration component in the BPA Lab (Aalst 2016).\n\nProcess application\n\nIn the BPA Lab, a logical grouping of job workers and process models belonging to one business domain (e.g. Order Management).\n\nProduction order\n\nAn order to manufacture a specific product. In the BPA Lab, one production order is created per product line in a customer order.\n\nRPA (Robotic Process Automation)\n\nA technology to automate manual, repetitive tasks in existing applications via their user interface.\n\nWorkflow engine\n\nA software component that executes process models (e.g. expressed in BPMN), manages the state of process instances, and distributes work to humans or job workers.\n\nXES (eXtensible Event Stream)\n\nAn IEEE standard for event logs in process mining — a format for the exchange of process event data between systems.\n\n\n\n\n\n\nAalst, Wil M. P. van der. 2016. Process Mining: Data Science in Action. 2nd ed. Springer. https://doi.org/10.1007/978-3-662-49851-4.\n\n\nBrown, Simon. 2018. The C4 Model for Visualising Software Architecture. Leanpub. https://c4model.com/.\n\n\nCamunda Services GmbH. 2026. Camunda 8 Documentation. https://docs.camunda.io/.\n\n\nEvans, Eric. 2003. Domain-Driven Design: Tackling Complexity in the Heart of Software. Addison-Wesley.\n\n\nObject Management Group. 2014. Business Process Model and Notation (BPMN), Version 2.0.2. https://www.omg.org/spec/BPMN/.\n\n\nObject Management Group. 2024. Decision Model and Notation (DMN). https://www.omg.org/spec/DMN/.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Appendix C — References",
+    "section": "",
+    "text": "Aalst, Wil M. P. van der. 2016. Process Mining: Data Science in\nAction. 2nd ed. Springer. https://doi.org/10.1007/978-3-662-49851-4.\n\n\nBrown, Simon. 2018. The C4 Model for Visualising\nSoftware Architecture. Leanpub. https://c4model.com/.\n\n\nCamunda Services GmbH. 2026. Camunda 8 Documentation. https://docs.camunda.io/.\n\n\nEvans, Eric. 2003. Domain-Driven Design: Tackling Complexity in the\nHeart of Software. Addison-Wesley.\n\n\nObject Management Group. 2014. Business Process Model and Notation\n(BPMN), Version 2.0.2. https://www.omg.org/spec/BPMN/.\n\n\nObject Management Group. 2024. Decision Model and Notation\n(DMN). https://www.omg.org/spec/DMN/.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>References</span>"
+    ]
+  }
+]
