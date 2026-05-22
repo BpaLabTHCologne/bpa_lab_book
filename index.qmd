@@ -1,0 +1,61 @@
+---
+title: "Overview"
+---
+
+![BPA Lab — Conceptual Architecture](images/Conceptional_Architecture.png){#fig-concept fig-align="center"}
+
+This book documents the **Business Process Automation Lab (BPA Lab)** at TH Köln — a small-scale, modular model factory that demonstrates and teaches concepts and technologies for business process automation and analytics.
+
+## About this book
+
+The BPA Lab combines **software components** (Business Process Management Systems, Robotic Process Automation, Process Mining) with **hardware components** (a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and IoT devices) to simulate the production and logistics processes of a bicycle manufacturer.
+
+This book aims to provide:
+
+1. A **high-level overview** of the BPA Lab and its goals.
+2. A **description of the business scenario** — the end-to-end ordering, manufacturing, and shipment process implemented in the lab.
+3. A **description of the software architecture** and the design decisions taken along the way.
+
+It is structured as follows:
+
+1. **Introduction:** Motivation, goals, and scope of the BPA Lab.
+2. **Solution overview:** The three architectural layers — controllers, process applications, workflow engine.
+3. **Business scenario:** The end-to-end bicycle ordering, manufacturing, and shipment process, broken down into its sub-processes (order management, production control, purchasing, manufacturing, shipment, warehouse operations).
+4. **Data and data sources:** Data model, data flows, and persistence in the BPA Lab.
+5. **Software architecture:** Requirements and a C4 view of the system.
+6. **Architecture decisions:** Documented decisions and their rationales.
+
+The appendices contain:
+
+- **Appendix A:** Overview of related components and sister repositories.
+- **Appendix B:** A glossary of key terms.
+- **References:** All cited literature.
+
+## Who this book is for
+
+This book is written for:
+
+- **Lecturers and researchers** who want to teach business process automation with a tangible, end-to-end reference system.
+- **Students** working on bachelor's or master's projects inside the BPA Lab.
+- **Practitioners** looking for a concrete reference architecture combining a BPMS, IoT hardware, and process mining.
+
+## Source code and related repositories
+
+The implementation of the demonstration factory is maintained as a separate repository: [bpa_lab_demonstration_factory](https://github.com/BpaLabTHCologne/bpa_lab_demonstration_factory).
+
+Documentation for student component projects is available in the wiki of [bpa_lab_student_docs](https://github.com/BpaLabTHCologne/bpa_lab_student_docs/wiki).
+
+## Status and roadmap
+
+::: {.callout-important}
+## Work in progress
+The BPA Lab — and this book — are under continuous development. Several sections are marked as *work in progress* and will be expanded in future revisions. Bug reports and suggestions are very welcome via the [issue tracker](https://github.com/BpaLabTHCologne/bpa_lab_book/issues).
+:::
+
+## Licence and citation
+
+This work is published under the **Creative Commons Attribution-ShareAlike 4.0** licence (CC BY-SA 4.0).
+
+Suggested citation:
+
+> Zapp, Matthias (2026). *The BPA Lab — Architecture and Documentation of a Demonstration Factory for Business Process Automation and Analytics.* TH Köln (University of Applied Sciences). Online: <https://bpalabthcologne.github.io/bpa_lab_book/>.

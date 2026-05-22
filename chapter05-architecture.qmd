@@ -1,0 +1,97 @@
+---
+title: "Software Architecture"
+---
+
+::: {.callout-note}
+## Learning objectives
+After reading this chapter, you will be able to:
+
+- name the high-level requirements that shaped the BPA Lab architecture,
+- describe the architecture using the C4 model,
+- relate individual architectural choices to the requirements that motivated them.
+:::
+
+::: {.callout-important}
+## Status
+The architecture is under continuous development. Several aspects are still being discussed. This chapter captures the current state.
+:::
+
+## Requirements
+
+The following high-level requirements were gathered at the very beginning of the BPA Lab project (originally as part of a thesis project). They served as the basis for the first software architecture and remain the reference point against which architectural choices are evaluated.
+
+### R1 — Independent operation of components
+
+The individual components and processes should be able to run independently of each other. Each process must be startable on its own, without depending on a triggering instance from a higher layer.
+
+### R2 — Integration of external IT systems
+
+The system must allow integration with existing IT components — for example with the web application used for order capture, or with tools that flexibly extract data for process mining and analytics.
+
+### R3 — Clear and distinct responsibilities
+
+The responsibilities of individual components must be clearly defined and demarcated from one another, so that the system remains understandable as it grows.
+
+### R4 — Easy extensibility
+
+The system must be easy to extend with additional, self-developed components.
+
+### R5 — Interchangeability and independent evolution
+
+Components must be developable, deployable, and replaceable independently of one another.
+
+### R6 — Comprehensive and flexible process data capture
+
+Process data must be comprehensively capturable. It must be stored and made flexibly available for a range of analytical use cases — in particular process mining.
+
+### R7 — User-friendliness (operator perspective)
+
+The user interface must be intuitive and easy to understand, ensuring a positive user experience for those interacting with the lab during demonstrations and student sessions.
+
+### R8 — Easy installation and low infrastructure requirements (developer perspective)
+
+The system must be easy to install. Students must be able to host their own instances on standard laptops without specialised infrastructure.
+
+### R9 — Robustness
+
+The architecture must be robust. Failures must be minimised and reliable functionality must be ensured under a wide range of operating conditions.
+
+### R10 — Maintainability and operation
+
+The system must be easy to maintain over its lifetime.
+
+## Architecture in the C4 model
+
+The architecture is documented using the **C4 model** [@brown2018c4] — a notation for describing software systems at different levels of abstraction: Context, Container, Component, and Code. Note that *containers* in the C4 sense are **not** the same as Docker containers.
+
+### Context diagram
+
+The context diagram shows the BPA Lab in relation to its users and external systems.
+
+![C4 context diagram](images/c4-contextDiagram.drawio.png){#fig-c4-context fig-align="center"}
+
+### Container diagram
+
+The container diagram shows the main technical building blocks of the BPA Lab and how they interact.
+
+![C4 container diagram](images/C4_System_Architecture.png){#fig-c4-container fig-align="center"}
+
+## Mapping requirements to architecture
+
+The following table illustrates how individual requirements are addressed by architectural choices. It is not exhaustive — but it shows the line of reasoning from requirement to design.
+
+| Requirement                                  | Realisation in the architecture                                              |
+|----------------------------------------------|------------------------------------------------------------------------------|
+| R1 — Independent operation                   | Loose coupling via MQTT and gRPC; self-contained job workers                 |
+| R2 — Integration of external systems         | Standard protocols (REST, MQTT, gRPC); Camunda connector concept             |
+| R3 — Clear responsibilities                  | Domain-driven separation of job workers and process models                   |
+| R6 — Process data capture                    | Camunda 8 as central event hub; MySQL for operational data                   |
+| R8 — Easy installation                       | Docker Compose setup; self-managed Camunda 8 Core                            |
+| R5/R9 — Interchangeability / robustness      | Asynchronous messaging; clear interfaces between layers                      |
+
+## Going deeper
+
+::: {.callout-tip}
+## Further reading
+The original sources on the C4 model — including examples, decision records, and tools like [Structurizr](https://structurizr.com/) — are available at <https://c4model.com/>. For a deeper dive into Domain-Driven Design as the principle behind the modular separation, see Evans [@evans2003ddd].
+:::

@@ -1,0 +1,94 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "The BPA Lab"
+  subtitle: "Architecture and Documentation of a Demonstration Factory for Business Process Automation and Analytics"
+  author:
+    - name: "Matthias Zapp"
+      affiliation: "TH Köln (University of Applied Sciences)"
+  date: today
+  date-format: "MMMM D, YYYY"
+  language: en
+  # favicon: images/logo.svg  # Uncomment once you add a logo to images/
+  site-url: https://bpalabthcologne.github.io/bpa_lab_book/
+  repo-url: https://github.com/BpaLabTHCologne/bpa_lab_book
+  repo-branch: main
+  repo-actions: [edit, issue, source]
+  downloads: [pdf, epub]
+  sharing: [twitter, linkedin]
+  search: true
+  page-navigation: true
+  back-to-top-navigation: true
+  sidebar:
+    style: docked
+    background: light
+    collapse-level: 1
+    border: true
+  page-footer:
+    background: light
+    left: |
+      Zapp, Matthias (2026). *The BPA Lab — Architecture and Documentation of a Demonstration Factory for Business Process Automation and Analytics.*
+      Licence: CC BY-SA 4.0. Online: <https://bpalabthcologne.github.io/bpa_lab_book/>.
+    right:
+      - icon: github
+        href: https://github.com/BpaLabTHCologne/bpa_lab_book
+  chapters:
+    - index.qmd
+    - chapter01-introduction.qmd
+    - chapter02-solution-overview.qmd
+    - chapter03-business-scenario.qmd
+    - chapter04-data.qmd
+    - chapter05-architecture.qmd
+    - chapter06-decisions.qmd
+  appendices:
+    - appendix-a-components.qmd
+    - appendix-b-glossary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [darkly, theme-dark.scss]
+    toc: true
+    toc-depth: 3
+    toc-title: "On this page"
+    code-copy: true
+    code-overflow: wrap
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    citations-hover: true
+    crossrefs-hover: true
+    smooth-scroll: true
+    link-external-newwindow: true
+  pdf:
+    documentclass: scrbook
+    papersize: a4
+    fontsize: 11pt
+    geometry:
+      - top=30mm
+      - left=25mm
+      - right=25mm
+      - bottom=30mm
+    lang: en
+    toc-depth: 3
+    fig-cap-location: bottom
+    colorlinks: true
+  epub:
+    toc: true
+    toc-depth: 2
+    # cover-image: images/cover.png  # Uncomment once you add a cover image
+    lang: en
+
+execute:
+  freeze: auto
+
+crossref:
+  fig-title: Figure
+  tbl-title: Table
+  fig-prefix: Figure
+  tbl-prefix: Table

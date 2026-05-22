@@ -1,0 +1,12 @@
+/.quarto/
+/_freeze/
+/docs/
+.DS_Store
+*.log
+*.aux
+*.synctex.gz
+.Rproj.user/
+.vscode/
+node_modules/
+
+**/*.quarto_ipynb

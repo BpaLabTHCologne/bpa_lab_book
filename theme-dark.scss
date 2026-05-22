@@ -1,0 +1,36 @@
+/*-- scss:defaults --*/
+
+$primary:    #4DA3E0;   // Lighter blue for dark mode
+$body-bg:    #1a1a1a;
+$body-color: #e0e0e0;
+$link-color: #6FB4E8;
+$code-bg:    #2d2d2d;
+$sidebar-bg: #222;
+
+$font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-serif:      "Source Serif Pro", Georgia, "Times New Roman", serif;
+
+/*-- scss:rules --*/
+
+body {
+  line-height: 1.65;
+}
+
+h2 {
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.3rem;
+  margin-top: 2.5rem;
+}
+
+.figure-caption,
+figcaption {
+  color: #aaa;
+  font-style: italic;
+  text-align: center;
+}
+
+code:not(.sourceCode) {
+  background-color: $code-bg;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}

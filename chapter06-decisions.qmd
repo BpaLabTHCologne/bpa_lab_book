@@ -1,0 +1,97 @@
+---
+title: "Architecture Decisions"
+---
+
+::: {.callout-note}
+## Learning objectives
+After reading this chapter, you will be able to:
+
+- explain the rationale behind the central architectural choices in the BPA Lab,
+- read and write lightweight Architecture Decision Records (ADRs),
+- reflect on typical trade-offs in BPM-centric architectures.
+:::
+
+This chapter records selected architecture questions raised during the BPA Lab project, together with the corresponding decisions and justifications. The list is **not exhaustive** and is updated as the lab evolves.
+
+Each decision follows a lightweight **ADR** (Architecture Decision Record) schema: context, decision, and rationale are captured succinctly.
+
+## ADR-001 — MQTT broker for job-worker–controller communication
+
+**Status:** Decided.
+
+**Decision:** A MQTT broker is used for communication between process applications (job workers) and controllers.
+
+**Rationale:**
+
+- decoupling of senders and receivers through the publish-subscribe pattern,
+- MQTT is a well-established standard protocol in the IoT space,
+- lightweight footprint, well suited to the hardware components in use.
+
+## ADR-002 — Message Send/Receive Tasks instead of Events for inter-process communication
+
+**Status:** Decided.
+
+**Decision:** Inter-process communication is modelled in BPMN using **Message Send Tasks** and **Message Receive Tasks**, not events.
+
+**Rationale:**
+
+- Tasks allow the use of **boundary events** — for example to handle errors raised by job workers,
+- complex error paths and timeouts are easier to express.
+
+## ADR-003 — Messaging between processes and process applications
+
+**Status:** Decided.
+
+**Decision:** Communication between processes and process applications is implemented using messages as well.
+
+**Rationale:**
+
+- a simple, uniform solution,
+- consistent with the communication pattern between process applications and process control.
+
+## ADR-004 — Camunda 8 self-managed with Docker Compose (Camunda 8 Core)
+
+**Status:** Decided.
+
+**Decision:** The self-managed variant of Camunda 8 is used in combination with Docker Compose and Camunda 8 Core.
+
+**Rationale:**
+
+- avoids interferences between contributors during the development phase,
+- development and production-like environments are identical,
+- Kubernetes is intentionally not used — the BPA Lab is not a production environment in the classical sense.
+
+**Open question:** Performance with Docker and the resulting number of containers needs to be verified as the system grows.
+
+## ADR-005 — Job worker for sending emails
+
+**Status:** Decided (reversible).
+
+**Decision:** Email sending is implemented through a dedicated job worker rather than via the SendGrid connector.
+
+**Rationale:**
+
+- issues encountered with the SendGrid connector at the time of the decision,
+- an existing solution was already in place in the project,
+- to be re-evaluated as Camunda 8 connectors continue to evolve.
+
+## ADR-006 — Job worker for database transactions; MySQL in a Docker container
+
+**Status:** Decided.
+
+**Decision:** Database transactions are handled by a dedicated job worker; the MySQL database runs in a Docker container.
+
+**Rationale:**
+
+- existing solution available in the project,
+- greater flexibility than the connectors available at the time of the decision.
+
+## Reflection questions
+
+::: {.callout-tip}
+## For your own consideration
+
+1. ADR-001 selects MQTT. What **alternative protocols** could have been considered, and what trade-offs would they imply?
+2. ADR-005 is explicitly marked as reversible. Which **criteria** would you use to decide whether to switch back to a connector-based solution?
+3. ADR-004 deliberately avoids Kubernetes. Under which circumstances would that decision need to be revisited?
+:::

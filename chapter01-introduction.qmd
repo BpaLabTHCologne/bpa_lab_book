@@ -1,0 +1,55 @@
+---
+title: "Introduction"
+---
+
+::: {.callout-note}
+## Learning objectives
+After reading this chapter, you will be able to:
+
+- describe the purpose and main goals of the BPA Lab,
+- distinguish between its *demonstration* and *teaching* missions,
+- identify the main hardware and software components and their roles.
+:::
+
+## What is the BPA Lab?
+
+The **Business Process Automation Lab (BPA Lab)** at TH Köln is a small, modular model factory dedicated to business process automation and analytics. It combines real-world software components used in industry — Business Process Management Systems (BPMS), Robotic Process Automation (RPA), and process-mining tools — with physical hardware: a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and a range of IoT devices.
+
+Together, these components simulate the **production and logistics processes of a bicycle manufacturer** — from the customer order to the delivery of a custom-built bike.
+
+## Two goals: demonstration and teaching
+
+The BPA Lab pursues two complementary goals.
+
+### Demonstration
+
+The lab demonstrates concepts and technologies for business process automation and analytics in a tangible way. It shows how:
+
+- a central BPMS (Camunda 8) orchestrates end-to-end business processes,
+- modular **job workers** implement the actual work and interact with hardware,
+- **process mining** can be used to analyse process executions and identify improvement opportunities.
+
+By bringing together software and hardware in one running system, the lab makes abstract concepts immediately visible.
+
+### Teaching
+
+Individual building blocks of the BPA Lab — for instance the Fischertechnik warehouse robot — are also used in **student projects** (bachelor's and master's level) as starting points for self-defined process implementations. This enables a hands-on form of teaching for **process-oriented application integration**: students do not merely model processes on paper but see them execute in a real, physical system.
+
+## Why a demonstration factory?
+
+Business process management theory and notations like BPMN are often taught using abstract examples — pizza ordering, expense approvals, generic procurement workflows. These examples are accessible but rarely convey:
+
+- the **technical complexity** of integrating heterogeneous systems,
+- the **operational concerns** of running long-lived process instances,
+- the **data perspective** that is at the heart of process mining and analytics.
+
+A demonstration factory bridges this gap. Students and visitors can observe how a customer order arrives via a web form, triggers a workflow in Camunda 8, dispatches commands via MQTT to physical hardware, and eventually leads to a real, manufactured product being moved through a real, physical warehouse.
+
+## A bird's-eye view
+
+The next chapter — [Solution overview](chapter02-solution-overview.qmd) — introduces the three architectural layers of the BPA Lab. Subsequent chapters describe the business scenario, the data perspective, the software architecture, and the architecture decisions taken so far.
+
+::: {.callout-tip}
+## How to read this book
+If you are new to the BPA Lab, read the chapters in order. If you are already familiar with the lab and want to consult a specific aspect — for example a particular sub-process or an architectural decision — feel free to jump directly to the relevant chapter using the sidebar or the search box at the top of the page.
+:::

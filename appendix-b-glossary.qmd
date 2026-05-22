@@ -1,0 +1,74 @@
+---
+title: "Glossary"
+---
+
+This appendix explains the technical terms used throughout the book.
+
+**ADR (Architecture Decision Record)**
+: Lightweight documentation format for recording architectural decisions in a structured way — context, decision, and rationale.
+
+**BPA (Business Process Automation)**
+: The use of technology to automate the execution of business processes.
+
+**BPMN (Business Process Model and Notation)**
+: A standard of the Object Management Group (OMG) for graphical modelling of business processes. Current version: 2.0.2 [@omg-bpmn].
+
+**BPMS (Business Process Management System)**
+: A platform for modelling, executing, monitoring, and optimising business processes. The BPA Lab uses Camunda 8.
+
+**Camunda 8**
+: A cloud-native BPMS built around the Zeebe workflow engine. The BPA Lab uses the *self-managed* variant [@camunda8-docs].
+
+**Controller**
+: In the BPA Lab, a software component that directly controls hardware (Fischertechnik components, IoT devices). Predominantly implemented in Python.
+
+**C4 model**
+: A notation for visualising software architecture at four levels of abstraction: Context, Container, Component, Code. Introduced by Simon Brown — <https://c4model.com/> [@brown2018c4].
+
+**DDD (Domain-Driven Design)**
+: An approach to software development that places the business domain at the centre. The guiding principle for the modular decomposition of the BPA Lab [@evans2003ddd].
+
+**DMN (Decision Model and Notation)**
+: An OMG standard for modelling business decisions [@omg-dmn]. Supported in Camunda 8 as a complement to BPMN.
+
+**End-to-end process**
+: A business process viewed from its triggering event through to its final business outcome — in the BPA Lab, from the arrival of a customer order to the delivery of a bicycle.
+
+**Fischertechnik Industry 4.0 factory**
+: A modular model of an Industry-4.0 factory by Fischertechnik. In the BPA Lab, it serves as the physical demonstration system.
+
+**gRPC**
+: A high-performance Remote Procedure Call framework originated at Google. In the BPA Lab, Camunda 8 uses gRPC to communicate with job workers.
+
+**Happy path**
+: The path through a process in which no errors, exceptions, or edge cases occur.
+
+**IoT (Internet of Things)**
+: The networking of physical devices with the internet and with each other.
+
+**Job worker**
+: In Camunda 8, an external application that picks up service tasks from the workflow and executes them. In the BPA Lab, job workers are implemented in Java.
+
+**MQTT (Message Queuing Telemetry Transport)**
+: A lightweight publish-subscribe protocol widely used in the IoT space. In the BPA Lab, MQTT is the communication protocol between job workers and controllers.
+
+**Openrouteservice**
+: A public API for routing and distance calculation based on OpenStreetMap data. Used in the BPA Lab's shipment process.
+
+**Process mining**
+: Data-driven analysis of business processes based on event logs from information systems. A central teaching and demonstration component in the BPA Lab [@vanderaalst2016processmining].
+
+**Process application**
+: In the BPA Lab, a logical grouping of job workers and process models belonging to one business domain (e.g. *Order Management*).
+
+**Production order**
+: An order to manufacture a specific product. In the BPA Lab, one production order is created per product line in a customer order.
+
+**RPA (Robotic Process Automation)**
+: A technology to automate manual, repetitive tasks in existing applications via their user interface.
+
+**Workflow engine**
+: A software component that executes process models (e.g. expressed in BPMN), manages the state of process instances, and distributes work to humans or job workers.
+
+**XES (eXtensible Event Stream)**
+: An IEEE standard for event logs in process mining — a format for the exchange of process event data between systems.
