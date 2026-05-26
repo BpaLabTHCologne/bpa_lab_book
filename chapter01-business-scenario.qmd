@@ -2,12 +2,7 @@
 title: "Business Scenario of the Demonstration Factory"
 ---
 
-::: {.callout-important}
-## Status of this chapter
-This chapter describes the business processes of the BPA Lab at a strategic level. It is *work in progress* — terminology, level of detail, and harmonisation of process models are being refined as the lab evolves.
-:::
-
-## The scenario in a nutshell
+## The implemented scenario
 
 **A bicycle manufacturer offers highly customisable bicycles to consumers.**
 
@@ -86,10 +81,8 @@ It starts when a **transfer order** for the warehouse is received from another b
 ## Process landscape as a teaching tool
 This process landscape works well to introduce key BPMN concepts in context:
 
-- **call activities** (e.g. order management calling production control),
 - **message-based communication** between long-running processes,
 - **boundary events** to handle exceptions raised by job workers,
 - **multi-instance activities** for handling several products in a single order.
 
-By stepping through the running system together with students, abstract notation suddenly becomes concrete.
 :::
