@@ -144,7 +144,7 @@
     "href": "chapter02-solution-overview.html#the-demonstration-factory-implementation",
     "title": "3  Solution Overview",
     "section": "3.4 The demonstration factory implementation",
-    "text": "3.4 The demonstration factory implementation\nThe latest version of the BPA Lab as a runnable demonstration factory is available in a separate repository:\n➡️ github.com/BpaLabTHCologne/bpa_lab_demonstration_factory\nThe implementation is fully containerised with Docker. This makes local setup straightforward and ensures that the environment is reproducible across different machines — a key requirement when students set up the system on their own laptops.\n\n\n\n\n\n\nTipGetting started in practice\n\n\n\nIf you are setting up the BPA Lab for the first time, start with the docker-compose.yml of the demonstration factory and follow the installation guide there. To develop your own components on top of the lab, the student-docs wiki provides component-level guides.",
+    "text": "3.4 The demonstration factory implementation\nThe latest version of the BPA Lab as a runnable demonstration factory is available in a separate repository:\n➡️ github.com/BpaLabTHCologne/bpa_lab_demonstration_factory\nThe implementation is fully containerised with Docker. This makes local setup straightforward and ensures that the environment is reproducible across different machines — a key requirement when students set up the system on their own laptops.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
     ]
