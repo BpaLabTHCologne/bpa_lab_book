@@ -1,5 +1,5 @@
 ---
-title: "Components and Sister Repositories"
+title: "Components and related Repositories"
 ---
 
 This appendix gives an overview of the repositories that together make up the BPA Lab ecosystem, and lists the main hardware and software components.
@@ -38,7 +38,7 @@ This appendix gives an overview of the repositories that together make up the BP
 
 ➡️ <https://github.com/BpaLabTHCologne/bpa_lab_student_docs/wiki>
 
-**Role:** documentation for student projects. Describes how individual components (e.g. the warehouse robot) can be used in self-developed process implementations.
+**Role:** documentation for student projects. Describes how selected individual components (e.g. the warehouse robot) can be used in self-developed process implementations.
 
 **Contains:**
 
@@ -63,7 +63,6 @@ This appendix gives an overview of the repositories that together make up the BP
 | Controllers              | Python                      | Hardware control                                 |
 | MQTT broker              | e.g. Mosquitto              | Asynchronous communication                       |
 | MySQL                    | Relational database         | Master data and stock data                       |
-| Web application          | Frontend                    | Order capture and user interaction               |
 | Openrouteservice         | External API                | Distance and routing calculation in the shipment process |
 
 ## Further reading
