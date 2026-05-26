@@ -36,12 +36,11 @@ book:
         href: https://github.com/BpaLabTHCologne/bpa_lab_book
   chapters:
     - index.qmd
-    - chapter01-introduction.qmd
+    - chapter01-business-scenario.qmd
     - chapter02-solution-overview.qmd
-    - chapter03-business-scenario.qmd
+    - chapter03-architecture.qmd
     - chapter04-data.qmd
-    - chapter05-architecture.qmd
-    - chapter06-projects.qmd
+    - chapter05-projects.qmd
   appendices:
     - appendix-a-components.qmd
     - appendix-b-glossary.qmd

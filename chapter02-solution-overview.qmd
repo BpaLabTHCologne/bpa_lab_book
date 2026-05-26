@@ -6,11 +6,22 @@ title: "Solution Overview"
 ## Learning objectives
 After reading this chapter, you will be able to:
 
-- name the three architectural layers of the BPA Lab and explain their responsibilities,
+- explain why the BPA Lab implements its scenario as a tangible, end-to-end system rather than as an abstract example,
+- name the three architectural layers of the BPA Lab and describe their responsibilities,
 - describe the role of Camunda 8 as the central workflow engine,
 - explain how hardware components and process applications interact,
 - justify the modular, domain-driven design approach used in the BPA Lab.
 :::
+
+## Why a demonstration factory?
+
+Business process management theory and notations like BPMN are often taught using abstract examples — pizza ordering, expense approvals, generic procurement workflows. These examples are accessible but rarely convey:
+
+- the **technical complexity** of integrating heterogeneous systems,
+- the **operational concerns** of running long-lived process instances,
+- the **data perspective** that is at the heart of process mining and analytics.
+
+A demonstration factory bridges this gap. The customer order described in the previous chapter does not stop at a process diagram: it arrives via a web form, triggers a workflow in Camunda 8, dispatches commands via MQTT to physical hardware, and eventually leads to a real, manufactured product being moved through a real, physical warehouse. The architecture described in the remainder of this chapter is what makes this end-to-end execution possible.
 
 ## Three architectural layers
 
