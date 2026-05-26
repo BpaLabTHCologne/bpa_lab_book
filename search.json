@@ -292,61 +292,61 @@
   {
     "objectID": "chapter04-data.html",
     "href": "chapter04-data.html",
-    "title": "5  Data and Data Sources",
+    "title": "5  Process and IOT data",
     "section": "",
     "text": "5.1 Overview of data sources\nThe BPA Lab integrates data from several sources — from master data in a relational database, via process state maintained by the workflow engine, to sensor and telemetry data from the Fischertechnik components.\nThe following figure gives an overview of the main data sources and the kinds of data they hold:",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Process and IOT data</span>"
     ]
   },
   {
     "objectID": "chapter04-data.html#overview-of-data-sources",
     "href": "chapter04-data.html#overview-of-data-sources",
-    "title": "5  Data and Data Sources",
+    "title": "5  Process and IOT data",
     "section": "",
     "text": "Figure 5.1: Data overview in the BPA Lab",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Process and IOT data</span>"
     ]
   },
   {
     "objectID": "chapter04-data.html#the-mysql-data-model",
     "href": "chapter04-data.html#the-mysql-data-model",
-    "title": "5  Data and Data Sources",
+    "title": "5  Process and IOT data",
     "section": "5.2 The MySQL data model",
     "text": "5.2 The MySQL data model\nThe following diagram shows the concrete data model of the MySQL database, including the entities and attributes of the current implementation:\n\n\n\n\n\n\nFigure 5.2: MySQL data model\n\n\n\nThe database serves as the central store for:\n\nProduct master data — bicycle models and their components,\nCustomer data and delivery addresses,\nStock levels for components and finished goods,\nOrders — customer orders, production orders, purchase orders — together with their status history,\nVendor data.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Process and IOT data</span>"
     ]
   },
   {
     "objectID": "chapter04-data.html#sample-and-master-data",
     "href": "chapter04-data.html#sample-and-master-data",
-    "title": "5  Data and Data Sources",
+    "title": "5  Process and IOT data",
     "section": "5.3 Sample and master data",
     "text": "5.3 Sample and master data\nDocumentation and sample data of the Fischertechnik factory are available in the Sample_data folder of the documentation repository. This data serves as:\n\ninitial master data when setting up a new instance of the BPA Lab,\ntest data for developing new components,\na demonstration baseline for teaching sessions and presentations.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Process and IOT data</span>"
     ]
   },
   {
     "objectID": "chapter04-data.html#process-data-and-the-foundation-for-process-mining",
     "href": "chapter04-data.html#process-data-and-the-foundation-for-process-mining",
-    "title": "5  Data and Data Sources",
+    "title": "5  Process and IOT data",
     "section": "5.4 Process data and the foundation for process mining",
     "text": "5.4 Process data and the foundation for process mining\nIn addition to persistent master data, the running processes generate substantial amounts of process data:\n\nCamunda 8 stores process instance data, variables, tokens, and lifecycle events.\nMQTT messages record the communication between job workers and controllers.\nJob worker logs capture technical operations and exceptions.\n\nThis event data is the foundation for process mining — a central teaching and demonstration component of the BPA Lab. Process mining allows students to:\n\ndiscover the actual flow of processes from event logs (and compare them to the modelled flow),\ncheck conformance between modelled and actual behaviour,\nanalyse performance — durations, bottlenecks, rework loops.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Process and IOT data</span>"
     ]
   },
   {
     "objectID": "chapter04-data.html#data-lifecycle-and-analytics",
     "href": "chapter04-data.html#data-lifecycle-and-analytics",
-    "title": "5  Data and Data Sources",
+    "title": "5  Process and IOT data",
     "section": "5.5 Data lifecycle and analytics",
     "text": "5.5 Data lifecycle and analytics\nLooking at the data lifecycle as a whole:\n\nMaster data is loaded once when the lab is set up and updated when new products, customers, or vendors are added.\nOperational data — orders, stock movements, production orders — is created continuously as processes run.\nEvent data is emitted by the workflow engine, the job workers, and the MQTT broker as side effects of process execution.\nAnalytical data is derived from the above by export and transformation pipelines, then fed into process-mining and BI tools.\n\nThis layered view of data is itself a teaching opportunity: it mirrors the classical separation of OLTP and OLAP systems that students will encounter in industry.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Process and IOT data</span>"
     ]
   },
   {
