@@ -73,11 +73,6 @@ The underlying teaching project *"Enhancing teaching in the field of business pr
 
 ## Further projects
 
-Additional research and teaching projects conducted with the BPA Lab will be listed here as they are completed and published. Typical types of entries include:
-
-- **Bachelor's and master's theses** that use the BPA Lab as their experimental platform,
-- **Student projects** that extend the lab with new components or integrate new technologies,
-- **Research publications** that use the lab to validate concepts in business process automation, process mining, or related fields,
-- **Industry collaborations** that build on or contribute to the lab.
+Additional projects will be listed here soon. Overall, more than a dozen **bachelor's and master's theses** and **student projects** have been conducted with the BPA Lab already.
 
 
