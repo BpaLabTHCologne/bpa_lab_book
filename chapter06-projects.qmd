@@ -71,8 +71,31 @@ The underlying teaching project *"Enhancing teaching in the field of business pr
 - TH Köln SoTL programme: <https://www.th-koeln.de/hochschule/scholarship-of-teaching-and-learning-sotl_115776.php>
 - Series *Forschung und Innovation in der Hochschulbildung* (FIHB), Cologne Open Science
 
+## Human-Centred Design of Form-Based User Interfaces in Camunda 8 {#sec-thesis-will-2026}
+
+**Author:** Julian Will · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Raphaela Groten
+**Type:** Bachelor's thesis, Business Information Systems, TH Köln · **Submitted:** January 2026
+
+### Contribution to the BPA Lab
+
+This thesis delivers a **redesigned set of user-task forms** for the BPA Lab demonstration factory, replacing the previously rudimentary Camunda 8 forms with usability-tested versions. Concretely, the work contributes:
+
+- A **consistent form layout template** — TH Köln header with form title and job role, plus colour-coded message blocks (blue for guidance, red/orange/green for error/warning/confirmation) implemented as reusable HTML views.
+- **BPM-specific usability guidelines** distilled from Nielsen's heuristics, Norman's design principles, and ISO 9241-11/210 — directly applicable to future student projects using Camunda forms.
+- **Redesigned or newly created forms** covering the full bicycle-manufacturer scenario, including four entirely new forms (*Confirm Supply*, *Quality Control*, *Missing Workpiece*, *Factory Failure*) that close previously empty user-task slots.
+- Further **technical extension** e.g. in the shipment process.
+- An **empirical baseline** from a usability test with five participants (8 forms, 40 runs, mixed-methods: think-aloud, completion time, success rate, Likert questionnaire) that future revisions can be measured against.
+
 ## Further projects
 
-Additional projects will be listed here soon. Overall, more than a dozen **bachelor's and master's theses** and **student projects** have been conducted with the BPA Lab already.
+Additional research and teaching projects conducted with the BPA Lab will be listed here as they are completed and published. Typical types of entries include:
 
+- **Bachelor's and master's theses** that use the BPA Lab as their experimental platform,
+- **Student projects** that extend the lab with new components or integrate new technologies,
+- **Research publications** that use the lab to validate concepts in business process automation, process mining, or related fields,
+- **Industry collaborations** that build on or contribute to the lab.
 
+::: {.callout-tip}
+## Contributing a project entry
+If you have conducted a project using the BPA Lab and would like it listed here, please open an issue or pull request in the [book repository](https://github.com/BpaLabTHCologne/bpa_lab_book). A short summary in the same structure as the SoTL entry above — *motivation*, *approach*, *outcomes*, *publication link* — is sufficient.
+:::
