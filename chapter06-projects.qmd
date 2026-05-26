@@ -112,10 +112,6 @@ This thesis delivers a **redesigned set of user-task forms** for the BPA Lab dem
 - A small **technical extension of the shipment process model**: a connector now retrieves warehouse coordinates dynamically rather than hard-coding them in the form.
 - An **empirical baseline** from a usability test with five participants (8 forms, 40 runs, mixed-methods: think-aloud, completion time, success rate, Likert questionnaire) that future revisions can be measured against.
 
-### Outlook
-
-The evaluation identified the *Route Planning* form as the main candidate for rework and suggests follow-up tests focused on keyboard-only operation and screen-reader compatibility.
-
 ## Further projects
 
 Additional research and teaching projects conducted with the BPA Lab will be listed here as they are completed and published. Typical types of entries include:
