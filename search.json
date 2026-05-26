@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "The BPA Lab",
     "section": "",
-    "text": "0.1 About this book\nThis book documents the Business Process Automation Lab (BPA Lab) at TH Köln — a small-scale, modular model factory that demonstrates and teaches concepts and technologies for business process automation and analytics.\nThe BPA Lab combines a fictive business scenario with software components (Business Process Management Systems, Robotic Process Automation, Process Mining) and hardware components (a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and IoT devices) to simulate the production and logistics processes of a bicycle manufacturer.\nThis book aims to provide:\nIt is structured as follows:\nThe appendices contain:",
+    "text": "0.1 About this book\nThis book documents the Business Process Automation Lab (BPA Lab) at TH Köln — a small-scale, modular model factory that demonstrates and teaches concepts and technologies for business process automation and analytics.\nThe BPA Lab combines software components (Business Process Management Systems, Robotic Process Automation, Process Mining) with hardware components (a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and IoT devices) to simulate the production and logistics processes of a bicycle manufacturer.\nThis book aims to provide:\nIt is structured as follows:\nThe appendices contain:",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
     ]
@@ -284,7 +284,7 @@
     "href": "chapter04-data.html#process-data-and-the-foundation-for-process-mining",
     "title": "5  Data and Data Sources",
     "section": "5.4 Process data and the foundation for process mining",
-    "text": "5.4 Process data and the foundation for process mining\nIn addition to persistent master data, the running processes generate substantial amounts of process data:\n\nCamunda 8 stores process instance data, variables, tokens, and lifecycle events.\nMQTT messages record the communication between job workers and controllers.\nJob worker logs capture technical operations and exceptions.\n\nThis event data is the foundation for process mining — a central teaching and demonstration component of the BPA Lab. Process mining allows students to:\n\ndiscover the actual flow of processes from event logs (and compare them to the modelled flow),\ncheck conformance between modelled and actual behaviour,\nanalyse performance — durations, bottlenecks, rework loops.\n\n\n\n\n\n\n\nTipExtension idea\n\n\n\nFor process-mining exercises, it is worth writing an event-log export script that converts Camunda 8 data into the XES (eXtensible Event Stream) format. This enables direct integration with tools such as ProM, Disco, or PM4Py, and gives students a realistic data pipeline from running process to analytical tool.",
+    "text": "5.4 Process data and the foundation for process mining\nIn addition to persistent master data, the running processes generate substantial amounts of process data:\n\nCamunda 8 stores process instance data, variables, tokens, and lifecycle events.\nMQTT messages record the communication between job workers and controllers.\nJob worker logs capture technical operations and exceptions.\n\nThis event data is the foundation for process mining — a central teaching and demonstration component of the BPA Lab. Process mining allows students to:\n\ndiscover the actual flow of processes from event logs (and compare them to the modelled flow),\ncheck conformance between modelled and actual behaviour,\nanalyse performance — durations, bottlenecks, rework loops.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data and Data Sources</span>"
     ]
@@ -340,93 +340,63 @@
     ]
   },
   {
-    "objectID": "chapter05-architecture.html#going-deeper",
-    "href": "chapter05-architecture.html#going-deeper",
+    "objectID": "chapter05-architecture.html#architecture-decisions",
+    "href": "chapter05-architecture.html#architecture-decisions",
     "title": "6  Software Architecture",
-    "section": "6.4 Going deeper",
-    "text": "6.4 Going deeper\n\n\n\n\n\n\nTipFurther reading\n\n\n\nThe original sources on the C4 model — including examples, decision records, and tools like Structurizr — are available at https://c4model.com/. For a deeper dive into Domain-Driven Design as the principle behind the modular separation, see Evans (Evans 2003).\n\n\n\n\n\n\nBrown, Simon. 2018. The C4 Model for Visualising Software Architecture. Leanpub. https://c4model.com/.\n\n\nEvans, Eric. 2003. Domain-Driven Design: Tackling Complexity in the Heart of Software. Addison-Wesley.",
+    "section": "6.4 Architecture decisions",
+    "text": "6.4 Architecture decisions\nThe remainder of this chapter records selected architecture questions raised during the BPA Lab project, together with the corresponding decisions and justifications. The list is not exhaustive and is updated as the lab evolves.\nEach decision follows a lightweight ADR (Architecture Decision Record) schema: context, decision, and rationale are captured succinctly.\n\n6.4.1 ADR-001 — MQTT broker for job-worker–controller communication\nStatus: Decided.\nDecision: A MQTT broker is used for communication between process applications (job workers) and controllers.\nRationale:\n\ndecoupling of senders and receivers through the publish-subscribe pattern,\nMQTT is a well-established standard protocol in the IoT space,\nlightweight footprint, well suited to the hardware components in use.\n\n\n\n6.4.2 ADR-002 — Message Send/Receive Tasks instead of Events for inter-process communication\nStatus: Decided.\nDecision: Inter-process communication is modelled in BPMN using Message Send Tasks and Message Receive Tasks, not events.\nRationale:\n\nTasks allow the use of boundary events — for example to handle errors raised by job workers,\ncomplex error paths and timeouts are easier to express.\n\n\n\n6.4.3 ADR-003 — Messaging between processes and process applications\nStatus: Decided.\nDecision: Communication between processes and process applications is implemented using messages as well.\nRationale:\n\na simple, uniform solution,\nconsistent with the communication pattern between process applications and process control.\n\n\n\n6.4.4 ADR-004 — Camunda 8 self-managed with Docker Compose (Camunda 8 Core)\nStatus: Decided.\nDecision: The self-managed variant of Camunda 8 is used in combination with Docker Compose and Camunda 8 Core.\nRationale:\n\navoids interferences between contributors during the development phase,\ndevelopment and production-like environments are identical,\nKubernetes is intentionally not used — the BPA Lab is not a production environment in the classical sense.\n\nOpen question: Performance with Docker and the resulting number of containers needs to be verified as the system grows.\n\n\n6.4.5 ADR-005 — Job worker for sending emails\nStatus: Decided (reversible).\nDecision: Email sending is implemented through a dedicated job worker rather than via the SendGrid connector.\nRationale:\n\nissues encountered with the SendGrid connector at the time of the decision,\nan existing solution was already in place in the project,\nto be re-evaluated as Camunda 8 connectors continue to evolve.\n\n\n\n6.4.6 ADR-006 — Job worker for database transactions; MySQL in a Docker container\nStatus: Decided.\nDecision: Database transactions are handled by a dedicated job worker; the MySQL database runs in a Docker container.\nRationale:\n\nexisting solution available in the project,\ngreater flexibility than the connectors available at the time of the decision.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Software Architecture</span>"
     ]
   },
   {
-    "objectID": "chapter06-decisions.html",
-    "href": "chapter06-decisions.html",
-    "title": "7  Architecture Decisions",
+    "objectID": "chapter05-architecture.html#reflection-questions",
+    "href": "chapter05-architecture.html#reflection-questions",
+    "title": "6  Software Architecture",
+    "section": "6.5 Reflection questions",
+    "text": "6.5 Reflection questions\n\n\n\n\n\n\nTipFor your own consideration\n\n\n\n\nADR-001 selects MQTT. What alternative protocols could have been considered, and what trade-offs would they imply?\nADR-005 is explicitly marked as reversible. Which criteria would you use to decide whether to switch back to a connector-based solution?\nADR-004 deliberately avoids Kubernetes. Under which circumstances would that decision need to be revisited?",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Software Architecture</span>"
+    ]
+  },
+  {
+    "objectID": "chapter05-architecture.html#going-deeper",
+    "href": "chapter05-architecture.html#going-deeper",
+    "title": "6  Software Architecture",
+    "section": "6.6 Going deeper",
+    "text": "6.6 Going deeper\n\n\n\n\n\n\nTipFurther reading\n\n\n\nThe original sources on the C4 model — including examples, decision records, and tools like Structurizr — are available at https://c4model.com/. For a deeper dive into Domain-Driven Design as the principle behind the modular separation, see Evans (Evans 2003).\n\n\n\n\n\n\nBrown, Simon. 2018. The C4 Model for Visualising Software Architecture. Leanpub. https://c4model.com/.\n\n\nEvans, Eric. 2003. Domain-Driven Design: Tackling Complexity in the Heart of Software. Addison-Wesley.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Software Architecture</span>"
+    ]
+  },
+  {
+    "objectID": "chapter06-projects.html",
+    "href": "chapter06-projects.html",
+    "title": "7  Projects",
     "section": "",
-    "text": "7.1 ADR-001 — MQTT broker for job-worker–controller communication\nThis chapter records selected architecture questions raised during the BPA Lab project, together with the corresponding decisions and justifications. The list is not exhaustive and is updated as the lab evolves.\nEach decision follows a lightweight ADR (Architecture Decision Record) schema: context, decision, and rationale are captured succinctly.\nStatus: Decided.\nDecision: A MQTT broker is used for communication between process applications (job workers) and controllers.\nRationale:",
+    "text": "7.1 Teaching Business Process Automation in a Learning Factory (SoTL)\nAuthors: Matthias Zapp, Saphira Gonzalez & Domenic Gonzalez (TH Köln) Publication: Forschung und Innovation in der Hochschulbildung, Nr. 25, 2025, Research Paper Publisher: Cologne Open Science (COS), TH Köln DOI: 10.57684/COS-1326 Type: Scholarship of Teaching and Learning (SoTL) publication (Coleman et al. 2023)",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Projects</span>"
     ]
   },
   {
-    "objectID": "chapter06-decisions.html#adr-001-mqtt-broker-for-job-workercontroller-communication",
-    "href": "chapter06-decisions.html#adr-001-mqtt-broker-for-job-workercontroller-communication",
-    "title": "7  Architecture Decisions",
+    "objectID": "chapter06-projects.html#sec-sotl-cos1326",
+    "href": "chapter06-projects.html#sec-sotl-cos1326",
+    "title": "7  Projects",
     "section": "",
-    "text": "decoupling of senders and receivers through the publish-subscribe pattern,\nMQTT is a well-established standard protocol in the IoT space,\nlightweight footprint, well suited to the hardware components in use.",
+    "text": "7.1.1 Background and motivation\nBusiness Process Automation (BPA) is a socio-technical challenge that requires a diverse set of competences — technical (process modelling in BPMN, implementing features in a BPMS, etc.), methodological (planning and running automation projects), as well as social and personal competences for collaborating with stakeholders from technical and business backgrounds (Nerdinger et al. 2008; Schaper 2012).\nTo teach this combination of skills, the bachelor’s programme in Business Information Systems at TH Köln uses Project-Based and Problem-Based Learning (PBL) (Barrows 1996; Chow 2021; Santos et al. 2023). Students work in teams of around five to six people on automation projects using a BPMS — an approach that creates active learning and practical problem-solving, similar to PBL formats described in the literature (Bandara et al. 2010).\nHowever, the authors observed a persistent gap: in regular bachelor’s courses with around 100 students, project tasks must be simplified so they remain manageable. This unavoidable simplification means students often miss the experience of integrating automation into a realistic enterprise IT landscape. A telling classroom observation: on a final-presentation day, one student team was surprised by another team that demonstrated triggering a BPMS from a simulated company web portal — a feature mentioned in lectures, but absent from most project tasks because of the limits of a simplified setting.\n\n\n7.1.2 Research question\nThe paper asks:\n\n“To what extent can the use of a learning factory with software and hardware components improve project-oriented and problem-oriented teaching in the field of business process automation?”\n\nThe authors draw on the well-established concept of learning factories from engineering education — small, realistic production environments that bridge theoretical knowledge and industrial practice (Abele et al. 2024). While most learning factories are physically large and centred on manufacturing, the BPA Lab is deliberately small-scale, with a stronger focus on software systems and components than on hardware.\n\n\n7.1.3 The teaching concept\nThe proposed teaching concept extends the existing PBL format. Instead of working on isolated, simplified scenarios, student teams work on project tasks set in the fictitious enterprise represented by the BPA Lab — a customer-specific bicycle manufacturer with end-to-end processes for order processing, production, and shipping. The lab’s process, decision, and data models together form a “digital twin” of this business scenario.\nAn illustrative example given in the paper: a project task to design and implement a shipment process for special goods, which requires integrating a software component of the BPA Lab dealing with shipment planning (using an external API for route planning) and integrating a software-hardware module — the Fischertechnik warehouse robot — to realise the connection with a warehouse management system.\nOrganisationally, milestone meetings with a “fictitious client” who asks critical questions and gives constructive feedback are added on top of the existing PBL structure.\n\n\n7.1.4 Preliminary evaluation\nThe evaluation was performed in two phases.\nPhase 1 — Interviews with bachelor’s students. Students from two previous course cycles were presented with the proposed teaching concept and asked to imagine integrating the learning factory into their project. They reacted very positively, using terms like “very important”, “inspiring”, “exciting” and “very interesting”. They emphasised that the lab could make BPA “less abstract and more tangible”, deepen understanding through hands-on experience, and promote transfer thinking and motivation. They also identified several requirements: clear instructions and materials, sufficient teaching support, the risk of technical difficulties with hardware, and the importance of integrating the lab thoughtfully into existing modules to avoid overload.\nPhase 2 — Pilot project with master’s students. A project simulation was carried out with eight master’s students from the Digital Sciences programme. Compared to bachelor’s students, the participants had comparable BPM knowledge but stronger technical skills and software-development experience. They were asked to solve a project task and assess — from the perspective of bachelor’s students — whether the concept could realistically be implemented at that level.\nStudents overall perceived the opportunities of the concept as positive: the practical experience of working with real BPM tools, the learning-by-doing approach, and teamwork on individual challenges were all valued. At the same time, the evaluation revealed substantial challenges: complexity of installing and configuring the lab’s components, individual problems with hardware/software/network setup, and difficulties in dealing with certain BPMS concepts. Students requested both lab-specific documentation and basic background material on the underlying technologies.\n\n\n7.1.5 Conclusions and consequences for teaching\nThe authors arrive at a nuanced conclusion: the teaching concept as evaluated is not directly applicable to the bachelor’s course at TH Köln with ~100 participants. The complexity of using the full BPA Lab — combining software development, network and hardware setup — exceeds what can reasonably be supported in a large bachelor’s course.\nTwo practical consequences follow:\n\nFor the existing bachelor’s course: the BPA Lab can serve as a realistic project background that is demonstrated at the start of the project. The technical project task itself, however, should only be extended carefully — in particular, integration of hardware components requires more prior knowledge and support than is feasible. Pure software components of the BPA Lab are a more realistic extension.\nFor future courses: the lab has potential as the basis of new elective course formats, which by design can cover a wider range of learning objectives — from BPM and BPA through to IoT and Cyber-Physical Systems — and allow for a higher student workload.\n\nFor BPM educators in general, the paper provides early evidence on the opportunities, challenges, and requirements of using a small-scale learning factory in a BPA course — an approach that is interesting but demanding, both for students and for teaching staff.\n\n\n7.1.6 Funding\nThe underlying teaching project “Enhancing teaching in the field of business process automation through a learning factory” was supported by the Foundation for Innovation in Higher Education as part of the REDiEE project at TH Köln.\n\n\n7.1.7 Further reading\n\nFull paper: 10.57684/COS-1326 (open access, CC BY-NC-ND)\nTH Köln SoTL programme: https://www.th-koeln.de/hochschule/scholarship-of-teaching-and-learning-sotl_115776.php\nSeries Forschung und Innovation in der Hochschulbildung (FIHB), Cologne Open Science",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Projects</span>"
     ]
   },
   {
-    "objectID": "chapter06-decisions.html#adr-002-message-sendreceive-tasks-instead-of-events-for-inter-process-communication",
-    "href": "chapter06-decisions.html#adr-002-message-sendreceive-tasks-instead-of-events-for-inter-process-communication",
-    "title": "7  Architecture Decisions",
-    "section": "7.2 ADR-002 — Message Send/Receive Tasks instead of Events for inter-process communication",
-    "text": "7.2 ADR-002 — Message Send/Receive Tasks instead of Events for inter-process communication\nStatus: Decided.\nDecision: Inter-process communication is modelled in BPMN using Message Send Tasks and Message Receive Tasks, not events.\nRationale:\n\nTasks allow the use of boundary events — for example to handle errors raised by job workers,\ncomplex error paths and timeouts are easier to express.",
+    "objectID": "chapter06-projects.html#further-projects",
+    "href": "chapter06-projects.html#further-projects",
+    "title": "7  Projects",
+    "section": "7.2 Further projects",
+    "text": "7.2 Further projects\nAdditional research and teaching projects conducted with the BPA Lab will be listed here as they are completed and published. Typical types of entries include:\n\nBachelor’s and master’s theses that use the BPA Lab as their experimental platform,\nStudent projects that extend the lab with new components or integrate new technologies,\nResearch publications that use the lab to validate concepts in business process automation, process mining, or related fields,\nIndustry collaborations that build on or contribute to the lab.\n\n\n\n\n\n\n\nTipContributing a project entry\n\n\n\nIf you have conducted a project using the BPA Lab and would like it listed here, please open an issue or pull request in the book repository. A short summary in the same structure as the SoTL entry above — motivation, approach, outcomes, publication link — is sufficient.\n\n\n\n\n\n\nAbele, Eberhard, Joachim Metternich, Michael Tisch, and Antonio Kreß. 2024. Learning Factories: Featuring New Concepts, Guidelines, Worldwide Best-Practice Examples. 2nd ed. Springer. https://doi.org/10.1007/978-3-031-46428-7.\n\n\nBandara, W., D. R. Chand, A. M. Chircu, et al. 2010. “Business Process Management Education in Academia: Status, Challenges, and Recommendations.” Communications of the Association for Information Systems 27: 748–50. https://doi.org/10.17705/1CAIS.02741.\n\n\nBarrows, Howard S. 1996. “Problem-Based Learning in Medicine and Beyond: A Brief Overview.” New Directions for Teaching and Learning 1996 (68): 3–12. https://doi.org/10.1002/tl.37219966804.\n\n\nChow, W. 2021. “Teaching Business Process Management with a Flipped-Classroom and Problem-Based Learning Approach.” 2021 International Conference on Engineering, Technology & Education (TALE). https://doi.org/10.1109/TALE52509.2021.9678885.\n\n\nColeman, K., D. Uzhegova, B. Blaher, and S. Arkoudis, eds. 2023. The Educational Turn: Rethinking the Scholarship of Teaching and Learning in Higher Education. Springer. https://doi.org/10.1007/978-981-19-8951-3.\n\n\nNerdinger, F., G. Blickle, and N. Schaper. 2008. Arbeits- Und Organisationspsychologie. Springer Medizin. https://doi.org/10.1007/978-3-540-74705-5.\n\n\nSantos, S. C. dos, J. Vilela, and A. Vasconcelos. 2023. “Promoting Professional Competencies Through Interdisciplinary PBL: An Experience Report in Computing Higher Education.” 2023 Frontiers in Education Conference (FIE). https://doi.org/10.1109/FIE58773.2023.10343050.\n\n\nSchaper, N. 2012. Fachgutachten Zur Kompetenzorientierung in Studium Und Lehre. Hochschulrektorenkonferenz, Projekt Nexus. https://www.hrk-nexus.de/fileadmin/redaktion/hrk-nexus/07-Downloads/07-02-Publikationen/fachgutachten_kompetenzorientierung.pdf.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
-    ]
-  },
-  {
-    "objectID": "chapter06-decisions.html#adr-003-messaging-between-processes-and-process-applications",
-    "href": "chapter06-decisions.html#adr-003-messaging-between-processes-and-process-applications",
-    "title": "7  Architecture Decisions",
-    "section": "7.3 ADR-003 — Messaging between processes and process applications",
-    "text": "7.3 ADR-003 — Messaging between processes and process applications\nStatus: Decided.\nDecision: Communication between processes and process applications is implemented using messages as well.\nRationale:\n\na simple, uniform solution,\nconsistent with the communication pattern between process applications and process control.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
-    ]
-  },
-  {
-    "objectID": "chapter06-decisions.html#adr-004-camunda-8-self-managed-with-docker-compose-camunda-8-core",
-    "href": "chapter06-decisions.html#adr-004-camunda-8-self-managed-with-docker-compose-camunda-8-core",
-    "title": "7  Architecture Decisions",
-    "section": "7.4 ADR-004 — Camunda 8 self-managed with Docker Compose (Camunda 8 Core)",
-    "text": "7.4 ADR-004 — Camunda 8 self-managed with Docker Compose (Camunda 8 Core)\nStatus: Decided.\nDecision: The self-managed variant of Camunda 8 is used in combination with Docker Compose and Camunda 8 Core.\nRationale:\n\navoids interferences between contributors during the development phase,\ndevelopment and production-like environments are identical,\nKubernetes is intentionally not used — the BPA Lab is not a production environment in the classical sense.\n\nOpen question: Performance with Docker and the resulting number of containers needs to be verified as the system grows.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
-    ]
-  },
-  {
-    "objectID": "chapter06-decisions.html#adr-005-job-worker-for-sending-emails",
-    "href": "chapter06-decisions.html#adr-005-job-worker-for-sending-emails",
-    "title": "7  Architecture Decisions",
-    "section": "7.5 ADR-005 — Job worker for sending emails",
-    "text": "7.5 ADR-005 — Job worker for sending emails\nStatus: Decided (reversible).\nDecision: Email sending is implemented through a dedicated job worker rather than via the SendGrid connector.\nRationale:\n\nissues encountered with the SendGrid connector at the time of the decision,\nan existing solution was already in place in the project,\nto be re-evaluated as Camunda 8 connectors continue to evolve.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
-    ]
-  },
-  {
-    "objectID": "chapter06-decisions.html#adr-006-job-worker-for-database-transactions-mysql-in-a-docker-container",
-    "href": "chapter06-decisions.html#adr-006-job-worker-for-database-transactions-mysql-in-a-docker-container",
-    "title": "7  Architecture Decisions",
-    "section": "7.6 ADR-006 — Job worker for database transactions; MySQL in a Docker container",
-    "text": "7.6 ADR-006 — Job worker for database transactions; MySQL in a Docker container\nStatus: Decided.\nDecision: Database transactions are handled by a dedicated job worker; the MySQL database runs in a Docker container.\nRationale:\n\nexisting solution available in the project,\ngreater flexibility than the connectors available at the time of the decision.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
-    ]
-  },
-  {
-    "objectID": "chapter06-decisions.html#reflection-questions",
-    "href": "chapter06-decisions.html#reflection-questions",
-    "title": "7  Architecture Decisions",
-    "section": "7.7 Reflection questions",
-    "text": "7.7 Reflection questions\n\n\n\n\n\n\nTipFor your own consideration\n\n\n\n\nADR-001 selects MQTT. What alternative protocols could have been considered, and what trade-offs would they imply?\nADR-005 is explicitly marked as reversible. Which criteria would you use to decide whether to switch back to a connector-based solution?\nADR-004 deliberately avoids Kubernetes. Under which circumstances would that decision need to be revisited?",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Architecture Decisions</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Projects</span>"
     ]
   },
   {
@@ -500,7 +470,7 @@
     "href": "references.html",
     "title": "Appendix C — References",
     "section": "",
-    "text": "Aalst, Wil M. P. van der. 2016. Process Mining: Data Science in\nAction. 2nd ed. Springer. https://doi.org/10.1007/978-3-662-49851-4.\n\n\nBrown, Simon. 2018. The C4 Model for Visualising\nSoftware Architecture. Leanpub. https://c4model.com/.\n\n\nCamunda Services GmbH. 2026. Camunda 8 Documentation. https://docs.camunda.io/.\n\n\nEvans, Eric. 2003. Domain-Driven Design: Tackling Complexity in the\nHeart of Software. Addison-Wesley.\n\n\nObject Management Group. 2014. Business Process Model and Notation\n(BPMN), Version 2.0.2. https://www.omg.org/spec/BPMN/.\n\n\nObject Management Group. 2024. Decision Model and Notation\n(DMN). https://www.omg.org/spec/DMN/.",
+    "text": "Aalst, Wil M. P. van der. 2016. Process Mining: Data Science in\nAction. 2nd ed. Springer. https://doi.org/10.1007/978-3-662-49851-4.\n\n\nAbele, Eberhard, Joachim Metternich, Michael Tisch, and Antonio Kreß.\n2024. Learning Factories: Featuring New Concepts, Guidelines,\nWorldwide Best-Practice Examples. 2nd ed. Springer. https://doi.org/10.1007/978-3-031-46428-7.\n\n\nBandara, W., D. R. Chand, A. M. Chircu, et al. 2010. “Business\nProcess Management Education in Academia: Status, Challenges, and\nRecommendations.” Communications of the Association for\nInformation Systems 27: 748–50. https://doi.org/10.17705/1CAIS.02741.\n\n\nBarrows, Howard S. 1996. “Problem-Based Learning in Medicine and\nBeyond: A Brief Overview.” New Directions for Teaching and\nLearning 1996 (68): 3–12. https://doi.org/10.1002/tl.37219966804.\n\n\nBrown, Simon. 2018. The C4 Model for Visualising\nSoftware Architecture. Leanpub. https://c4model.com/.\n\n\nCamunda Services GmbH. 2026. Camunda 8 Documentation. https://docs.camunda.io/.\n\n\nChow, W. 2021. “Teaching Business Process Management with a\nFlipped-Classroom and Problem-Based Learning Approach.” 2021\nInternational Conference on Engineering, Technology & Education\n(TALE). https://doi.org/10.1109/TALE52509.2021.9678885.\n\n\nColeman, K., D. Uzhegova, B. Blaher, and S. Arkoudis, eds. 2023. The\nEducational Turn: Rethinking the Scholarship of Teaching and Learning in\nHigher Education. Springer. https://doi.org/10.1007/978-981-19-8951-3.\n\n\nEvans, Eric. 2003. Domain-Driven Design: Tackling Complexity in the\nHeart of Software. Addison-Wesley.\n\n\nNerdinger, F., G. Blickle, and N. Schaper. 2008. Arbeits- Und\nOrganisationspsychologie. Springer Medizin. https://doi.org/10.1007/978-3-540-74705-5.\n\n\nObject Management Group. 2014. Business Process Model and Notation\n(BPMN), Version 2.0.2. https://www.omg.org/spec/BPMN/.\n\n\nObject Management Group. 2024. Decision Model and Notation\n(DMN). https://www.omg.org/spec/DMN/.\n\n\nSantos, S. C. dos, J. Vilela, and A. Vasconcelos. 2023. “Promoting\nProfessional Competencies Through Interdisciplinary PBL: An\nExperience Report in Computing Higher Education.” 2023\nFrontiers in Education Conference (FIE). https://doi.org/10.1109/FIE58773.2023.10343050.\n\n\nSchaper, N. 2012. Fachgutachten Zur Kompetenzorientierung in Studium\nUnd Lehre. Hochschulrektorenkonferenz, Projekt Nexus. https://www.hrk-nexus.de/fileadmin/redaktion/hrk-nexus/07-Downloads/07-02-Publikationen/fachgutachten_kompetenzorientierung.pdf.",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>References</span>"
