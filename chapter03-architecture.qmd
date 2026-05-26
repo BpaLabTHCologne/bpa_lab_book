@@ -2,17 +2,6 @@
 title: "Software Architecture"
 ---
 
-::: {.callout-note}
-## Learning objectives
-After reading this chapter, you will be able to:
-
-- name the high-level requirements that shaped the BPA Lab architecture,
-- describe the architecture using the C4 model,
-- relate individual architectural choices to the requirements that motivated them,
-- read and write lightweight Architecture Decision Records (ADRs),
-- explain the rationale behind the central architectural decisions of the BPA Lab.
-:::
-
 ::: {.callout-important}
 ## Status
 The architecture is under continuous development. Several aspects are still being discussed. This chapter captures the current state.

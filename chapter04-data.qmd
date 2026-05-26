@@ -2,14 +2,6 @@
 title: "Data and Data Sources"
 ---
 
-::: {.callout-note}
-## Learning objectives
-After reading this chapter, you will be able to:
-
-- identify the main data sources in the BPA Lab,
-- describe the role of the relational database in the overall architecture,
-- explain how process and event data become the foundation for process mining.
-:::
 
 ## Overview of data sources
 

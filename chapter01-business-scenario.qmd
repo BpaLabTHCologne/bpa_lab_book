@@ -2,16 +2,6 @@
 title: "Business Scenario of the Demonstration Factory"
 ---
 
-::: {.callout-note}
-## Learning objectives
-After reading this chapter, you will be able to:
-
-- describe the end-to-end business processes of a custom bicycle manufacturer in BPMN terms,
-- explain the orchestrating role of the order management process,
-- distinguish between the responsibilities of the order management, production control, purchasing, manufacturing, shipment, and warehouse operations processes,
-- recognise how Fischertechnik hardware is used to *physically* execute parts of these processes.
-:::
-
 ::: {.callout-important}
 ## Status of this chapter
 This chapter describes the business processes of the BPA Lab at a strategic level. It is *work in progress* — terminology, level of detail, and harmonisation of process models are being refined as the lab evolves.
