@@ -80,7 +80,4 @@ Additional research and teaching projects conducted with the BPA Lab will be lis
 - **Research publications** that use the lab to validate concepts in business process automation, process mining, or related fields,
 - **Industry collaborations** that build on or contribute to the lab.
 
-::: {.callout-tip}
-## Contributing a project entry
-If you have conducted a project using the BPA Lab and would like it listed here, please open an issue or pull request in the [book repository](https://github.com/BpaLabTHCologne/bpa_lab_book). A short summary in the same structure as the SoTL entry above — *motivation*, *approach*, *outcomes*, *publication link* — is sufficient.
-:::
+
