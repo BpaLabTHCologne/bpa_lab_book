@@ -2,9 +2,10 @@
 title: "Overview"
 ---
 
+This book documents the **Business Process Automation Lab (BPA Lab)** at TH Köln — a small-scale, modular model factory that demonstrates and teaches concepts and technologies for business process automation and analytics.
+
 ![BPA Lab — Conceptual Architecture](images/Conceptional_Architecture.png){#fig-concept fig-align="center"}
 
-This book documents the **Business Process Automation Lab (BPA Lab)** at TH Köln — a small-scale, modular model factory that demonstrates and teaches concepts and technologies for business process automation and analytics.
 
 ## About this book
 
