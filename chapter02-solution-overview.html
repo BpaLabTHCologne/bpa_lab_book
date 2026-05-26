@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter03-business-scenario.html" rel="next">
-<link href="./chapter01-introduction.html" rel="prev">
+<link href="./chapter03-architecture.html" rel="next">
+<link href="./chapter01-business-scenario.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -323,8 +323,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter01-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  <a href="./chapter01-business-scenario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Business Scenario of the Demonstration Factory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -335,8 +335,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter03-business-scenario.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Business Scenario of the Demonstration Factory</span></span></a>
+  <a href="./chapter03-architecture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Software Architecture</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -347,14 +347,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter05-architecture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Software Architecture</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter06-projects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Projects</span></span></a>
+  <a href="./chapter05-projects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Projects</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -369,7 +363,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Components and related Repositories</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Components and Sister Repositories</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -396,15 +390,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#three-architectural-layers" id="toc-three-architectural-layers" class="nav-link active" data-scroll-target="#three-architectural-layers"><span class="header-section-number">3.1</span> Three architectural layers</a>
+  <li><a href="#why-a-demonstration-factory" id="toc-why-a-demonstration-factory" class="nav-link active" data-scroll-target="#why-a-demonstration-factory"><span class="header-section-number">3.1</span> Why a demonstration factory?</a></li>
+  <li><a href="#three-architectural-layers" id="toc-three-architectural-layers" class="nav-link" data-scroll-target="#three-architectural-layers"><span class="header-section-number">3.2</span> Three architectural layers</a>
   <ul class="collapse">
-  <li><a href="#layer-1-controllers" id="toc-layer-1-controllers" class="nav-link" data-scroll-target="#layer-1-controllers"><span class="header-section-number">3.1.1</span> Layer 1 — Controllers</a></li>
-  <li><a href="#layer-2-process-applications-job-workers" id="toc-layer-2-process-applications-job-workers" class="nav-link" data-scroll-target="#layer-2-process-applications-job-workers"><span class="header-section-number">3.1.2</span> Layer 2 — Process applications (job workers)</a></li>
-  <li><a href="#layer-3-bpms-workflow-engine" id="toc-layer-3-bpms-workflow-engine" class="nav-link" data-scroll-target="#layer-3-bpms-workflow-engine"><span class="header-section-number">3.1.3</span> Layer 3 — BPMS workflow engine</a></li>
+  <li><a href="#layer-1-controllers" id="toc-layer-1-controllers" class="nav-link" data-scroll-target="#layer-1-controllers"><span class="header-section-number">3.2.1</span> Layer 1 — Controllers</a></li>
+  <li><a href="#layer-2-process-applications-job-workers" id="toc-layer-2-process-applications-job-workers" class="nav-link" data-scroll-target="#layer-2-process-applications-job-workers"><span class="header-section-number">3.2.2</span> Layer 2 — Process applications (job workers)</a></li>
+  <li><a href="#layer-3-bpms-workflow-engine" id="toc-layer-3-bpms-workflow-engine" class="nav-link" data-scroll-target="#layer-3-bpms-workflow-engine"><span class="header-section-number">3.2.3</span> Layer 3 — BPMS workflow engine</a></li>
   </ul></li>
-  <li><a href="#a-modular-domain-driven-design" id="toc-a-modular-domain-driven-design" class="nav-link" data-scroll-target="#a-modular-domain-driven-design"><span class="header-section-number">3.2</span> A modular, domain-driven design</a></li>
-  <li><a href="#a-simplified-birds-eye-view" id="toc-a-simplified-birds-eye-view" class="nav-link" data-scroll-target="#a-simplified-birds-eye-view"><span class="header-section-number">3.3</span> A simplified bird’s-eye view</a></li>
-  <li><a href="#the-demonstration-factory-implementation" id="toc-the-demonstration-factory-implementation" class="nav-link" data-scroll-target="#the-demonstration-factory-implementation"><span class="header-section-number">3.4</span> The demonstration factory implementation</a></li>
+  <li><a href="#a-modular-domain-driven-design" id="toc-a-modular-domain-driven-design" class="nav-link" data-scroll-target="#a-modular-domain-driven-design"><span class="header-section-number">3.3</span> A modular, domain-driven design</a></li>
+  <li><a href="#a-simplified-birds-eye-view" id="toc-a-simplified-birds-eye-view" class="nav-link" data-scroll-target="#a-simplified-birds-eye-view"><span class="header-section-number">3.4</span> A simplified bird’s-eye view</a></li>
+  <li><a href="#the-demonstration-factory-implementation" id="toc-the-demonstration-factory-implementation" class="nav-link" data-scroll-target="#the-demonstration-factory-implementation"><span class="header-section-number">3.5</span> The demonstration factory implementation</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/edit/main/chapter02-solution-overview.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/blob/main/chapter02-solution-overview.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -443,22 +438,33 @@ ul.task-list li input[type="checkbox"] {
 <div class="callout-body-container callout-body">
 <p>After reading this chapter, you will be able to:</p>
 <ul>
-<li>name the three architectural layers of the BPA Lab and explain their responsibilities,</li>
+<li>explain why the BPA Lab implements its scenario as a tangible, end-to-end system rather than as an abstract example,</li>
+<li>name the three architectural layers of the BPA Lab and describe their responsibilities,</li>
 <li>describe the role of Camunda 8 as the central workflow engine,</li>
 <li>explain how hardware components and process applications interact,</li>
 <li>justify the modular, domain-driven design approach used in the BPA Lab.</li>
 </ul>
 </div>
 </div>
-<section id="three-architectural-layers" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="three-architectural-layers"><span class="header-section-number">3.1</span> Three architectural layers</h2>
+<section id="why-a-demonstration-factory" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="why-a-demonstration-factory"><span class="header-section-number">3.1</span> Why a demonstration factory?</h2>
+<p>Business process management theory and notations like BPMN are often taught using abstract examples — pizza ordering, expense approvals, generic procurement workflows. These examples are accessible but rarely convey:</p>
+<ul>
+<li>the <strong>technical complexity</strong> of integrating heterogeneous systems,</li>
+<li>the <strong>operational concerns</strong> of running long-lived process instances,</li>
+<li>the <strong>data perspective</strong> that is at the heart of process mining and analytics.</li>
+</ul>
+<p>A demonstration factory bridges this gap. The customer order described in the previous chapter does not stop at a process diagram: it arrives via a web form, triggers a workflow in Camunda 8, dispatches commands via MQTT to physical hardware, and eventually leads to a real, manufactured product being moved through a real, physical warehouse. The architecture described in the remainder of this chapter is what makes this end-to-end execution possible.</p>
+</section>
+<section id="three-architectural-layers" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="three-architectural-layers"><span class="header-section-number">3.2</span> Three architectural layers</h2>
 <p>The architecture and implementation of the BPA Lab are under continuous development. The solution is structured into three clearly separated layers.</p>
-<section id="layer-1-controllers" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="layer-1-controllers"><span class="header-section-number">3.1.1</span> Layer 1 — Controllers</h3>
+<section id="layer-1-controllers" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="layer-1-controllers"><span class="header-section-number">3.2.1</span> Layer 1 — Controllers</h3>
 <p><strong>Controllers</strong> are responsible for the direct control of hardware components: the Fischertechnik Industry 4.0 factory, the Fischertechnik warehouse robots, and IoT devices. They are predominantly implemented in <strong>Python</strong> and translate high-level commands (for example <em>“transport workpiece from slot A to slot B”</em>) into the low-level signals that move motors and read sensors.</p>
 </section>
-<section id="layer-2-process-applications-job-workers" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="layer-2-process-applications-job-workers"><span class="header-section-number">3.1.2</span> Layer 2 — Process applications (job workers)</h3>
+<section id="layer-2-process-applications-job-workers" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="layer-2-process-applications-job-workers"><span class="header-section-number">3.2.2</span> Layer 2 — Process applications (job workers)</h3>
 <p><strong>Process applications</strong> are middleware components that implement the actual business logic of individual work steps. In Camunda 8 terms, they are <strong>job workers</strong>: they subscribe to specific service tasks and execute them when activated by the workflow engine.</p>
 <p>Job workers communicate:</p>
 <ul>
@@ -467,8 +473,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Process applications are predominantly implemented in <strong>Java</strong>.</p>
 </section>
-<section id="layer-3-bpms-workflow-engine" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="layer-3-bpms-workflow-engine"><span class="header-section-number">3.1.3</span> Layer 3 — BPMS workflow engine</h3>
+<section id="layer-3-bpms-workflow-engine" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="layer-3-bpms-workflow-engine"><span class="header-section-number">3.2.3</span> Layer 3 — BPMS workflow engine</h3>
 <p>The central workflow engine is <strong>Camunda 8 (self-managed)</strong>. It executes:</p>
 <ul>
 <li><strong>BPMN</strong> process models — describing how work flows through the system,</li>
@@ -477,8 +483,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Camunda 8 maintains the state of each running process instance, handles incidents, and provides the data foundation for process mining and analytics.</p>
 </section>
 </section>
-<section id="a-modular-domain-driven-design" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="a-modular-domain-driven-design"><span class="header-section-number">3.2</span> A modular, domain-driven design</h2>
+<section id="a-modular-domain-driven-design" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="a-modular-domain-driven-design"><span class="header-section-number">3.3</span> A modular, domain-driven design</h2>
 <p>A key design principle in the BPA Lab is <strong>modularity</strong>. The system follows a <strong>Domain-Driven Design (DDD)</strong> approach so that:</p>
 <ul>
 <li><strong>multiple students and developers can work in parallel</strong> on different parts of the system without stepping on each other’s toes,</li>
@@ -495,8 +501,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>This separation aligns with the bounded contexts familiar from DDD and makes the system easier to reason about, both for teachers explaining it and for students extending it.</p>
 </section>
-<section id="a-simplified-birds-eye-view" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="a-simplified-birds-eye-view"><span class="header-section-number">3.3</span> A simplified bird’s-eye view</h2>
+<section id="a-simplified-birds-eye-view" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="a-simplified-birds-eye-view"><span class="header-section-number">3.4</span> A simplified bird’s-eye view</h2>
 <p>The following diagram summarises the interaction between the three layers and the hardware they ultimately drive.</p>
 <div id="fig-simplified" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -510,8 +516,8 @@ Figure&nbsp;3.1: Simplified architecture of the BPA Lab
 </div>
 <p>The customer-facing entry point is typically a <strong>web application</strong> for order capture. From there, work flows downwards through Camunda 8 and the job workers and eventually reaches the physical Fischertechnik components. Events generated along the way flow back upwards and are persisted in databases for later analysis.</p>
 </section>
-<section id="the-demonstration-factory-implementation" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="the-demonstration-factory-implementation"><span class="header-section-number">3.4</span> The demonstration factory implementation</h2>
+<section id="the-demonstration-factory-implementation" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="the-demonstration-factory-implementation"><span class="header-section-number">3.5</span> The demonstration factory implementation</h2>
 <p>The latest version of the BPA Lab as a runnable <strong>demonstration factory</strong> is available in a separate repository:</p>
 <p>➡️ <a href="https://github.com/BpaLabTHCologne/bpa_lab_demonstration_factory">github.com/BpaLabTHCologne/bpa_lab_demonstration_factory</a></p>
 <p>The implementation is fully containerised with <strong>Docker</strong>. This makes local setup straightforward and ensures that the environment is reproducible across different machines — a key requirement when students set up the system on their own laptops.</p>
@@ -953,13 +959,13 @@ Figure&nbsp;3.1: Simplified architecture of the BPA Lab
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter01-introduction.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./chapter01-business-scenario.html" class="pagination-link" aria-label="Business Scenario of the Demonstration Factory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Business Scenario of the Demonstration Factory</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter03-business-scenario.html" class="pagination-link" aria-label="Business Scenario of the Demonstration Factory">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Business Scenario of the Demonstration Factory</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter03-architecture.html" class="pagination-link" aria-label="Software Architecture">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Software Architecture</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
