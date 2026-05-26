@@ -390,7 +390,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-scenario-in-a-nutshell" id="toc-the-scenario-in-a-nutshell" class="nav-link active" data-scroll-target="#the-scenario-in-a-nutshell"><span class="header-section-number">2.1</span> The scenario in a nutshell</a></li>
+  <li><a href="#the-implemented-scenario" id="toc-the-implemented-scenario" class="nav-link active" data-scroll-target="#the-implemented-scenario"><span class="header-section-number">2.1</span> The implemented scenario</a></li>
   <li><a href="#order-management" id="toc-order-management" class="nav-link" data-scroll-target="#order-management"><span class="header-section-number">2.2</span> Order management</a></li>
   <li><a href="#production-control" id="toc-production-control" class="nav-link" data-scroll-target="#production-control"><span class="header-section-number">2.3</span> Production control</a></li>
   <li><a href="#purchasing" id="toc-purchasing" class="nav-link" data-scroll-target="#purchasing"><span class="header-section-number">2.4</span> Purchasing</a></li>
@@ -424,21 +424,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status of this chapter
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This chapter describes the business processes of the BPA Lab at a strategic level. It is <em>work in progress</em> — terminology, level of detail, and harmonisation of process models are being refined as the lab evolves.</p>
-</div>
-</div>
-<section id="the-scenario-in-a-nutshell" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="the-scenario-in-a-nutshell"><span class="header-section-number">2.1</span> The scenario in a nutshell</h2>
+<section id="the-implemented-scenario" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-implemented-scenario"><span class="header-section-number">2.1</span> The implemented scenario</h2>
 <p><strong>A bicycle manufacturer offers highly customisable bicycles to consumers.</strong></p>
 <p>The entire end-to-end process is orchestrated by the <strong>order management process</strong>, which in turn initiates purchasing, manufacturing, and shipping processes as needed.</p>
 <div id="fig-landscape" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -565,12 +552,10 @@ Figure&nbsp;2.6: Shipment process
 <div class="callout-body-container callout-body">
 <p>This process landscape works well to introduce key BPMN concepts in context:</p>
 <ul>
-<li><strong>call activities</strong> (e.g.&nbsp;order management calling production control),</li>
 <li><strong>message-based communication</strong> between long-running processes,</li>
 <li><strong>boundary events</strong> to handle exceptions raised by job workers,</li>
 <li><strong>multi-instance activities</strong> for handling several products in a single order.</li>
 </ul>
-<p>By stepping through the running system together with students, abstract notation suddenly becomes concrete.</p>
 </div>
 </div>
 
