@@ -2,13 +2,13 @@
 title: "Overview"
 ---
 
-![BPA Lab — Conceptual Architecture](images/Conceptional_Architecture.png){#fig-concept fig-align="center"}
-
 This book documents the **Business Process Automation Lab (BPA Lab)** at TH Köln — a small-scale, modular model factory that demonstrates and teaches concepts and technologies for business process automation and analytics.
+
+![BPA Lab — Conceptual Architecture](images/Conceptional_Architecture.png){#fig-concept fig-align="center"}
 
 ## About this book
 
-The BPA Lab combines **software components** (Business Process Management Systems, Robotic Process Automation, Process Mining) with **hardware components** (a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and IoT devices) to simulate the production and logistics processes of a bicycle manufacturer.
+The BPA Lab combines a **fictive business scenario** with **software components** (Business Process Management Systems, Robotic Process Automation, Process Mining) and **hardware components** (a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and IoT devices) to simulate the production and logistics processes of a bicycle manufacturer.
 
 This book aims to provide:
 
