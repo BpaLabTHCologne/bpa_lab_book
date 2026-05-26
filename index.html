@@ -392,7 +392,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#the-bpa-lab" id="toc-the-bpa-lab" class="nav-link active" data-scroll-target="#the-bpa-lab"><span class="header-section-number">0.1</span> The BPA Lab</a></li>
-  <li><a href="#physical-setup" id="toc-physical-setup" class="nav-link" data-scroll-target="#physical-setup"><span class="header-section-number">0.2</span> Physical setup</a></li>
+  <li><a href="#components-of-the-bpa-lab" id="toc-components-of-the-bpa-lab" class="nav-link" data-scroll-target="#components-of-the-bpa-lab"><span class="header-section-number">0.2</span> Components of the BPA Lab</a></li>
   <li><a href="#about-this-book" id="toc-about-this-book" class="nav-link" data-scroll-target="#about-this-book"><span class="header-section-number">0.3</span> About this book</a></li>
   <li><a href="#who-this-book-is-for" id="toc-who-this-book-is-for" class="nav-link" data-scroll-target="#who-this-book-is-for"><span class="header-section-number">0.4</span> Who this book is for</a></li>
   <li><a href="#source-code-and-related-repositories" id="toc-source-code-and-related-repositories" class="nav-link" data-scroll-target="#source-code-and-related-repositories"><span class="header-section-number">0.5</span> Source code and related repositories</a></li>
@@ -447,20 +447,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="the-bpa-lab" class="level2" data-number="0.1">
 <h2 data-number="0.1" class="anchored" data-anchor-id="the-bpa-lab"><span class="header-section-number">0.1</span> The BPA Lab</h2>
 <p>The <strong>Business Process Automation Lab (BPA Lab)</strong> is an ongoing project at <strong>TH Köln (University of Applied Sciences)</strong> that supports research and teaching in the field of business process automation and analytics. It is run at the Faculty of Computer Science and Engineering Science and serves as a platform on which researchers and students can study and extend concepts and technologies of business process automation and analytics.</p>
-<p>As a <em>research platform</em>, the BPA Lab provides an environment in which bachelor’s and master’s theses as well as research projects can address questions around process automation and process analysis — for example regarding automation technologies, data architectures or process mining. The projects collected in the <a href="./chapter05-projects.html">Projects chapter</a> illustrate the range of work that has been carried out on this basis.</p>
+<p>As a <em>research and demonstration platform</em>, the BPA Lab provides an environment in which bachelor’s and master’s theses as well as research projects can address questions around process automation and process analysis — for example regarding automation technologies, data architectures or process mining. The projects collected in the <a href="./chapter05-projects.html">Projects chapter</a> illustrate the range of work that has been carried out on this basis.</p>
 <p>In its demonstration role, the lab shows how:</p>
 <ul>
-<li>a fictional business scenario represented in process and decision models,</li>
-<li>a Business Process Management System orchestrates an end-to-end business processes,</li>
-<li>modular <strong>job workers</strong> implement the actual work including the integration with IOT devices,</li>
+<li>a fictional business scenario can be represented in <strong>process and decision models</strong>,</li>
+<li>a <strong>Business Process Management System</strong> orchestrates human task and service in an end-to-end business processes,</li>
+<li>modular <strong>job workers</strong> (services) implement the actual work including the integration with IOT devices,</li>
+<li><strong>Internet of Things (IoT)</strong> devices and data can be integrated into process execution,</li>
 <li><strong>process mining</strong> can be used to analyse process executions and identify improvement opportunities.</li>
 </ul>
 <p>Especially, by bringing together software and hardware in one running system, abstract concepts become immediately visible.</p>
 <p>As a <em>teaching</em> platform, the BPA Lab is used to support teaching in the field of business process automation and analysis. It offers lecturers a tangible end-to-end demonstration scenario in which processes are modelled, implemented in a BPMS, executed against physical hardware, and analysed using the resulting data. Individual building blocks of the lab — for instance the Fischertechnik warehouse robot — can also be used in <strong>student projects</strong> as modules for self-defined process implementations. The didactic rationale and an early evaluation of this approach are documented in the project’s first SoTL publication (<a href="./chapter05-projects.html#sec-sotl-cos1326">Projects chapter</a>).</p>
 </section>
-<section id="physical-setup" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="physical-setup"><span class="header-section-number">0.2</span> Physical setup</h2>
-<p>This book documents the <strong>fictional business scenario</strong> and its <strong>physical and software implementation</strong> of the BPA Lab.</p>
+<section id="components-of-the-bpa-lab" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="components-of-the-bpa-lab"><span class="header-section-number">0.2</span> Components of the BPA Lab</h2>
+<p>This book documents the components of the BPA Lab, which are a <strong>fictional business scenario</strong>, <strong>software components</strong>, and its <strong>hardware components</strong>. As depicted in Figure @ref(fig-concept), the lab combines an <strong>end-to-end business scenario</strong>, <strong>software components</strong> (Business Process Management Systems, Robotic Process Automation, Process Mining, ..) with <strong>hardware components</strong> (a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and IoT devices) to simulate the production and logistics processes of a bicycle manufacturer.</p>
 <div id="fig-concept" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-concept-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -471,7 +472,6 @@ Figure&nbsp;1: BPA Lab — Conceptual Architecture
 </figcaption>
 </figure>
 </div>
-<p>As depicted in Figure @ref(fig-concept), the lab combines <strong>software components</strong> (Business Process Management Systems, Robotic Process Automation, Process Mining) with <strong>hardware components</strong> (a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and IoT devices) to simulate the production and logistics processes of a bicycle manufacturer.</p>
 </section>
 <section id="about-this-book" class="level2" data-number="0.3">
 <h2 data-number="0.3" class="anchored" data-anchor-id="about-this-book"><span class="header-section-number">0.3</span> About this book</h2>
