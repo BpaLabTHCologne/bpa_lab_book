@@ -1,0 +1,86 @@
+---
+title: "Projects"
+---
+
+::: {.callout-note}
+## Purpose of this chapter
+The BPA Lab is not only an artefact — it is also a vehicle for **research and teaching projects**. This chapter collects the projects conducted with, or around, the BPA Lab. Each entry summarises the project's motivation, approach, and outcomes, and links to the corresponding publication(s).
+:::
+
+## Teaching Business Process Automation in a Learning Factory (SoTL) {#sec-sotl-cos1326}
+
+**Authors:** Matthias Zapp, Saphira Gonzalez & Domenic Gonzalez (TH Köln)
+**Publication:** *Forschung und Innovation in der Hochschulbildung*, Nr. 25, 2025, Research Paper
+**Publisher:** Cologne Open Science (COS), TH Köln
+**DOI:** [10.57684/COS-1326](https://doi.org/10.57684/COS-1326)
+**Type:** Scholarship of Teaching and Learning (SoTL) publication [@coleman2023sotl]
+
+### Background and motivation
+
+Business Process Automation (BPA) is a socio-technical challenge that requires a diverse set of competences — **technical** (process modelling in BPMN, implementing features in a BPMS, etc.), **methodological** (planning and running automation projects), as well as **social and personal** competences for collaborating with stakeholders from technical and business backgrounds [@nerdinger2008; @schaper2012].
+
+To teach this combination of skills, the bachelor's programme in Business Information Systems at TH Köln uses **Project-Based and Problem-Based Learning (PBL)** [@barrows1996; @chow2021; @dossantos2023]. Students work in teams of around five to six people on automation projects using a BPMS — an approach that creates active learning and practical problem-solving, similar to PBL formats described in the literature [@bandara2010].
+
+However, the authors observed a **persistent gap**: in regular bachelor's courses with around 100 students, project tasks must be simplified so they remain manageable. This unavoidable simplification means students often miss the experience of **integrating automation into a realistic enterprise IT landscape**. A telling classroom observation: on a final-presentation day, one student team was surprised by another team that demonstrated triggering a BPMS from a simulated company web portal — a feature mentioned in lectures, but absent from most project tasks because of the limits of a simplified setting.
+
+### Research question
+
+The paper asks:
+
+> *"To what extent can the use of a learning factory with software and hardware components improve project-oriented and problem-oriented teaching in the field of business process automation?"*
+
+The authors draw on the well-established concept of **learning factories** from engineering education — small, realistic production environments that bridge theoretical knowledge and industrial practice [@abele2024]. While most learning factories are physically large and centred on manufacturing, the BPA Lab is deliberately small-scale, with a stronger focus on **software systems and components** than on hardware.
+
+### The teaching concept
+
+The proposed teaching concept extends the existing PBL format. Instead of working on isolated, simplified scenarios, student teams work on project tasks set in the **fictitious enterprise** represented by the BPA Lab — a customer-specific bicycle manufacturer with end-to-end processes for order processing, production, and shipping. The lab's process, decision, and data models together form a **"digital twin"** of this business scenario.
+
+An illustrative example given in the paper: a project task to design and implement a **shipment process for special goods**, which requires integrating a software component of the BPA Lab dealing with shipment planning (using an external API for route planning) and integrating a **software-hardware module** — the Fischertechnik warehouse robot — to realise the connection with a warehouse management system.
+
+Organisationally, milestone meetings with a "fictitious client" who asks critical questions and gives constructive feedback are added on top of the existing PBL structure.
+
+### Preliminary evaluation
+
+The evaluation was performed in **two phases**.
+
+**Phase 1 — Interviews with bachelor's students.** Students from two previous course cycles were presented with the proposed teaching concept and asked to imagine integrating the learning factory into their project. They reacted very positively, using terms like *"very important", "inspiring", "exciting"* and *"very interesting"*. They emphasised that the lab could make BPA *"less abstract and more tangible"*, deepen understanding through hands-on experience, and promote transfer thinking and motivation. They also identified several requirements: clear instructions and materials, sufficient teaching support, the risk of technical difficulties with hardware, and the importance of integrating the lab thoughtfully into existing modules to avoid overload.
+
+**Phase 2 — Pilot project with master's students.** A project simulation was carried out with **eight master's students** from the *Digital Sciences* programme. Compared to bachelor's students, the participants had comparable BPM knowledge but stronger technical skills and software-development experience. They were asked to solve a project task and assess — from the perspective of bachelor's students — whether the concept could realistically be implemented at that level.
+
+Students overall perceived the opportunities of the concept as **positive**: the practical experience of working with real BPM tools, the learning-by-doing approach, and teamwork on individual challenges were all valued. At the same time, the evaluation revealed **substantial challenges**: complexity of installing and configuring the lab's components, individual problems with hardware/software/network setup, and difficulties in dealing with certain BPMS concepts. Students requested both **lab-specific documentation** and **basic background material** on the underlying technologies.
+
+### Conclusions and consequences for teaching
+
+The authors arrive at a **nuanced conclusion**: the teaching concept as evaluated is **not directly applicable** to the bachelor's course at TH Köln with ~100 participants. The complexity of using the full BPA Lab — combining software development, network and hardware setup — exceeds what can reasonably be supported in a large bachelor's course.
+
+Two practical consequences follow:
+
+1. **For the existing bachelor's course:** the BPA Lab can serve as a **realistic project background** that is demonstrated at the start of the project. The technical project task itself, however, should only be extended carefully — in particular, **integration of hardware components requires more prior knowledge and support** than is feasible. **Pure software components** of the BPA Lab are a more realistic extension.
+
+2. **For future courses:** the lab has potential as the basis of **new elective course formats**, which by design can cover a wider range of learning objectives — from BPM and BPA through to IoT and Cyber-Physical Systems — and allow for a higher student workload.
+
+For BPM educators in general, the paper provides early evidence on the *opportunities*, *challenges*, and *requirements* of using a small-scale learning factory in a BPA course — an approach that is interesting but demanding, both for students and for teaching staff.
+
+### Funding
+
+The underlying teaching project *"Enhancing teaching in the field of business process automation through a learning factory"* was supported by the **Foundation for Innovation in Higher Education** as part of the **REDiEE** project at TH Köln.
+
+### Further reading
+
+- Full paper: [10.57684/COS-1326](https://doi.org/10.57684/COS-1326) (open access, CC BY-NC-ND)
+- TH Köln SoTL programme: <https://www.th-koeln.de/hochschule/scholarship-of-teaching-and-learning-sotl_115776.php>
+- Series *Forschung und Innovation in der Hochschulbildung* (FIHB), Cologne Open Science
+
+## Further projects
+
+Additional research and teaching projects conducted with the BPA Lab will be listed here as they are completed and published. Typical types of entries include:
+
+- **Bachelor's and master's theses** that use the BPA Lab as their experimental platform,
+- **Student projects** that extend the lab with new components or integrate new technologies,
+- **Research publications** that use the lab to validate concepts in business process automation, process mining, or related fields,
+- **Industry collaborations** that build on or contribute to the lab.
+
+::: {.callout-tip}
+## Contributing a project entry
+If you have conducted a project using the BPA Lab and would like it listed here, please open an issue or pull request in the [book repository](https://github.com/BpaLabTHCologne/bpa_lab_book). A short summary in the same structure as the SoTL entry above — *motivation*, *approach*, *outcomes*, *publication link* — is sufficient.
+:::

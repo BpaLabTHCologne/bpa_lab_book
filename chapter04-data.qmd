@@ -55,11 +55,6 @@ This event data is the foundation for **process mining** — a central teaching 
 - **check conformance** between modelled and actual behaviour,
 - **analyse performance** — durations, bottlenecks, rework loops.
 
-::: {.callout-tip}
-## Extension idea
-For process-mining exercises, it is worth writing an event-log export script that converts Camunda 8 data into the **XES** (eXtensible Event Stream) format. This enables direct integration with tools such as ProM, Disco, or PM4Py, and gives students a realistic data pipeline from running process to analytical tool.
-:::
-
 ## Data lifecycle and analytics
 
 Looking at the data lifecycle as a whole:

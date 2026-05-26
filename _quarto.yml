@@ -41,7 +41,7 @@ book:
     - chapter03-business-scenario.qmd
     - chapter04-data.qmd
     - chapter05-architecture.qmd
-    - chapter06-decisions.qmd
+    - chapter06-projects.qmd
   appendices:
     - appendix-a-components.qmd
     - appendix-b-glossary.qmd
