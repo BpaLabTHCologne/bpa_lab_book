@@ -22,7 +22,7 @@ As a *teaching* platform, the BPA Lab is used to support teaching in the field o
 
 ## Components of the BPA Lab
 
-This book documents the components of the BPA Lab, which are a **fictional business scenario**, **software components**, and its **hardware components**. As depicted in Figure \@ref(fig-concept), the lab combines an **end-to-end business scenario**, **software components** (Business Process Management Systems, Robotic Process Automation, Process Mining, ..) with **hardware components** (a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and IoT devices) to simulate the production and logistics processes of a bicycle manufacturer.
+This book documents the components of the BPA Lab, which are a **fictional business scenario**, **software components**, and its **hardware components**. As depicted in the figure, the lab combines an **end-to-end business scenario**, **software components** (Business Process Management Systems, Robotic Process Automation, Process Mining, ..) with **hardware components** (a Fischertechnik Industry 4.0 factory, a Fischertechnik warehouse robot, and IoT devices) to simulate the production and logistics processes of a bicycle manufacturer.
 
 ![BPA Lab — Conceptual Architecture](images/Conceptional_Architecture.png){#fig-concept fig-align="center"}
 
