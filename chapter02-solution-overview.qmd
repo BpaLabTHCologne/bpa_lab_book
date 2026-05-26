@@ -73,3 +73,8 @@ The latest version of the BPA Lab as a runnable **demonstration factory** is ava
 ➡️ [github.com/BpaLabTHCologne/bpa_lab_demonstration_factory](https://github.com/BpaLabTHCologne/bpa_lab_demonstration_factory)
 
 The implementation is fully containerised with **Docker**. This makes local setup straightforward and ensures that the environment is reproducible across different machines — a key requirement when students set up the system on their own laptops.
+
+::: {.callout-tip}
+## Getting started in practice
+If you are setting up the BPA Lab for the first time, start with the `docker-compose.yml` of the demonstration factory and follow the installation guide there. To develop your own components on top of the lab, the [student-docs wiki](https://github.com/BpaLabTHCologne/bpa_lab_student_docs/wiki) provides component-level guides.
+:::
