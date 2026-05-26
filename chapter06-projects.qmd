@@ -7,6 +7,16 @@ title: "Projects"
 The BPA Lab is not only an artefact — it is also a vehicle for **research and teaching projects**. This chapter collects the projects conducted with, or around, the BPA Lab. Each entry summarises the project's motivation, approach, and outcomes, and links to the corresponding publication(s).
 :::
 
+## Overview
+
+The following table gives a quick overview of the projects documented in this chapter. They are listed in the order in which they appear below.
+
+| Project | Authors | Type | Year | Contribution to the BPA Lab |
+|---|---|---|---|---|
+| [Teaching BPA in a Learning Factory](#sec-sotl-cos1326) | Zapp, Gonzalez & Gonzalez | SoTL publication (peer-reviewed) | 2025 | Didactic concept and pilot evaluation of using the BPA Lab as a teaching environment for project- and problem-based learning. |
+| [Data architecture of the BPA Lab](#sec-thesis-gonzalez-2025) | D. Gonzalez | Master's thesis | 2025 | Data-virtualisation layer (Trino), IoT pipeline (Filebeat), and two Grafana dashboards for end-to-end and production-process analysis. |
+| [Human-centred form design in Camunda 8](#sec-thesis-will-2026) | J. Will | Bachelor's thesis | 2026 | BPM-form usability guidelines, a consistent form layout, and redesigned or newly created user-task forms, with usability evaluation. |
+
 ## Teaching Business Process Automation in a Learning Factory (SoTL) {#sec-sotl-cos1326}
 
 **Authors:** Matthias Zapp, Saphira Gonzalez & Domenic Gonzalez (TH Köln)
@@ -71,6 +81,22 @@ The underlying teaching project *"Enhancing teaching in the field of business pr
 - TH Köln SoTL programme: <https://www.th-koeln.de/hochschule/scholarship-of-teaching-and-learning-sotl_115776.php>
 - Series *Forschung und Innovation in der Hochschulbildung* (FIHB), Cologne Open Science
 
+## Designing and Implementing a Data Architecture for the BPA Lab {#sec-thesis-gonzalez-2025}
+
+**Author:** Domenic Gonzalez · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Dietlind Zühlke
+**Type:** Master's thesis, Digital Sciences, TH Köln · **Submitted:** February 2025
+
+### Contribution to the BPA Lab
+
+This thesis adds the **data layer** to the BPA Lab that was previously missing: an architecture and running implementation that makes the heterogeneous data of the lab usable for end-to-end process analysis and monitoring. Concretely, the work contributes:
+
+- A **data architecture based on data virtualisation** using **Trino** as the central distributed query engine — heterogeneous sources (MySQL with order data, Elasticsearch with BPMS event data, FT-factory IoT data) are integrated virtually, allowing combined real-time and historical SQL queries without a separate physical data warehouse.
+- An **IoT-data pipeline** that forwards MQTT messages from the Fischertechnik factory (environmental sensors, machine status, warehouse occupancy) to Elasticsearch via **Filebeat**, making them queryable alongside process data.
+- **Two ready-to-use Grafana dashboards** integrated into the lab:
+  - a **tactical end-to-end dashboard** with process KPIs and visualisations across the full bicycle ordering process (intended for taking process-improvement decisions),
+  - an **operational production dashboard** based on the FT-factory's IoT data, visualised in real time (intended for production-floor decisions).
+- A **systematic requirements catalogue** for data architectures in Industry 4.0 contexts, mapped to the BPA Lab's constraints (small footprint, single host, no high-throughput or strict security requirements). This makes the rationale for design choices traceable and adaptable for follow-up projects.
+
 ## Human-Centred Design of Form-Based User Interfaces in Camunda 8 {#sec-thesis-will-2026}
 
 **Author:** Julian Will · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Raphaela Groten
@@ -78,13 +104,17 @@ The underlying teaching project *"Enhancing teaching in the field of business pr
 
 ### Contribution to the BPA Lab
 
-This thesis delivers a **redesigned set of user-task forms** for the BPA Lab demonstration factory, replacing the previously rudimentary Camunda 8 forms with usability-tested versions. Concretely, the work contributes:
+This thesis delivers a **redesigned set of user-task forms** for the BPA Lab demonstration factory, replacing the previously rudimentary Camunda forms with usability-tested versions. Concretely, the work contributes:
 
 - A **consistent form layout template** — TH Köln header with form title and job role, plus colour-coded message blocks (blue for guidance, red/orange/green for error/warning/confirmation) implemented as reusable HTML views.
-- **BPM-specific usability guidelines** distilled from Nielsen's heuristics, Norman's design principles, and ISO 9241-11/210 — directly applicable to future student projects using Camunda forms.
-- **Redesigned or newly created forms** covering the full bicycle-manufacturer scenario, including four entirely new forms (*Confirm Supply*, *Quality Control*, *Missing Workpiece*, *Factory Failure*) that close previously empty user-task slots.
-- Further **technical extension** e.g. in the shipment process.
+- **Nine BPM-specific usability guidelines** distilled from Nielsen's heuristics, Norman's design principles, and ISO 9241-11/210 — directly applicable to future student projects using Camunda forms.
+- **Ten redesigned or newly created forms** covering the full bicycle-manufacturer scenario, including four entirely new forms (*Confirm Supply*, *Quality Control*, *Missing Workpiece*, *Factory Failure*) that close previously empty user-task slots.
+- A small **technical extension of the shipment process model**: a connector now retrieves warehouse coordinates dynamically rather than hard-coding them in the form.
 - An **empirical baseline** from a usability test with five participants (8 forms, 40 runs, mixed-methods: think-aloud, completion time, success rate, Likert questionnaire) that future revisions can be measured against.
+
+### Outlook
+
+The evaluation identified the *Route Planning* form as the main candidate for rework and suggests follow-up tests focused on keyboard-only operation and screen-reader compatibility.
 
 ## Further projects
 
