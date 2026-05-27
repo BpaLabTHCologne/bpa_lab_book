@@ -32,7 +32,7 @@ This appendix gives an overview of the repositories that together make up the BP
 - all job worker implementations (Java),
 - BPMN and DMN models of the business processes,
 - controller implementations (Python),
-- `docker-compose.yml` for local deployment.
+- docker compose for local deployment with docker.
 
 ### bpa_lab_student_docs
 

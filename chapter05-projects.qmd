@@ -15,7 +15,7 @@ The following table gives a quick overview of the projects documented in this ch
 |---|---|---|---|---|
 | [Teaching BPA in a Learning Factory](#sec-sotl-cos1326) | Zapp, Gonzalez & Gonzalez | SoTL publication (peer-reviewed) | 2025 | Didactic concept and pilot evaluation of using the BPA Lab as a teaching environment for project- and problem-based learning. |
 | [Data architecture of the BPA Lab](#sec-thesis-gonzalez-2025) | D. Gonzalez | Master's thesis | 2025 | Data-virtualisation layer (Trino), IoT pipeline (Filebeat), and two Grafana dashboards for end-to-end and production-process analysis. |
-| [Human-centred form design in Camunda 8](#sec-thesis-will-2026) | J. Will | Bachelor's thesis | 2026 | Nine BPM-form usability guidelines, a consistent form layout, and ten redesigned or newly created user-task forms, with usability evaluation. |
+| [User form design in Camunda 8](#sec-thesis-will-2026) | J. Will | Bachelor's thesis | 2026 | Nine BPM-form usability guidelines, a consistent form layout, and ten redesigned or newly created user-task forms, with usability evaluation. |
 
 ## Teaching Business Process Automation in a Learning Factory (SoTL) {#sec-sotl-cos1326}
 
