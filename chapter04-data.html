@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Process and IOT data – The BPA Lab</title>
+<title>5&nbsp; Data – The BPA Lab</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -252,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter04-data.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Process and IOT data</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter04-data.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -342,7 +342,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter04-data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Process and IOT data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -394,7 +394,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-mysql-data-model" id="toc-the-mysql-data-model" class="nav-link" data-scroll-target="#the-mysql-data-model"><span class="header-section-number">5.2</span> The MySQL data model</a></li>
   <li><a href="#sample-and-master-data" id="toc-sample-and-master-data" class="nav-link" data-scroll-target="#sample-and-master-data"><span class="header-section-number">5.3</span> Sample and master data</a></li>
   <li><a href="#process-data-and-the-foundation-for-process-mining" id="toc-process-data-and-the-foundation-for-process-mining" class="nav-link" data-scroll-target="#process-data-and-the-foundation-for-process-mining"><span class="header-section-number">5.4</span> Process data and the foundation for process mining</a></li>
-  <li><a href="#data-lifecycle-and-analytics" id="toc-data-lifecycle-and-analytics" class="nav-link" data-scroll-target="#data-lifecycle-and-analytics"><span class="header-section-number">5.5</span> Data lifecycle and analytics</a></li>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">5.5</span> Data types</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/edit/main/chapter04-data.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/blob/main/chapter04-data.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -404,7 +404,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Process and IOT data</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data</span></h1>
 </div>
 
 
@@ -482,16 +482,15 @@ Figure&nbsp;5.2: MySQL data model
 <li><strong>analyse performance</strong> — durations, bottlenecks, rework loops.</li>
 </ul>
 </section>
-<section id="data-lifecycle-and-analytics" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="data-lifecycle-and-analytics"><span class="header-section-number">5.5</span> Data lifecycle and analytics</h2>
+<section id="data-types" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="data-types"><span class="header-section-number">5.5</span> Data types</h2>
 <p>Looking at the data lifecycle as a whole:</p>
 <ol type="1">
 <li><strong>Master data</strong> is loaded once when the lab is set up and updated when new products, customers, or vendors are added.</li>
 <li><strong>Operational data</strong> — orders, stock movements, production orders — is created continuously as processes run.</li>
 <li><strong>Event data</strong> is emitted by the workflow engine, the job workers, and the MQTT broker as side effects of process execution.</li>
-<li><strong>Analytical data</strong> is derived from the above by export and transformation pipelines, then fed into process-mining and BI tools.</li>
 </ol>
-<p>This layered view of data is itself a teaching opportunity: it mirrors the classical separation of OLTP and OLAP systems that students will encounter in industry.</p>
+<p><strong>Analytical data</strong> is derived from the above by export and transformation pipelines, then fed into process-mining and BI tools.</p>
 
 
 </section>
