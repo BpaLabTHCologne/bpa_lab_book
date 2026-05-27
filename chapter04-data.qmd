@@ -1,5 +1,5 @@
 ---
-title: "Process and IOT data"
+title: "Data"
 ---
 
 
@@ -47,13 +47,13 @@ This event data is the foundation for **process mining** — a central teaching 
 - **check conformance** between modelled and actual behaviour,
 - **analyse performance** — durations, bottlenecks, rework loops.
 
-## Data lifecycle and analytics
+## Data types 
 
 Looking at the data lifecycle as a whole:
 
 1. **Master data** is loaded once when the lab is set up and updated when new products, customers, or vendors are added.
 2. **Operational data** — orders, stock movements, production orders — is created continuously as processes run.
 3. **Event data** is emitted by the workflow engine, the job workers, and the MQTT broker as side effects of process execution.
-4. **Analytical data** is derived from the above by export and transformation pipelines, then fed into process-mining and BI tools.
 
-This layered view of data is itself a teaching opportunity: it mirrors the classical separation of OLTP and OLAP systems that students will encounter in industry.
+**Analytical data** is derived from the above by export and transformation pipelines, then fed into process-mining and BI tools.
+
