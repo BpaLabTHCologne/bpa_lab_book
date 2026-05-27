@@ -2,9 +2,36 @@
 title: "Solution Overview"
 ---
 
+## A modular, domain-driven design
+
+A key design principle in the BPA Lab is **modularity**. The system aims for aspects of a  **Domain-Driven Design (DDD)** approach so that:
+
+- **multiple students and developers can work in parallel** on different parts of the system without stepping on each other's toes,
+- **components can be reused** in student projects to build new process applications,
+- **components can be replaced or upgraded** independently.
+
+The primary criterion for splitting job workers and process models is the **business domain**:
+
+- Order management
+- Manufacturing
+- Shipping
+- Purchasing
+- Logistics / warehouse operations
+
+This separation aligns with the bounded contexts familiar from DDD and makes the system easier to reason about, both for teachers explaining it and for students extending it.
+
+## A simplified bird's-eye view
+
+The architecture and implementation of the BPA Lab are under continuous development. The following diagram shows the main components of the solution .
+
+![Simplified architecture of the BPA Lab](images/BPALab_Simplified_Arch_240924.png){#fig-simplified fig-align="center"}
+
+The customer-facing entry point is a **user form** (or **web application**= for order capture. From there, work flows downwards through Camunda 8 and the job workers and eventually reaches the physical Fischertechnik components. Events generated along the way flow back upwards and are persisted in databases for later analysis.
+
+
 ## Three architectural layers
 
-The architecture and implementation of the BPA Lab are under continuous development. The solution is structured into three clearly separated layers.
+The solution is structured into three clearly separated layers.
 
 ### Layer 1 — Controllers
 
@@ -30,31 +57,6 @@ The central workflow engine is **Camunda 8 (self-managed)**. It executes:
 
 Camunda 8 maintains the state of each running process instance, handles incidents, and provides the data foundation for process mining and analytics.
 
-## A modular, domain-driven design
-
-A key design principle in the BPA Lab is **modularity**. The system follows a **Domain-Driven Design (DDD)** approach so that:
-
-- **multiple students and developers can work in parallel** on different parts of the system without stepping on each other's toes,
-- **components can be reused** in student projects to build new process applications,
-- **components can be replaced or upgraded** independently.
-
-The primary criterion for splitting job workers and process models is the **business domain**:
-
-- Order management
-- Manufacturing
-- Shipping
-- Purchasing
-- Logistics / warehouse operations
-
-This separation aligns with the bounded contexts familiar from DDD and makes the system easier to reason about, both for teachers explaining it and for students extending it.
-
-## A simplified bird's-eye view
-
-The following diagram summarises the interaction between the three layers and the hardware they ultimately drive.
-
-![Simplified architecture of the BPA Lab](images/BPALab_Simplified_Arch_240924.png){#fig-simplified fig-align="center"}
-
-The customer-facing entry point is typically a **web application** for order capture. From there, work flows downwards through Camunda 8 and the job workers and eventually reaches the physical Fischertechnik components. Events generated along the way flow back upwards and are persisted in databases for later analysis.
 
 ## The demonstration factory implementation
 

@@ -16,7 +16,7 @@ The entire end-to-end process is orchestrated by the **order management process*
 
 The manufacturing processes use the **Fischertechnik Industry 4.0 factory** to post goods receipts of components and to perform the actual manufacturing steps. Order management and shipping additionally use the **distribution warehouse** (a separate Fischertechnik robot) to post goods receipts and goods issues for finished products.
 
-The following sections describe each sub-process in turn. The process models do **not** include technical aspects and show only the **happy path** of execution.
+The following sections describe each sub-process in turn. The process models represent mainly the  **happy path** of execution (to be extended).
 
 ## Order management
 
@@ -78,15 +78,3 @@ The flow is:
 The warehouse operations process governs the flow of finished goods in a distribution warehouse — represented physically by the Fischertechnik warehouse robot.
 
 It starts when a **transfer order** for the warehouse is received from another business process. A transfer order can be either an instruction to **store products** in the warehouse or to **retrieve products** from it.
-
-## Teaching note
-
-::: {.callout-tip}
-## Process landscape as a teaching tool
-This process landscape works well to introduce key BPMN concepts in context:
-
-- **message-based communication** between long-running processes,
-- **boundary events** to handle exceptions raised by job workers,
-- **multi-instance activities** for handling several products in a single order.
-
-:::
