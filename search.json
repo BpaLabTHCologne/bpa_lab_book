@@ -402,56 +402,56 @@
   {
     "objectID": "appendix-a-components.html",
     "href": "appendix-a-components.html",
-    "title": "Appendix A — Components and Sister Repositories",
+    "title": "Appendix A — Repositories and Components",
     "section": "",
     "text": "A.1 Main repositories\nThis appendix gives an overview of the repositories that together make up the BPA Lab ecosystem, and lists the main hardware and software components.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Components and Sister Repositories</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Repositories and Components</span>"
     ]
   },
   {
     "objectID": "appendix-a-components.html#main-repositories",
     "href": "appendix-a-components.html#main-repositories",
-    "title": "Appendix A — Components and Sister Repositories",
+    "title": "Appendix A — Repositories and Components",
     "section": "",
-    "text": "A.1.1 bpa_lab_docs\n➡️ https://github.com/BpaLabTHCologne/bpa_lab_docs\nRole: central documentation and architecture of the BPA Lab as a demonstration factory. The source of the content in this book.\nContains:\n\noverarching architecture diagrams,\nsample data of the Fischertechnik factory,\nBPMN process models (overview),\nC4 architecture diagrams,\nupdated graphics.\n\n\n\nA.1.2 bpa_lab_demonstration_factory\n➡️ https://github.com/BpaLabTHCologne/bpa_lab_demonstration_factory\nRole: current implementation of the demonstration factory. A complete, runnable setup based on Docker.\nContains:\n\nself-managed Camunda 8 setup,\nall job worker implementations (Java),\nBPMN and DMN models of the business processes,\ncontroller implementations (Python),\ndocker-compose.yml for local deployment.\n\n\n\nA.1.3 bpa_lab_student_docs\n➡️ https://github.com/BpaLabTHCologne/bpa_lab_student_docs/wiki\nRole: documentation for student projects. Describes how individual components (e.g. the warehouse robot) can be used in self-developed process implementations.\nContains:\n\nper-component how-to guides,\nexample projects,\nnotes on setting up subsystems independently.",
+    "text": "A.1.1 bpa_lab_docs\n➡️ https://github.com/BpaLabTHCologne/bpa_lab_docs\nRole: former central documentation and architecture of the BPA Lab as a demonstration factory. The source of the content in this book.\nContains:\n\noverarching architecture diagrams,\nsample data of the Fischertechnik factory,\nBPMN process models (overview),\nC4 architecture diagrams,\nupdated graphics.\n\n\n\nA.1.2 bpa_lab_demonstration_factory\n➡️ https://github.com/BpaLabTHCologne/bpa_lab_demonstration_factory\nRole: current implementation of the demonstration factory. A complete, runnable setup based on Docker.\nContains:\n\nself-managed Camunda 8 setup,\nall job worker implementations (Java),\nBPMN and DMN models of the business processes,\ncontroller implementations (Python),\ndocker-compose.yml for local deployment.\n\n\n\nA.1.3 bpa_lab_student_docs\n➡️ https://github.com/BpaLabTHCologne/bpa_lab_student_docs/wiki\nRole: documentation for student projects. Describes how individual components (e.g. the warehouse robot) can be used in self-developed process implementations.\nContains:\n\nper-component how-to guides,\nexample projects,\nnotes on setting up subsystems independently.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Components and Sister Repositories</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Repositories and Components</span>"
     ]
   },
   {
     "objectID": "appendix-a-components.html#hardware-components",
     "href": "appendix-a-components.html#hardware-components",
-    "title": "Appendix A — Components and Sister Repositories",
+    "title": "Appendix A — Repositories and Components",
     "section": "A.2 Hardware components",
     "text": "A.2 Hardware components\n\n\n\n\n\n\n\n\nComponent\nPurpose\nControl\n\n\n\n\nFischertechnik Industry 4.0 factory\nGoods receipt and manufacturing\nPython controller, MQTT\n\n\nFischertechnik warehouse robot\nStorage and retrieval in the distribution warehouse\nPython controller, MQTT\n\n\nIoT devices\nSensor data and supplementary telemetry\nPython controller, MQTT",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Components and Sister Repositories</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Repositories and Components</span>"
     ]
   },
   {
     "objectID": "appendix-a-components.html#software-components",
     "href": "appendix-a-components.html#software-components",
-    "title": "Appendix A — Components and Sister Repositories",
+    "title": "Appendix A — Repositories and Components",
     "section": "A.3 Software components",
-    "text": "A.3 Software components\n\n\n\n\n\n\n\n\nComponent\nTechnology\nMain responsibility\n\n\n\n\nCamunda 8 (self-managed)\nBPMS, based on Zeebe\nWorkflow engine and process orchestration\n\n\nJob workers\nJava, gRPC\nExecution of service tasks\n\n\nControllers\nPython\nHardware control\n\n\nMQTT broker\ne.g. Mosquitto\nAsynchronous communication\n\n\nMySQL\nRelational database\nMaster data and stock data\n\n\nWeb application\nFrontend\nOrder capture and user interaction\n\n\nOpenrouteservice\nExternal API\nDistance and routing calculation in the shipment process",
+    "text": "A.3 Software components\n\n\n\n\n\n\n\n\nComponent\nTechnology\nMain responsibility\n\n\n\n\nCamunda 8 (self-managed)\nBPMS with elasticsearch\nWorkflow engine and process orchestration\n\n\nJob workers\nmostly Java\nExecution of service tasks\n\n\nControllers\nPython\nHardware control\n\n\nMQTT broker\nMQTT broker\nAsynchronous communication\n\n\nMySQL\nRelational database\nMaster data and stock data\n\n\nOpenrouteservice\nExternal API\nDistance and routing calculation in the shipment process",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Components and Sister Repositories</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Repositories and Components</span>"
     ]
   },
   {
     "objectID": "appendix-a-components.html#further-reading",
     "href": "appendix-a-components.html#further-reading",
-    "title": "Appendix A — Components and Sister Repositories",
+    "title": "Appendix A — Repositories and Components",
     "section": "A.4 Further reading",
     "text": "A.4 Further reading\nAs the BPA Lab is under continuous development, it is always worth checking the respective repository READMEs for the most current information.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Components and Sister Repositories</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Repositories and Components</span>"
     ]
   },
   {
