@@ -82,91 +82,81 @@
   {
     "objectID": "chapter01-business-scenario.html",
     "href": "chapter01-business-scenario.html",
-    "title": "2  Business Scenario of the Demonstration Factory",
+    "title": "2  Business Scenario",
     "section": "",
-    "text": "2.1 The implemented scenario\nA bicycle manufacturer offers highly customisable bicycles to consumers.\nThe entire end-to-end process is orchestrated by the order management process, which in turn initiates purchasing, manufacturing, and shipping processes as needed.\nThe manufacturing processes use the Fischertechnik Industry 4.0 factory to post goods receipts of components and to perform the actual manufacturing steps. Order management and shipping additionally use the distribution warehouse (a separate Fischertechnik robot) to post goods receipts and goods issues for finished products.\nThe following sections describe each sub-process in turn. The process models do not include technical aspects and show only the happy path of execution.",
+    "text": "2.1 The implemented business scenario\nIn this chapter, we describe the business scenario that is implemented in the BPA Lab. The scenario is a fictional bicycle manufacturer that offers highly customisable bicycles to consumers. The end-to-end process includes order management, production control, purchasing, manufacturing, shipping, and warehouse operations.\nIn addition complementary business processes are described, which can be used for additional implementation projects, e.g. Agentic AI in business process automation.\nA bicycle manufacturer offers highly customisable bicycles to consumers.\nThe entire end-to-end process is orchestrated by the order management process, which in turn initiates purchasing, manufacturing, and shipping processes as needed.\nThe manufacturing processes use the Fischertechnik Industry 4.0 factory to post goods receipts of components and to perform the actual manufacturing steps. Order management and shipping additionally use the distribution warehouse (a separate Fischertechnik robot) to post goods receipts and goods issues for finished products.\nThe following sections describe each sub-process in turn. The process models represent mainly the happy path of execution (to be extended).",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario</span>"
     ]
   },
   {
-    "objectID": "chapter01-business-scenario.html#the-implemented-scenario",
-    "href": "chapter01-business-scenario.html#the-implemented-scenario",
-    "title": "2  Business Scenario of the Demonstration Factory",
+    "objectID": "chapter01-business-scenario.html#the-implemented-business-scenario",
+    "href": "chapter01-business-scenario.html#the-implemented-business-scenario",
+    "title": "2  Business Scenario",
     "section": "",
     "text": "Figure 2.1: Process landscape of the BPA Lab",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario</span>"
     ]
   },
   {
     "objectID": "chapter01-business-scenario.html#order-management",
     "href": "chapter01-business-scenario.html#order-management",
-    "title": "2  Business Scenario of the Demonstration Factory",
+    "title": "2  Business Scenario",
     "section": "2.2 Order management",
     "text": "2.2 Order management\n\n\n\n\n\n\nFigure 2.2: Order management process\n\n\n\nThe order management process governs the fulfilment of customer orders.\nIt starts when a customer order is entered into a web form, which is pre-filled with product data (bicycle models) from the database. During execution, the availability of the ordered products is checked.\nTwo main scenarios apply:\n\nAll products in stock: the shipping process is triggered directly. Once shipping completes successfully, the process is finished.\nOne or more products out of stock: for each unavailable product, the production control process is triggered, which creates a production order. The production order specifies the required components.\n\nIf the components are also unavailable, a purchasing process is started first.\nOtherwise, the manufacturing process is triggered immediately.\n\n\nOnce the missing products are manufactured, shipping is initiated.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario</span>"
     ]
   },
   {
     "objectID": "chapter01-business-scenario.html#production-control",
     "href": "chapter01-business-scenario.html#production-control",
-    "title": "2  Business Scenario of the Demonstration Factory",
+    "title": "2  Business Scenario",
     "section": "2.3 Production control",
     "text": "2.3 Production control\n\n\n\n\n\n\nFigure 2.3: Production control process\n\n\n\nThe production control process manages the creation and execution of one production order for one product. It determines the component demand and — if needed — triggers a purchasing process to procure the missing components. Once components are available, it triggers the actual manufacturing process.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario</span>"
     ]
   },
   {
     "objectID": "chapter01-business-scenario.html#purchasing",
     "href": "chapter01-business-scenario.html#purchasing",
-    "title": "2  Business Scenario of the Demonstration Factory",
+    "title": "2  Business Scenario",
     "section": "2.4 Purchasing",
     "text": "2.4 Purchasing\n\n\n\n\n\n\nFigure 2.4: Purchasing process\n\n\n\nThe purchasing process manages the procurement of required components. It starts whenever a component is needed and creates a purchase order.\nThe purchase order can be adjusted by the user — for example by selecting a specific vendor. Materials are then stored and stock levels are updated. Upon user confirmation (or after a configurable timeout), the stock level is increased in the inventory database.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario</span>"
     ]
   },
   {
     "objectID": "chapter01-business-scenario.html#manufacturing",
     "href": "chapter01-business-scenario.html#manufacturing",
-    "title": "2  Business Scenario of the Demonstration Factory",
+    "title": "2  Business Scenario",
     "section": "2.5 Manufacturing",
     "text": "2.5 Manufacturing\n\n\n\n\n\n\nFigure 2.5: Manufacturing process\n\n\n\nThe manufacturing process governs the physical manufacturing simulation on the Fischertechnik factory for one item of one product type.\nIt starts after a production order has been created by the production control process and sufficient components are available.\nThe process must place a manufacturing order that produces a new bicycle from the specified material. Before that, however, it must check whether a physical workpiece is already available in the warehouse of the Fischertechnik factory. If not, a physical workpiece must first be transferred to the factory so that the control program can store and recognise it. Once the bicycle has been produced from the material (workpiece), the process is complete.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario</span>"
     ]
   },
   {
     "objectID": "chapter01-business-scenario.html#shipment",
     "href": "chapter01-business-scenario.html#shipment",
-    "title": "2  Business Scenario of the Demonstration Factory",
+    "title": "2  Business Scenario",
     "section": "2.6 Shipment",
     "text": "2.6 Shipment\n\n\n\n\n\n\nFigure 2.6: Shipment process\n\n\n\nThe shipment process manages the dispatch of finished goods to the customer. It is only triggered if a product is in stock and ready to be shipped.\nThe flow is:\n\nShipping data is checked.\nThe distance and duration from the warehouse to the delivery address are computed — the Openrouteservice API is used for this.\nThe logistics sub-process retrieves the customer order from the warehouse.\nA message is sent to the customer to inform them about the dispatch.\nUpon handover of the order to the customer, both the shipping process and the surrounding end-to-end process instance are completed.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario</span>"
     ]
   },
   {
     "objectID": "chapter01-business-scenario.html#warehouse-operations",
     "href": "chapter01-business-scenario.html#warehouse-operations",
-    "title": "2  Business Scenario of the Demonstration Factory",
+    "title": "2  Business Scenario",
     "section": "2.7 Warehouse operations",
     "text": "2.7 Warehouse operations\nThe warehouse operations process governs the flow of finished goods in a distribution warehouse — represented physically by the Fischertechnik warehouse robot.\nIt starts when a transfer order for the warehouse is received from another business process. A transfer order can be either an instruction to store products in the warehouse or to retrieve products from it.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
-    ]
-  },
-  {
-    "objectID": "chapter01-business-scenario.html#teaching-note",
-    "href": "chapter01-business-scenario.html#teaching-note",
-    "title": "2  Business Scenario of the Demonstration Factory",
-    "section": "2.8 Teaching note",
-    "text": "2.8 Teaching note\n\n\n\n\n\n\nTipProcess landscape as a teaching tool\n\n\n\nThis process landscape works well to introduce key BPMN concepts in context:\n\nmessage-based communication between long-running processes,\nboundary events to handle exceptions raised by job workers,\nmulti-instance activities for handling several products in a single order.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario of the Demonstration Factory</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Business Scenario</span>"
     ]
   },
   {
@@ -174,17 +164,7 @@
     "href": "chapter02-solution-overview.html",
     "title": "3  Solution Overview",
     "section": "",
-    "text": "3.1 Three architectural layers\nThe architecture and implementation of the BPA Lab are under continuous development. The solution is structured into three clearly separated layers.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
-    ]
-  },
-  {
-    "objectID": "chapter02-solution-overview.html#three-architectural-layers",
-    "href": "chapter02-solution-overview.html#three-architectural-layers",
-    "title": "3  Solution Overview",
-    "section": "",
-    "text": "3.1.1 Layer 1 — Controllers\nControllers are responsible for the direct control of hardware components: the Fischertechnik Industry 4.0 factory, the Fischertechnik warehouse robots, and IoT devices. They are predominantly implemented in Python and translate high-level commands (for example “transport workpiece from slot A to slot B”) into the low-level signals that move motors and read sensors.\n\n\n3.1.2 Layer 2 — Process applications (job workers)\nProcess applications are middleware components that implement the actual business logic of individual work steps. In Camunda 8 terms, they are job workers: they subscribe to specific service tasks and execute them when activated by the workflow engine.\nJob workers communicate:\n\nwith the workflow engine via gRPC (the standard Camunda 8 / Zeebe protocol),\nwith the controllers via MQTT (a lightweight publish-subscribe protocol that is well established in the IoT space).\n\nProcess applications are predominantly implemented in Java.\n\n\n3.1.3 Layer 3 — BPMS workflow engine\nThe central workflow engine is Camunda 8 (self-managed). It executes:\n\nBPMN process models — describing how work flows through the system,\nDMN decision models — encoding business rules.\n\nCamunda 8 maintains the state of each running process instance, handles incidents, and provides the data foundation for process mining and analytics.",
+    "text": "3.1 A modular, domain-driven design\nA key design principle in the BPA Lab is modularity. The system aims for aspects of a Domain-Driven Design (DDD) approach so that:\nThe primary criterion for splitting job workers and process models is the business domain:\nThis separation aligns with the bounded contexts familiar from DDD and makes the system easier to reason about, both for teachers explaining it and for students extending it.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
     ]
@@ -193,8 +173,8 @@
     "objectID": "chapter02-solution-overview.html#a-modular-domain-driven-design",
     "href": "chapter02-solution-overview.html#a-modular-domain-driven-design",
     "title": "3  Solution Overview",
-    "section": "3.2 A modular, domain-driven design",
-    "text": "3.2 A modular, domain-driven design\nA key design principle in the BPA Lab is modularity. The system follows a Domain-Driven Design (DDD) approach so that:\n\nmultiple students and developers can work in parallel on different parts of the system without stepping on each other’s toes,\ncomponents can be reused in student projects to build new process applications,\ncomponents can be replaced or upgraded independently.\n\nThe primary criterion for splitting job workers and process models is the business domain:\n\nOrder management\nManufacturing\nShipping\nPurchasing\nLogistics / warehouse operations\n\nThis separation aligns with the bounded contexts familiar from DDD and makes the system easier to reason about, both for teachers explaining it and for students extending it.",
+    "section": "",
+    "text": "multiple students and developers can work in parallel on different parts of the system without stepping on each other’s toes,\ncomponents can be reused in student projects to build new process applications,\ncomponents can be replaced or upgraded independently.\n\n\n\nOrder management\nManufacturing\nShipping\nPurchasing\nLogistics / warehouse operations",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
     ]
@@ -203,8 +183,18 @@
     "objectID": "chapter02-solution-overview.html#a-simplified-birds-eye-view",
     "href": "chapter02-solution-overview.html#a-simplified-birds-eye-view",
     "title": "3  Solution Overview",
-    "section": "3.3 A simplified bird’s-eye view",
-    "text": "3.3 A simplified bird’s-eye view\nThe following diagram summarises the interaction between the three layers and the hardware they ultimately drive.\n\n\n\n\n\n\nFigure 3.1: Simplified architecture of the BPA Lab\n\n\n\nThe customer-facing entry point is typically a web application for order capture. From there, work flows downwards through Camunda 8 and the job workers and eventually reaches the physical Fischertechnik components. Events generated along the way flow back upwards and are persisted in databases for later analysis.",
+    "section": "3.2 A simplified bird’s-eye view",
+    "text": "3.2 A simplified bird’s-eye view\nThe architecture and implementation of the BPA Lab are under continuous development. The following diagram shows the main components of the solution .\n\n\n\n\n\n\nFigure 3.1: Simplified architecture of the BPA Lab\n\n\n\nThe customer-facing entry point is a user form (or web application= for order capture. From there, work flows downwards through Camunda 8 and the job workers and eventually reaches the physical Fischertechnik components. Events generated along the way flow back upwards and are persisted in databases for later analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02-solution-overview.html#three-architectural-layers",
+    "href": "chapter02-solution-overview.html#three-architectural-layers",
+    "title": "3  Solution Overview",
+    "section": "3.3 Three architectural layers",
+    "text": "3.3 Three architectural layers\nThe solution is structured into three clearly separated layers.\n\n3.3.1 Layer 1 — Controllers\nControllers are responsible for the direct control of hardware components: the Fischertechnik Industry 4.0 factory, the Fischertechnik warehouse robots, and IoT devices. They are predominantly implemented in Python and translate high-level commands (for example “transport workpiece from slot A to slot B”) into the low-level signals that move motors and read sensors.\n\n\n3.3.2 Layer 2 — Process applications (job workers)\nProcess applications are middleware components that implement the actual business logic of individual work steps. In Camunda 8 terms, they are job workers: they subscribe to specific service tasks and execute them when activated by the workflow engine.\nJob workers communicate:\n\nwith the workflow engine via gRPC (the standard Camunda 8 / Zeebe protocol),\nwith the controllers via MQTT (a lightweight publish-subscribe protocol that is well established in the IoT space).\n\nProcess applications are predominantly implemented in Java.\n\n\n3.3.3 Layer 3 — BPMS workflow engine\nThe central workflow engine is Camunda 8 (self-managed). It executes:\n\nBPMN process models — describing how work flows through the system,\nDMN decision models — encoding business rules.\n\nCamunda 8 maintains the state of each running process instance, handles incidents, and provides the data foundation for process mining and analytics.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
     ]
