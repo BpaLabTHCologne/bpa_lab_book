@@ -1,8 +1,12 @@
 ---
-title: "Business Scenario of the Demonstration Factory"
+title: "Business Scenario"
 ---
 
-## The implemented scenario
+In this chapter, we describe the **business scenario** that is implemented in the BPA Lab. The scenario is a fictional bicycle manufacturer that offers highly customisable bicycles to consumers. The end-to-end process includes order management, production control, purchasing, manufacturing, shipping, and warehouse operations.
+
+In addition complementary business processes are described, which can be used for additional implementation projects, e.g. Agentic AI in business process automation.
+
+## The implemented business scenario
 
 **A bicycle manufacturer offers highly customisable bicycles to consumers.**
 
