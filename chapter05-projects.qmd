@@ -88,11 +88,11 @@ The underlying teaching project *"Enhancing teaching in the field of business pr
 
 ### Contribution to the BPA Lab
 
-This thesis adds the **data layer** to the BPA Lab that was previously missing: an architecture and running implementation that makes the heterogeneous data of the lab usable for end-to-end process analysis and monitoring. Concretely, the work contributes:
+This thesis adds the **data architecture** to the BPA Lab that was previously missing: an architecture and running implementation that makes the heterogeneous data of the lab usable for end-to-end process analysis and monitoring. Concretely, the work contributes:
 
 - A **data architecture based on data virtualisation** using **Trino** as the central distributed query engine — heterogeneous sources (MySQL with order data, Elasticsearch with BPMS event data, FT-factory IoT data) are integrated virtually, allowing combined real-time and historical SQL queries without a separate physical data warehouse.
 - An **IoT-data pipeline** that forwards MQTT messages from the Fischertechnik factory (environmental sensors, machine status, warehouse occupancy) to Elasticsearch via **Filebeat**, making them queryable alongside process data.
-- **Two ready-to-use Grafana dashboards** integrated into the lab:
+- **Grafana dashboards** integrated into the lab:
   - a **tactical end-to-end dashboard** with process KPIs and visualisations across the full bicycle ordering process (intended for taking process-improvement decisions),
   - an **operational production dashboard** based on the FT-factory's IoT data, visualised in real time (intended for production-floor decisions).
 - A **systematic requirements catalogue** for data architectures in Industry 4.0 contexts, mapped to the BPA Lab's constraints (small footprint, single host, no high-throughput or strict security requirements). This makes the rationale for design choices traceable and adaptable for follow-up projects.
@@ -104,17 +104,13 @@ This thesis adds the **data layer** to the BPA Lab that was previously missing: 
 
 ### Contribution to the BPA Lab
 
-This thesis delivers a **redesigned set of user-task forms** for the BPA Lab demonstration factory, replacing the previously rudimentary Camunda forms with usability-tested versions. Concretely, the work contributes:
+This thesis delivered a **redesigned set of user-task forms** for the BPA Lab demonstration factory, replacing the previously rudimentary Camunda forms with usability-tested versions. Concretely, the work contributes:
 
-- A **consistent form layout template** — TH Köln header with form title and job role, plus colour-coded message blocks (blue for guidance, red/orange/green for error/warning/confirmation) implemented as reusable HTML views.
-- **Nine BPM-specific usability guidelines** distilled from Nielsen's heuristics, Norman's design principles, and ISO 9241-11/210 — directly applicable to future student projects using Camunda forms.
-- **Ten redesigned or newly created forms** covering the full bicycle-manufacturer scenario, including four entirely new forms (*Confirm Supply*, *Quality Control*, *Missing Workpiece*, *Factory Failure*) that close previously empty user-task slots.
-- A small **technical extension of the shipment process model**: a connector now retrieves warehouse coordinates dynamically rather than hard-coding them in the form.
+- A **consistent layout template** — TH Köln header with form title and job role, plus colour-coded message blocks (blue for guidance, red/orange/green for error/warning/confirmation) implemented as reusable HTML views.
+- **BPM-specific usability guidelines** distilled from Nielsen's heuristics, Norman's design principles, and ISO 9241-11/210 — directly applicable to future student projects using Camunda forms.
+- **redesigned or newly created forms** covering the full bicycle-manufacturer scenario, including four entirely new forms (*Confirm Supply*, *Quality Control*, *Missing Workpiece*, *Factory Failure*) that close previously empty user-task slots.
+- small **technical extensions**, e.g. a connector now retrieves warehouse coordinates dynamically rather than hard-coding them in the form.
 - An **empirical baseline** from a usability test with five participants (8 forms, 40 runs, mixed-methods: think-aloud, completion time, success rate, Likert questionnaire) that future revisions can be measured against.
-
-### Outlook
-
-The evaluation identified the *Route Planning* form as the main candidate for rework and suggests follow-up tests focused on keyboard-only operation and screen-reader compatibility.
 
 ## Further projects
 
