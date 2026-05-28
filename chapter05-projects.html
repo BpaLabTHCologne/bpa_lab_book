@@ -65,9 +65,9 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-be10ca297efbf376f2bf1412ee340523.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-92a16fae468a92c612bbff4689d635c9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-2af6d8613f3a329e8091e05f50d1e4bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-92a16fae468a92c612bbff4689d635c9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4eb1e31b5ec7bf3f6074c40df27748f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-3083781b6b3d864093b3059673259cb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-4eb1e31b5ec7bf3f6074c40df27748f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -427,7 +427,6 @@ div.csl-indent {
   <li><a href="#sec-thesis-will-2026" id="toc-sec-thesis-will-2026" class="nav-link" data-scroll-target="#sec-thesis-will-2026"><span class="header-section-number">6.4</span> Human-Centred Design of Form-Based User Interfaces in Camunda 8</a>
   <ul class="collapse">
   <li><a href="#contribution-to-the-bpa-lab-1" id="toc-contribution-to-the-bpa-lab-1" class="nav-link" data-scroll-target="#contribution-to-the-bpa-lab-1"><span class="header-section-number">6.4.1</span> Contribution to the BPA Lab</a></li>
-  <li><a href="#outlook" id="toc-outlook" class="nav-link" data-scroll-target="#outlook"><span class="header-section-number">6.4.2</span> Outlook</a></li>
   </ul></li>
   <li><a href="#further-projects" id="toc-further-projects" class="nav-link" data-scroll-target="#further-projects"><span class="header-section-number">6.5</span> Further projects</a></li>
   </ul>
@@ -498,7 +497,7 @@ div.csl-indent {
 <td>Data-virtualisation layer (Trino), IoT pipeline (Filebeat), and two Grafana dashboards for end-to-end and production-process analysis.</td>
 </tr>
 <tr class="odd">
-<td><a href="#sec-thesis-will-2026">Human-centred form design in Camunda 8</a></td>
+<td><a href="#sec-thesis-will-2026">User form design in Camunda 8</a></td>
 <td>J. Will</td>
 <td>Bachelor’s thesis</td>
 <td>2026</td>
@@ -565,11 +564,11 @@ div.csl-indent {
 <p><strong>Author:</strong> Domenic Gonzalez · <strong>Supervisor:</strong> Prof.&nbsp;Dr.&nbsp;Matthias Zapp · <strong>Second supervisor:</strong> Prof.&nbsp;Dr.&nbsp;Dietlind Zühlke <strong>Type:</strong> Master’s thesis, Digital Sciences, TH Köln · <strong>Submitted:</strong> February 2025</p>
 <section id="contribution-to-the-bpa-lab" class="level3" data-number="6.3.1">
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="contribution-to-the-bpa-lab"><span class="header-section-number">6.3.1</span> Contribution to the BPA Lab</h3>
-<p>This thesis adds the <strong>data layer</strong> to the BPA Lab that was previously missing: an architecture and running implementation that makes the heterogeneous data of the lab usable for end-to-end process analysis and monitoring. Concretely, the work contributes:</p>
+<p>This thesis adds the <strong>data architecture</strong> to the BPA Lab that was previously missing: an architecture and running implementation that makes the heterogeneous data of the lab usable for end-to-end process analysis and monitoring. Concretely, the work contributes:</p>
 <ul>
 <li>A <strong>data architecture based on data virtualisation</strong> using <strong>Trino</strong> as the central distributed query engine — heterogeneous sources (MySQL with order data, Elasticsearch with BPMS event data, FT-factory IoT data) are integrated virtually, allowing combined real-time and historical SQL queries without a separate physical data warehouse.</li>
 <li>An <strong>IoT-data pipeline</strong> that forwards MQTT messages from the Fischertechnik factory (environmental sensors, machine status, warehouse occupancy) to Elasticsearch via <strong>Filebeat</strong>, making them queryable alongside process data.</li>
-<li><strong>Two ready-to-use Grafana dashboards</strong> integrated into the lab:
+<li><strong>Grafana dashboards</strong> integrated into the lab:
 <ul>
 <li>a <strong>tactical end-to-end dashboard</strong> with process KPIs and visualisations across the full bicycle ordering process (intended for taking process-improvement decisions),</li>
 <li>an <strong>operational production dashboard</strong> based on the FT-factory’s IoT data, visualised in real time (intended for production-floor decisions).</li>
@@ -583,18 +582,14 @@ div.csl-indent {
 <p><strong>Author:</strong> Julian Will · <strong>Supervisor:</strong> Prof.&nbsp;Dr.&nbsp;Matthias Zapp · <strong>Second supervisor:</strong> Prof.&nbsp;Dr.&nbsp;Raphaela Groten <strong>Type:</strong> Bachelor’s thesis, Business Information Systems, TH Köln · <strong>Submitted:</strong> January 2026</p>
 <section id="contribution-to-the-bpa-lab-1" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="contribution-to-the-bpa-lab-1"><span class="header-section-number">6.4.1</span> Contribution to the BPA Lab</h3>
-<p>This thesis delivers a <strong>redesigned set of user-task forms</strong> for the BPA Lab demonstration factory, replacing the previously rudimentary Camunda forms with usability-tested versions. Concretely, the work contributes:</p>
+<p>This thesis delivered a <strong>redesigned set of user-task forms</strong> for the BPA Lab demonstration factory, replacing the previously rudimentary Camunda forms with usability-tested versions. Concretely, the work contributes:</p>
 <ul>
-<li>A <strong>consistent form layout template</strong> — TH Köln header with form title and job role, plus colour-coded message blocks (blue for guidance, red/orange/green for error/warning/confirmation) implemented as reusable HTML views.</li>
-<li><strong>Nine BPM-specific usability guidelines</strong> distilled from Nielsen’s heuristics, Norman’s design principles, and ISO 9241-11/210 — directly applicable to future student projects using Camunda forms.</li>
-<li><strong>Ten redesigned or newly created forms</strong> covering the full bicycle-manufacturer scenario, including four entirely new forms (<em>Confirm Supply</em>, <em>Quality Control</em>, <em>Missing Workpiece</em>, <em>Factory Failure</em>) that close previously empty user-task slots.</li>
-<li>A small <strong>technical extension of the shipment process model</strong>: a connector now retrieves warehouse coordinates dynamically rather than hard-coding them in the form.</li>
+<li>A <strong>consistent layout template</strong> — TH Köln header with form title and job role, plus colour-coded message blocks (blue for guidance, red/orange/green for error/warning/confirmation) implemented as reusable HTML views.</li>
+<li><strong>BPM-specific usability guidelines</strong> distilled from Nielsen’s heuristics, Norman’s design principles, and ISO 9241-11/210 — directly applicable to future student projects using Camunda forms.</li>
+<li><strong>redesigned or newly created forms</strong> covering the full bicycle-manufacturer scenario, including four entirely new forms (<em>Confirm Supply</em>, <em>Quality Control</em>, <em>Missing Workpiece</em>, <em>Factory Failure</em>) that close previously empty user-task slots.</li>
+<li>small <strong>technical extensions</strong>, e.g.&nbsp;a connector now retrieves warehouse coordinates dynamically rather than hard-coding them in the form.</li>
 <li>An <strong>empirical baseline</strong> from a usability test with five participants (8 forms, 40 runs, mixed-methods: think-aloud, completion time, success rate, Likert questionnaire) that future revisions can be measured against.</li>
 </ul>
-</section>
-<section id="outlook" class="level3" data-number="6.4.2">
-<h3 data-number="6.4.2" class="anchored" data-anchor-id="outlook"><span class="header-section-number">6.4.2</span> Outlook</h3>
-<p>The evaluation identified the <em>Route Planning</em> form as the main candidate for rework and suggests follow-up tests focused on keyboard-only operation and screen-reader compatibility.</p>
 </section>
 </section>
 <section id="further-projects" class="level2" data-number="6.5">
