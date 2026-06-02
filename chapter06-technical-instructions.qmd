@@ -4,7 +4,7 @@ title: "Operational Instructions"
 
 ## Purpose of this chapter
 
-This chapter provides selected **operational instructions** for running, configuring, and monitoring the BPA Lab demonstration factory. While the preceding chapters describe *what* the BPA Lab is, this chapter describes *how* to configure anbd use it.
+This chapter provides selected **operational instructions** for running, configuring, and monitoring the BPA Lab demonstration factory. While the preceding chapters describe *what* the BPA Lab is, this chapter describes *how* to configure anbd use it. The instructions are not complete but rather focus on selected aspects that are particularly relevant for the demonstration factory. 
 
 The instructions are organised into four sections:
 
@@ -39,17 +39,14 @@ The *productive environment* refers to the setup in which the process applicatio
 
     Use the touchscreen of the TXT controller and go to **File**. Click on the folder **`ThKBpaLabFactory`**, then on the file **`ThKBpaLabFactory.py`**. Afterwards, click **Load**. The program can then be started via the red button on the touchscreen showing **`ThKBpaLabFactory`**.
 
-    ::: {.callout-warning}
     The program must run **continuously** during execution and should not be switched on and off. If it has to be stopped and restarted, follow the instructions under *Factory does not send MQTT messages* below.
-    :::
+    
 
 6. Connect the workstation computer to the BPA Lab network:
 
     - **5a. Using the BPA Lab computer:** the computer must be **connected to the local BPA Lab network via WLAN** and must be given **internet access via a LAN connection**. Use the LAN connection box **`A07`**.
 
-        ::: {.callout-note}
-        The LAN connection must be activated individually for each computer. At the moment, the LAN connection only works with the BPA Lab computer.
-        :::
+       The LAN connection must be activated individually for each computer. At the moment, the LAN connection only works with the BPA Lab computer.
 
     - **5b. Using another computer:** two WLAN adapters are recommended. One connects to the **local BPA Lab network**, the second one provides **internet access** (e.g. eduroam).
 
@@ -88,21 +85,14 @@ Regularly clean up old process instances. Use **Operate** at [http://localhost:8
 
 **2.** In the Camunda Tasklist, click on the user task **"choose bikes"**. If the task is not yet assigned, click on **"Assign to me"**. Enter the required parameters and complete the user task by clicking **"Complete Task"**.
 
-**3.** Wait a few seconds, then execute the next user task **"Create production order"** in the same way as in step 2.
+**3.** Wait a few seconds, then execute the next user task  (... to be continued)
 
-**4.** Wait for the next user task **"Place order"** and assign it to yourself. **This is the key step where the test and the productive environment differ:**
+::: {.callout-note}
+## Status of documentation 
+Update of user guide for the new release is required.
+:::
 
-- **Test environment:** any colour (blue, red, or white) can be selected in *"Werkstück auswählen"*. Complete the user task.
-
-- **Productive environment:** before completing the *"Place order"* user task, any workpiece (blue, red, or white) must be physically transferred to the factory so that it can be stored first. Verify on the touchscreen of the TXT controller that the factory has stored the workpiece (the corresponding workpiece must be displayed as available). Then select the corresponding colour in *"Werkstück auswählen"* and complete the user task. The factory will now run its physical simulation of the production process. **Wait until the factory has finished** before proceeding to step 5.
-
-**5.** Execute the next user task **"Show order"** in the same way.
-
-**6.** Execute the next user task **"Check production order"**.
-
-**7.** Execute the next user task **"Check shipping information"**.
-
-**8.** Execute the final user task **"Check information"**. The end-to-end process instance should now be completed, and Operate should no longer show any running instances.
+The end-to-end process instance should now be completed, and Operate should no longer show any running instances.
 
 ## First-time configuration of the data architecture
 
