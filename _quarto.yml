@@ -41,6 +41,7 @@ book:
     - chapter03-architecture.qmd
     - chapter04-data.qmd
     - chapter05-projects.qmd
+    - chapter06-technical-instructions.qmd
   appendices:
     - appendix-a-components.qmd
     - appendix-b-glossary.qmd

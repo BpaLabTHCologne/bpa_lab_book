@@ -50,6 +50,7 @@ This book s structured as follows:
 3. **Software architecture:** Requirements, a C4 view of the system, and the architecture decisions taken so far.
 4. **Data and data sources:** Data model, data flows, and persistence in the BPA Lab.
 5. **Projects:** Research and teaching projects conducted using the BPA Lab.
+6. **Technical instructions:** Operational instructions for running the demonstration factory, executing end-to-end processes, and configuring and using the data architecture.
 
 The appendices contain:
 
