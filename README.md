@@ -2,7 +2,7 @@
 
 Online book documenting the architecture and operation of the **Business Process Automation Lab (BPA Lab)** at TH Köln (University of Applied Sciences).
 
-Content is based on the [bpa_lab_docs](https://github.com/BpaLabTHCologne/bpa_lab_docs) repository and is published as a book in HTML, PDF, and ePub format using [Quarto](https://quarto.org/).
+Content is published as a book in HTML, PDF, and ePub format using [Quarto](https://quarto.org/).
 
 **Author:** Matthias Zapp, TH Köln
 
