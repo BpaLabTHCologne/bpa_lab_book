@@ -476,7 +476,7 @@ Figure&nbsp;3.1: Simplified architecture of the BPA Lab
 <p><strong>Process applications</strong> are middleware components that implement the actual business logic of individual work steps. In Camunda 8 terms, they are <strong>job workers</strong>: they subscribe to specific service tasks and execute them when activated by the workflow engine.</p>
 <p>Job workers communicate:</p>
 <ul>
-<li>with the <strong>workflow engine</strong> via <strong>gRPC</strong> (the standard Camunda 8 / Zeebe protocol),</li>
+<li>with the <strong>workflow engine</strong> via <strong>Rest</strong> or <strong>gRPC</strong> APIs,</li>
 <li>with the <strong>controllers</strong> via <strong>MQTT</strong> (a lightweight publish-subscribe protocol that is well established in the IoT space).</li>
 </ul>
 <p>Process applications are predominantly implemented in <strong>Java</strong>.</p>
@@ -506,7 +506,7 @@ Figure&nbsp;3.1: Simplified architecture of the BPA Lab
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you are setting up the BPA Lab for the first time, start with the <code>docker-compose.yml</code> of the demonstration factory and follow the installation guide there. To develop your own components on top of the lab, the <a href="https://github.com/BpaLabTHCologne/bpa_lab_student_docs/wiki">student-docs wiki</a> provides component-level guides.</p>
+<p>If you are setting up the BPA Lab for the first time, follow the installation guide in (<a href="./chapter06-technical-instructions.html">Technical Instructions</a>).</p>
 </div>
 </div>
 
