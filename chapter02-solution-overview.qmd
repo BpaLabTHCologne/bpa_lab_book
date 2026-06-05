@@ -43,7 +43,7 @@ The solution is structured into three clearly separated layers.
 
 Job workers communicate:
 
-- with the **workflow engine** via **gRPC** (the standard Camunda 8 / Zeebe protocol),
+- with the **workflow engine** via **Rest** or **gRPC** APIs,
 - with the **controllers** via **MQTT** (a lightweight publish-subscribe protocol that is well established in the IoT space).
 
 Process applications are predominantly implemented in **Java**.
@@ -68,5 +68,5 @@ The implementation is fully containerised with **Docker**. This makes local setu
 
 ::: {.callout-tip}
 ## Getting started in practice
-If you are setting up the BPA Lab for the first time, start with the `docker-compose.yml` of the demonstration factory and follow the installation guide there. To develop your own components on top of the lab, the [student-docs wiki](https://github.com/BpaLabTHCologne/bpa_lab_student_docs/wiki) provides component-level guides.
+If you are setting up the BPA Lab for the first time, follow the installation guide in ([Technical Instructions](chapter06-technical-instructions.qmd)). 
 :::

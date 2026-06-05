@@ -37,9 +37,11 @@ The didactic rationale and an early evaluation of this approach are documented i
 
 ## Components of the BPA Lab
 
-This book documents the main components of the BPA Lab, which are a **fictional business scenario** and **software and hardware components** as depicted in the figure. In addition, projects executed in the BPA Lab are documented in the [Projects chapter](chapter05-projects.qmd).
+The BPA Lab is built around a **fictional business scenario** (see [Business Scenario](chapter01-business-scenario.qmd)), which is represented by a set of process, decision, and data models. This scenario is implemented through **business process automation systems** (see [Solution Overview](chapter02-solution-overview.qmd)). As part of the implementation, hardware components are also controlled.
 
-![BPA Lab — Conceptual Architecture](images/Conceptional_Architecture.png){#fig-concept fig-align="center"}
+![BPA Lab — Conceptual Architecture](images/Conceptual_Architecture.png){#fig-concept fig-align="center"}
+
+Building on these components, several projects have been carried out and are documented in the [Projects](chapter05-projects.qmd) chapter.
 
 ## Structure of this book
 
