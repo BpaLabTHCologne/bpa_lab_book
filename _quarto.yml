@@ -39,7 +39,7 @@ book:
     - chapter01-business-scenario.qmd
     - chapter02-solution-overview.qmd
     - chapter03-architecture.qmd
-    - chapter04-data.qmd
+    - chapter04-data-architecture.qmd
     - chapter05-projects.qmd
     - chapter06-technical-instructions.qmd
   appendices:
