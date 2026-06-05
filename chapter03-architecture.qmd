@@ -144,8 +144,6 @@ Each decision follows a lightweight **ADR** (Architecture Decision Record) schem
 - existing solution available in the project,
 - greater flexibility than the connectors available at the time of the decision.
 
-## Going deeper
-
 ::: {.callout-tip}
 ## Further reading
 The original sources on the C4 model — including examples, decision records, and tools like [Structurizr](https://structurizr.com/) — are available at <https://c4model.com/>. For a deeper dive into Domain-Driven Design as the principle behind the modular separation, see Evans [@evans2003ddd].
