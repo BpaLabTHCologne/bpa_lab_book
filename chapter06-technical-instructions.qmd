@@ -13,10 +13,12 @@ The instructions are organised into four sections:
 3. **First-time configuration of the data architecture** — one-time setup of Elasticsearch and Grafana that is required after an initial installation or reinstallation of the system to enable the data-driven process analysis.
 4. **Using the data architecture for process analysis and monitoring** — overview of the data architecture and how to access the Grafana dashboards for data-driven process analysis.
 
-::: {.callout-important}
-## Prerequisites
-The instructions assume that the BPA Lab system has been installed according to the README of the [bpa_lab_demonstration_factory repository](https://github.com/BpaLabTHCologne/bpa_lab_demonstration_factory). Docker and Docker Compose must be installed and operational on the host.
-:::
+
+## Installing and running the solution
+
+The instructions to install and run the BPA Lab solution (software only) are described in the README of the [bpa_lab_demonstration_factory repository](https://github.com/BpaLabTHCologne/bpa_lab_demonstration_factory). 
+
+The following instructions in this chapter are building upon those.
 
 ## Working with the productive environment of the model factory
 
