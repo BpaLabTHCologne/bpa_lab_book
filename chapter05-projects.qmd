@@ -152,7 +152,7 @@ This thesis delivered a **redesigned set of user-task forms** for the BPA Lab de
 ::: {.callout-tip}
 ## Get involved
 
-**Companies and researchers:** If you are interested in collaborating with the BPA Lab — whether as an industry partner contributing real-world scenarios, or as a researcher exploring joint projects in business process automation an analytics, or related fields — we welcome your enquiry. Please contact [Prof. Dr. Matthias Zapp](mailto:matthias.zapp@th-koeln.de).
+**Companies and researchers:** If you are interested in collaborating with the BPA Lab — whether as an industry partner contributing real-world scenarios, or as a researcher exploring joint projects in business process automation an analytics, or related fields — we welcome your enquiry. Please contact Prof. Dr. Matthias Zapp.
 
 **Students:** If you would like to conduct your bachelor's or master's thesis, or a semester project, in the context of the BPA Lab, please reach out as well. Typical topics include extending the lab's software or hardware components, applying BPA methods and technologies, or applying process analytics to the lab's data.
 :::
