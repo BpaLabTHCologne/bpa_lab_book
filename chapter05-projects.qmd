@@ -4,7 +4,7 @@ title: "Projects"
 
 ::: {.callout-note}
 ## Purpose of this chapter
-The BPA Lab is not only an artefact — it is also a vehicle for **research and teaching projects**. This chapter collects the projects conducted with, or around, the BPA Lab. Each entry summarises the project's motivation, approach, and outcomes, and links to the corresponding publication(s).
+The BPA Lab is not only an artefact — it is also a vehicle for **research and teaching projects**. This chapter collects  projects conducted with, or around, the BPA Lab. Each entry summarises the project's motivation, approach, and main outcomes. IT is not a complete list of all projects, but rather a curated selection that illustrates the lab's potential as a research and teaching platform.
 :::
 
 ## Overview
@@ -13,9 +13,11 @@ The following table gives a quick overview of the projects documented in this ch
 
 | Project | Authors | Type | Year | Contribution to the BPA Lab |
 |---|---|---|---|---|
-| [Teaching BPA in a Learning Factory](#sec-sotl-cos1326) | Zapp, Gonzalez & Gonzalez | SoTL publication (peer-reviewed) | 2025 | Didactic concept and pilot evaluation of using the BPA Lab as a teaching environment for project- and problem-based learning. |
+| [Teaching BPA in a Learning Factory](#sec-sotl-cos1326) | Zapp, Gonzalez & Gonzalez | SoTL publication (peer-reviewed) | 2025 | Teaching concept and pilot evaluation of using the BPA Lab as a teaching environment for project- and problem-based learning. |
+| [System Architecture for a Modular BPA Learning Factory](#sec-thesis-iyebi-2023) | J. P. Iyebi Itomb | Master's thesis | 2023 | Modular system architecture for the BPA Lab based on Domain-Driven Design and Camunda 8 |
 | [Data architecture of the BPA Lab](#sec-thesis-gonzalez-2025) | D. Gonzalez | Master's thesis | 2025 | Data-virtualisation layer (Trino), IoT pipeline (Filebeat), and two Grafana dashboards for end-to-end and production-process analysis. |
-| [User form design in Camunda 8](#sec-thesis-will-2026) | J. Will | Bachelor's thesis | 2026 | Nine BPM-form usability guidelines, a consistent form layout, and ten redesigned or newly created user-task forms, with usability evaluation. |
+| [Integrating IoT Data into Process Mining](#sec-thesis-kuecuek-2026) | B. Kücük | Master's thesis | 2026 | Integration of workflow event data with IoT data in event logs |
+| [User form design in Camunda 8](#sec-thesis-will-2026) | J. Will | Bachelor's thesis | 2026 | BPM-form usability guidelines, a consistent form layout, and redesigned or newly created user-task forms, with usability evaluation. |
 
 ## Teaching Business Process Automation in a Learning Factory (SoTL) {#sec-sotl-cos1326}
 
@@ -47,17 +49,17 @@ The proposed teaching concept extends the existing PBL format. Instead of workin
 
 An illustrative example given in the paper: a project task to design and implement a **shipment process for special goods**, which requires integrating a software component of the BPA Lab dealing with shipment planning (using an external API for route planning) and integrating a **software-hardware module** — the Fischertechnik warehouse robot — to realise the connection with a warehouse management system.
 
-Organisationally, milestone meetings with a "fictitious client" who asks critical questions and gives constructive feedback are added on top of the existing PBL structure.
+Organisationally, milestone meetings with a "fictitious client" who asks critical questions and gives constructive feedback are incorporated into the existing PBL structure.
 
 ### Preliminary evaluation
 
 The evaluation was performed in **two phases**.
 
-**Phase 1 — Interviews with bachelor's students.** Students from two previous course cycles were presented with the proposed teaching concept and asked to imagine integrating the learning factory into their project. They reacted very positively, using terms like *"very important", "inspiring", "exciting"* and *"very interesting"*. They emphasised that the lab could make BPA *"less abstract and more tangible"*, deepen understanding through hands-on experience, and promote transfer thinking and motivation. They also identified several requirements: clear instructions and materials, sufficient teaching support, the risk of technical difficulties with hardware, and the importance of integrating the lab thoughtfully into existing modules to avoid overload.
+**Phase 1 — Interviews with bachelor's students.** Students from two previous course cycles were presented with the proposed teaching concept and asked to imagine integrating the learning factory into their project. They reacted very positively, using terms like *"very important", "inspiring", "exciting"* and *"very interesting"*. They emphasised that the lab could make BPA *"less abstract and more tangible"*, deepen understanding through hands-on experience, and foster transfer of learning and motivation. They also identified several requirements and concerns: clear instructions and materials, sufficient teaching support, concerns about hardware reliability, and the importance of integrating the lab thoughtfully into existing modules to avoid overload.
 
-**Phase 2 — Pilot project with master's students.** A project simulation was carried out with **eight master's students** from the *Digital Sciences* programme. Compared to bachelor's students, the participants had comparable BPM knowledge but stronger technical skills and software-development experience. They were asked to solve a project task and assess — from the perspective of bachelor's students — whether the concept could realistically be implemented at that level.
+**Phase 2 — Pilot project with master's students.** A project simulation was carried out with **eight master's students** from the *Digital Sciences* programme. Compared to bachelor's students, the participants had similar BPM knowledge but stronger technical skills and software-development experience. They were asked to solve a project task and assess — from the perspective of bachelor's students — whether the concept could realistically be implemented at that level.
 
-Students overall perceived the opportunities of the concept as **positive**: the practical experience of working with real BPM tools, the learning-by-doing approach, and teamwork on individual challenges were all valued. At the same time, the evaluation revealed **substantial challenges**: complexity of installing and configuring the lab's components, individual problems with hardware/software/network setup, and difficulties in dealing with certain BPMS concepts. Students requested both **lab-specific documentation** and **basic background material** on the underlying technologies.
+Overall, students viewed the concept's opportunities as **positive**: the practical experience of working with real BPM tools, the learning-by-doing approach, and collaborative work on specific challenges were all valued. At the same time, the evaluation revealed **substantial challenges**: complexity of installing and configuring the lab's components, individual problems with hardware/software/network setup, and difficulties in dealing with certain BPMS concepts. Students requested both **lab-specific documentation** and **basic background material** on the underlying technologies.
 
 ### Conclusions and consequences for teaching
 
@@ -81,9 +83,26 @@ The underlying teaching project *"Enhancing teaching in the field of business pr
 - TH Köln SoTL programme: <https://www.th-koeln.de/hochschule/scholarship-of-teaching-and-learning-sotl_115776.php>
 - Series *Forschung und Innovation in der Hochschulbildung* (FIHB), Cologne Open Science
 
+## System Architecture for a Modular BPA Learning Factory {#sec-thesis-iyebi-2023}
+
+**Author:** J. P. Iyebi Itomb · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Christian Kohls
+**Type:** Master's thesis, Digital Sciences – Software Architecture, TH Köln · **Submitted:** October 2023
+
+### Contribution to the BPA Lab
+
+This thesis developed and implemented a **modular system architecture** for the BPA Lab, enabling multiple student groups to work independently on different aspects of process automation and analysis without interfering with each other. Concretely, the work contributes:
+
+- A **Domain-Driven Design (DDD)-based decomposition** of the BPA Lab scenario into seven business domains — Order Entry, Order Management, Logistics, Shipment, Production Execution, Purchasing, and Shopfloor — each modelled as an independent Bounded Context with its own BPMN process model.
+- A **three-layer system architecture** (documented as C4 context, container, and component diagrams) comprising a control layer for IoT/hardware control, a communication layer (MQTT broker and distribution application), and a business process layer with domain-specific Camunda 8 applications.
+- **Migration from Camunda 7 to Camunda 8 Self-Managed**, including a Docker Compose-based deployment and a rewrite of the Job Worker implementation to communicate with the Zeebe engine via gRPC.
+- **Event-driven inter-domain communication** using BPMN message events and Camunda Webhook connectors, enabling process domains to exchange control signals (e.g., triggering production planning from order management) while remaining loosely coupled.
+- **Containerised Job Workers** grouped by domain, reducing the setup effort for students to Docker Desktop only.
+
+The evaluation confirms that the architecture effectively supports modular, independent development in teaching projects. Process analytics was identified as a direction for further development, with Camunda 8's Optimize component providing REST access to process data for future process mining integration.
+
 ## Designing and Implementing a Data Architecture for the BPA Lab {#sec-thesis-gonzalez-2025}
 
-**Author:** Domenic Gonzalez · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Dietlind Zühlke
+**Author:** D. Gonzalez · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Dietlind Zühlke
 **Type:** Master's thesis, Digital Sciences, TH Köln · **Submitted:** February 2025
 
 ### Contribution to the BPA Lab
@@ -97,9 +116,26 @@ This thesis adds the **data architecture** to the BPA Lab that was previously mi
   - an **operational production dashboard** based on the FT-factory's IoT data, visualised in real time (intended for production-floor decisions).
 - A **systematic requirements catalogue** for data architectures in Industry 4.0 contexts, mapped to the BPA Lab's constraints (small footprint, single host, no high-throughput or strict security requirements). This makes the rationale for design choices traceable and adaptable for follow-up projects.
 
+## Integrating IoT Data into Process Mining in an Industry 4.0 Environment {#sec-thesis-kuecuek-2026}
+
+**Author:** B. Kücük · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Dietlind Zühlke
+**Type:** Master's thesis, Digital Sciences, TH Köln · **Submitted:** May 2026
+
+### Contribution to the BPA Lab
+
+This thesis adds a **proof-of-concept integration pipeline** for IoT-enhanced process mining to the BPA Lab. It connects the workflow event data recorded by Camunda/Zeebe with the MQTT-based IoT observations produced by the Fischertechnik factory layer, making physical factory evidence accessible to process mining tools. Concretely, the work contributes:
+
+- A **consolidated requirements catalogue** for IoT-enhanced process mining in Industry 4.0 settings, derived from literature and the BPA Lab context, covering event log readiness, semantic interpretation, timestamp validation, case correlation, and traceability.
+- A **staged hybrid integration approach** that preserves a clean workflow-only event log as a baseline while selectively incorporating IoT observations — either as contextual attributes enriching existing workflow events, or as IoT-derived event rows added to the process timeline.
+- **Five complementary event log artefacts**: a cleaned baseline workflow event log, a structured IoT event log, an IoT-enriched workflow event log, a derived IoT event log, and a final combined event log containing both workflow and IoT-derived events with explicit source and correlation metadata.
+- A **Python-based prototype pipeline** (implemented in Jupyter notebooks) that prepares, maps, and integrates workflow and MQTT data; documented in the thesis appendix for reuse in follow-up projects.
+- An **evaluation in Celonis** comparing the workflow-only baseline with the combined event log, demonstrating that IoT data can make production-floor behavior visible and reveal mismatches between workflow execution and physical factory behavior — while also quantifying the limitations introduced by timestamp uncertainty, missing shared case identifiers, and rule-based case correlation.
+
+The evaluation confirms that IoT-enhanced process mining is feasible within the BPA Lab setting and analytically useful, but requires careful semantic interpretation and transparent handling of correlation uncertainty. The thesis builds directly on the data architecture established in the Gonzalez 2025 thesis and provides a foundation for future live-monitoring extensions of the lab.
+
 ## Human-Centred Design of Form-Based User Interfaces in Camunda 8 {#sec-thesis-will-2026}
 
-**Author:** Julian Will · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Raphaela Groten
+**Author:** J. Will · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Raphaela Groten
 **Type:** Bachelor's thesis, Business Information Systems, TH Köln · **Submitted:** January 2026
 
 ### Contribution to the BPA Lab
@@ -108,20 +144,15 @@ This thesis delivered a **redesigned set of user-task forms** for the BPA Lab de
 
 - A **consistent layout template** — TH Köln header with form title and job role, plus colour-coded message blocks (blue for guidance, red/orange/green for error/warning/confirmation) implemented as reusable HTML views.
 - **BPM-specific usability guidelines** distilled from Nielsen's heuristics, Norman's design principles, and ISO 9241-11/210 — directly applicable to future student projects using Camunda forms.
-- **redesigned or newly created forms** covering the full bicycle-manufacturer scenario, including four entirely new forms (*Confirm Supply*, *Quality Control*, *Missing Workpiece*, *Factory Failure*) that close previously empty user-task slots.
-- small **technical extensions**, e.g. a connector now retrieves warehouse coordinates dynamically rather than hard-coding them in the form.
-- An **empirical baseline** from a usability test with five participants (8 forms, 40 runs, mixed-methods: think-aloud, completion time, success rate, Likert questionnaire) that future revisions can be measured against.
+- **Redesigned or newly created forms** covering the full bicycle-manufacturer scenario, including four entirely new forms (*Confirm Supply*, *Quality Control*, *Missing Workpiece*, *Factory Failure*) that close previously empty user-task slots.
+- Small **technical extensions**, e.g. a connector now retrieves warehouse coordinates dynamically rather than hard-coding them in the form.
+- An **empirical baseline** from a usability test with five participants (8 forms, 40 runs, mixed-methods: think-aloud, completion time, success rate, Likert-scale questionnaire) that future revisions can be measured against.
 
-## Further projects
-
-Additional research and teaching projects conducted with the BPA Lab will be listed here as they are completed and published. Typical types of entries include:
-
-- **Bachelor's and master's theses** that use the BPA Lab as their experimental platform,
-- **Student projects** that extend the lab with new components or integrate new technologies,
-- **Research publications** that use the lab to validate concepts in business process automation, process mining, or related fields,
-- **Industry collaborations** that build on or contribute to the lab.
 
 ::: {.callout-tip}
-## Contributing a project entry
-If you have conducted a project using the BPA Lab and would like it listed here, please open an issue or pull request in the [book repository](https://github.com/BpaLabTHCologne/bpa_lab_book). A short summary in the same structure as the SoTL entry above — *motivation*, *approach*, *outcomes*, *publication link* — is sufficient.
+## Get involved
+
+**Companies and researchers:** If you are interested in collaborating with the BPA Lab — whether as an industry partner contributing real-world scenarios, or as a researcher exploring joint projects in business process automation an analytics, or related fields — we welcome your enquiry. Please contact [Prof. Dr. Matthias Zapp](mailto:matthias.zapp@th-koeln.de).
+
+**Students:** If you would like to conduct your bachelor's or master's thesis, or a semester project, in the context of the BPA Lab, please reach out as well. Typical topics include extending the lab's software or hardware components, applying BPA methods and technologies, or applying process analytics to the lab's data.
 :::
