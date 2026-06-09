@@ -36,7 +36,7 @@ This appendix gives an overview of the repositories that together make up the BP
 
 ### bpa_lab_student_docs
 
-➡️ <https://github.com/BpaLabTHCologne/bpa_lab_student_docs/wiki>
+➡️ <https://github.com/BpaLabTHCologne/bpa_lab_student_docs>
 
 **Role:** documentation for student projects. Describes how individual components (e.g. the warehouse robot) can be used in self-developed process implementations.
 

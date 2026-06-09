@@ -113,45 +113,45 @@ These configurations ensure that the timestamp fields of the event data recorded
 
 **2.** Open Kibana and enter **Index Management** in the search bar, then click on it.
 
-![Search for *Index Management* in Kibana](images/wiki/01-kibana-index-management-search.png){#fig-cfg-01 fig-align="center"}
+![Search for *Index Management* in Kibana](images/wiki/01-kibana-index-management-search.png){#fig-cfg-01 fig-align="center" width="90%"}
 
 **3.** Click on the **Index Templates** tab.
 
-![Open the *Index Templates* tab](images/wiki/02-kibana-index-templates-tab.png){#fig-cfg-02 fig-align="center"}
+![Open the *Index Templates* tab](images/wiki/02-kibana-index-templates-tab.png){#fig-cfg-02 fig-align="center" width="80%"}
 
 **4.** Enter **`operate-flownode`** in the search box and click the corresponding index template.
 
-![Search for `operate-flownode`](images/wiki/03-kibana-operate-flownode-search.png){#fig-cfg-03 fig-align="center"}
+![Search for `operate-flownode`](images/wiki/03-kibana-operate-flownode-search.png){#fig-cfg-03 fig-align="center" width="80%"}
 
 **5.** A side window opens. Click on **Manage**, then on **Edit**.
 
-![Open the template for editing via *Manage → Edit*](images/wiki/04-kibana-template-manage-edit.png){#fig-cfg-04 fig-align="center"}
+![Open the template for editing via *Manage → Edit*](images/wiki/04-kibana-template-manage-edit.png){#fig-cfg-04 fig-align="center" width="55%"}
 
 **6.** Click on **Mappings**.
 
-![Switch to the *Mappings* step](images/wiki/05-kibana-mappings-tab.png){#fig-cfg-05 fig-align="center"}
+![Switch to the *Mappings* step](images/wiki/05-kibana-mappings-tab.png){#fig-cfg-05 fig-align="center" width="80%"}
 
 **7.** Enter **`date`** in the search box and edit the **`endDate`** field.
 
-![Search for `date` and edit the date fields](images/wiki/06-kibana-date-search-endDate.png){#fig-cfg-06 fig-align="center"}
+![Search for `date` and edit the date fields](images/wiki/06-kibana-date-search-endDate.png){#fig-cfg-06 fig-align="center" width="75%"}
 
 **8.** A side window opens. **Disable** the *Set format* toggle and click **Update**.
 
-![Disable *Set format* and click *Update*](images/wiki/07-kibana-endDate-set-format-update.png){#fig-cfg-07 fig-align="center"}
+![Disable *Set format* and click *Update*](images/wiki/07-kibana-endDate-set-format-update.png){#fig-cfg-07 fig-align="center" width="45%"}
 
 **9.** Repeat the previous step for the **`startDate`** field.
 
 **10.** After adjusting both `endDate` and `startDate`, click **Review template**, then **Save template** to apply the changes.
 
-![Review and save the updated template](images/wiki/08-kibana-review-save-template.png){#fig-cfg-08 fig-align="center"}
+![Review and save the updated template](images/wiki/08-kibana-review-save-template.png){#fig-cfg-08 fig-align="center" width="75%"}
 
 **11.** After customising the index template, the index itself must be **deleted** so that a new index is automatically created based on the updated template during operation. Click on the **Indices** tab, search for **`operate-flownode`**, and click on it.
 
-![Return to *Indices* and search for `operate-flownode`](images/wiki/09-kibana-back-to-indices.png){#fig-cfg-09 fig-align="center"}
+![Return to *Indices* and search for `operate-flownode`](images/wiki/09-kibana-back-to-indices.png){#fig-cfg-09 fig-align="center" width="75%"}
 
 **12.** A side window opens. Click on **Manage**, then on **Delete index**.
 
-![Delete the existing `operate-flownode` index](images/wiki/10-kibana-delete-index.png){#fig-cfg-10 fig-align="center"}
+![Delete the existing `operate-flownode` index](images/wiki/10-kibana-delete-index.png){#fig-cfg-10 fig-align="center" width="55%"}
 
 The Elasticsearch configuration is now complete. Kibana can be closed.
 
@@ -165,49 +165,49 @@ After configuring Elasticsearch, the remaining setup happens in Grafana so that 
 
 **3.** A *Update your password* screen appears. Click **Skip** to continue without changing the password.
 
-![Skip the password update](images/wiki/11-grafana-skip-password.png){#fig-cfg-11 fig-align="center"}
+![Skip the password update](images/wiki/11-grafana-skip-password.png){#fig-cfg-11 fig-align="center" width="40%"}
 
 **4.** Open the side menu in the upper-left corner. Click on **Connections**, then on **Add new connection**.
 
-![Open *Connections → Add new connection*](images/wiki/12-grafana-add-new-connection.png){#fig-cfg-12 fig-align="center"}
+![Open *Connections → Add new connection*](images/wiki/12-grafana-add-new-connection.png){#fig-cfg-12 fig-align="center" width="35%"}
 
 **5.** Search for **`Trino`** in the search bar and click on the result.
 
-![Search for the Trino connector](images/wiki/13-grafana-trino-connection.png){#fig-cfg-13 fig-align="center"}
+![Search for the Trino connector](images/wiki/13-grafana-trino-connection.png){#fig-cfg-13 fig-align="center" width="45%"}
 
 **6.** Click **Install** in the upper-right corner.
 
 **7.** After installation, open the side menu again and navigate to **Connections → Data sources**.
 
-![Open *Connections → Data sources*](images/wiki/14-grafana-data-sources.png){#fig-cfg-14 fig-align="center"}
+![Open *Connections → Data sources*](images/wiki/14-grafana-data-sources.png){#fig-cfg-14 fig-align="center" width="30%"}
 
 **8.** Click **Add new data source** in the upper-right corner.
 
 **9.** Search for **`Trino`** and click on it.
 
-![Add a new Trino data source](images/wiki/15-grafana-add-trino-data-source.png){#fig-cfg-15 fig-align="center"}
+![Add a new Trino data source](images/wiki/15-grafana-add-trino-data-source.png){#fig-cfg-15 fig-align="center" width="70%"}
 
 **10.** Configure the Trino data source: set **URL** to `http://trino:8080` and click **Save & test**. The connection should be established successfully.
 
-![Configure the Trino data source](images/wiki/16-grafana-trino-configure.png){#fig-cfg-16 fig-align="center"}
+![Configure the Trino data source](images/wiki/16-grafana-trino-configure.png){#fig-cfg-16 fig-align="center" width="40%"}
 
 **11.** Open the side menu and click **Dashboards**.
 
-![Open *Dashboards* in the side menu](images/wiki/17-grafana-dashboards-menu.png){#fig-cfg-17 fig-align="center"}
+![Open *Dashboards* in the side menu](images/wiki/17-grafana-dashboards-menu.png){#fig-cfg-17 fig-align="center" width="35%"}
 
 **12.** Click **New → Import**.
 
-![Import a dashboard](images/wiki/18-grafana-new-import.png){#fig-cfg-18 fig-align="center"}
+![Import a dashboard](images/wiki/18-grafana-new-import.png){#fig-cfg-18 fig-align="center" width="90%"}
 
 **13.** Import one of the dashboards located in the **`grafana_dashboards`** folder of your locally cloned `bpa_lab_demonstration_factory` project. The dashboards must be imported **individually**.
 
 **14.** When opening a freshly imported dashboard, no data appears at first and each panel shows an error icon. To resolve this, enter **edit mode**, hover over a panel, click the **menu (three dots)**, and select **Edit**.
 
-![Edit a panel via the panel menu](images/wiki/19-grafana-panel-edit.png){#fig-cfg-19 fig-align="center"}
+![Edit a panel via the panel menu](images/wiki/19-grafana-panel-edit.png){#fig-cfg-19 fig-align="center" width="70%"}
 
 **15.** Click **Refresh** — the error icon disappears. Each panel of each dashboard must be refreshed once in this manner.
 
-![Refresh the panel](images/wiki/20-grafana-panel-refresh.png){#fig-cfg-20 fig-align="center"}
+![Refresh the panel](images/wiki/20-grafana-panel-refresh.png){#fig-cfg-20 fig-align="center" width="80%"}
 
 The data architecture and dashboards should now be fully configured and ready to use.
 
@@ -218,7 +218,7 @@ The data architecture and dashboards should now be fully configured and ready to
 
 The data architecture combines three source systems — process applications (MySQL), the BPMS (Elasticsearch), and the FT factory (MQTT broker) — into a unified, queryable layer based on data virtualisation with Trino. Grafana sits on top and provides the dashboards.
 
-![Prototype of the BPA Lab data architecture](images/wiki/21-data-architecture-prototype.png){#fig-data-arch fig-align="center"}
+![Prototype of the BPA Lab data architecture](images/wiki/21-data-architecture-prototype.png){#fig-data-arch fig-align="center" width="70%"}
 
 ### Overview of the available data
 
@@ -234,7 +234,7 @@ The factory publishes a variety of MQTT messages on different topics. A subset o
 
 Example logs of the *manufacturing* and *stock in* scenarios are available in the [sample data folder](https://github.com/BpaLabTHCologne/bpa_lab_docs/tree/main/Sample_data) of the `bpa_lab_docs` repository.
 
-![Data sources, categories, and data objects in the BPA Lab](images/wiki/22-data-overview.png){#fig-data-overview-tech fig-align="center"}
+![Data sources, categories, and data objects in the BPA Lab](images/wiki/22-data-overview.png){#fig-data-overview-tech fig-align="center" width="90%"}
 
 ### How to use Grafana
 
@@ -248,8 +248,8 @@ The instructions below assume that the *first-time configuration of the data arc
 
 **3.** A *Update your password* screen appears. Click **Skip**.
 
-![Skip the password update](images/wiki/11-grafana-skip-password.png){#fig-use-skip fig-align="center"}
+![Skip the password update](images/wiki/11-grafana-skip-password.png){#fig-use-skip fig-align="center" width="40%"}
 
 **4.** Open the **Dashboards** area via the side menu. The dashboards should already be listed there. Click on any dashboard to open it.
 
-![Open the *Dashboards* area](images/wiki/17-grafana-dashboards-menu.png){#fig-use-dashboards fig-align="center"}
+![Open the *Dashboards* area](images/wiki/17-grafana-dashboards-menu.png){#fig-use-dashboards fig-align="center" width="35%"}
