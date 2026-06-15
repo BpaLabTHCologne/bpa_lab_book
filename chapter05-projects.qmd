@@ -16,8 +16,6 @@ The following table gives a quick overview of the projects documented in this ch
 | [Teaching BPA in a Learning Factory](#sec-sotl-cos1326) | Zapp, Gonzalez & Gonzalez | SoTL publication (peer-reviewed) | 2025 | Teaching concept and pilot evaluation of using the BPA Lab as a teaching environment for project- and problem-based learning. |
 | [System Architecture for a Modular BPA Learning Factory](#sec-thesis-iyebi-2023) | J. P. Iyebi Itomb | Master's thesis | 2023 | Modular system architecture for the BPA Lab based on Domain-Driven Design and Camunda 8 |
 | [Data architecture of the BPA Lab](#sec-thesis-gonzalez-2025) | D. Gonzalez | Master's thesis | 2025 | Data-virtualisation layer (Trino), IoT pipeline (Filebeat), and two Grafana dashboards for end-to-end and production-process analysis. |
-| [Integrating IoT Data into Process Mining](#sec-thesis-kuecuek-2026) | B. Kücük | Master's thesis | 2026 | Integration of workflow event data with IoT data in event logs |
-| [User form design in Camunda 8](#sec-thesis-will-2026) | J. Will | Bachelor's thesis | 2026 | BPM-form usability guidelines, a consistent form layout, and redesigned or newly created user-task forms, with usability evaluation. |
 
 ## Teaching Business Process Automation in a Learning Factory (SoTL) {#sec-sotl-cos1326}
 
@@ -115,38 +113,6 @@ This thesis adds the **data architecture** to the BPA Lab that was previously mi
   - a **tactical end-to-end dashboard** with process KPIs and visualisations across the full bicycle ordering process (intended for taking process-improvement decisions),
   - an **operational production dashboard** based on the FT-factory's IoT data, visualised in real time (intended for production-floor decisions).
 - A **systematic requirements catalogue** for data architectures in Industry 4.0 contexts, mapped to the BPA Lab's constraints (small footprint, single host, no high-throughput or strict security requirements). This makes the rationale for design choices traceable and adaptable for follow-up projects.
-
-## Integrating IoT Data into Process Mining in an Industry 4.0 Environment {#sec-thesis-kuecuek-2026}
-
-**Author:** B. Kücük · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Dietlind Zühlke
-**Type:** Master's thesis, Digital Sciences, TH Köln · **Submitted:** May 2026
-
-### Contribution to the BPA Lab
-
-This thesis adds a **proof-of-concept integration pipeline** for IoT-enhanced process mining to the BPA Lab. It connects the workflow event data recorded by Camunda/Zeebe with the MQTT-based IoT observations produced by the Fischertechnik factory layer, making physical factory evidence accessible to process mining tools. Concretely, the work contributes:
-
-- A **consolidated requirements catalogue** for IoT-enhanced process mining in Industry 4.0 settings, derived from literature and the BPA Lab context, covering event log readiness, semantic interpretation, timestamp validation, case correlation, and traceability.
-- A **staged hybrid integration approach** that preserves a clean workflow-only event log as a baseline while selectively incorporating IoT observations — either as contextual attributes enriching existing workflow events, or as IoT-derived event rows added to the process timeline.
-- **Five complementary event log artefacts**: a cleaned baseline workflow event log, a structured IoT event log, an IoT-enriched workflow event log, a derived IoT event log, and a final combined event log containing both workflow and IoT-derived events with explicit source and correlation metadata.
-- A **Python-based prototype pipeline** (implemented in Jupyter notebooks) that prepares, maps, and integrates workflow and MQTT data; documented in the thesis appendix for reuse in follow-up projects.
-- An **evaluation in Celonis** comparing the workflow-only baseline with the combined event log, demonstrating that IoT data can make production-floor behavior visible and reveal mismatches between workflow execution and physical factory behavior — while also quantifying the limitations introduced by timestamp uncertainty, missing shared case identifiers, and rule-based case correlation.
-
-The evaluation confirms that IoT-enhanced process mining is feasible within the BPA Lab setting and analytically useful, but requires careful semantic interpretation and transparent handling of correlation uncertainty. The thesis builds directly on the data architecture established in the Gonzalez 2025 thesis and provides a foundation for future live-monitoring extensions of the lab.
-
-## Human-Centred Design of Form-Based User Interfaces in Camunda 8 {#sec-thesis-will-2026}
-
-**Author:** J. Will · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Raphaela Groten
-**Type:** Bachelor's thesis, Business Information Systems, TH Köln · **Submitted:** January 2026
-
-### Contribution to the BPA Lab
-
-This thesis delivered a **redesigned set of user-task forms** for the BPA Lab demonstration factory, replacing the previously rudimentary Camunda forms with usability-tested versions. Concretely, the work contributes:
-
-- A **consistent layout template** — TH Köln header with form title and job role, plus colour-coded message blocks (blue for guidance, red/orange/green for error/warning/confirmation) implemented as reusable HTML views.
-- **BPM-specific usability guidelines** distilled from Nielsen's heuristics, Norman's design principles, and ISO 9241-11/210 — directly applicable to future student projects using Camunda forms.
-- **Redesigned or newly created forms** covering the full bicycle-manufacturer scenario, including four entirely new forms (*Confirm Supply*, *Quality Control*, *Missing Workpiece*, *Factory Failure*) that close previously empty user-task slots.
-- Small **technical extensions**, e.g. a connector now retrieves warehouse coordinates dynamically rather than hard-coding them in the form.
-- An **empirical baseline** from a usability test with five participants (8 forms, 40 runs, mixed-methods: think-aloud, completion time, success rate, Likert-scale questionnaire) that future revisions can be measured against.
 
 
 ::: {.callout-tip}
