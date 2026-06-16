@@ -565,6 +565,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="7.5.1" class="anchored" data-anchor-id="configurations-in-elasticsearch-via-kibana"><span class="header-section-number">7.5.1</span> Configurations in Elasticsearch via Kibana</h3>
 <p>These configurations ensure that the timestamp fields of the event data recorded by Camunda are correctly mapped into the virtual tables via Trino.</p>
 <p><strong>1.</strong> After starting the system via Docker Compose (see the project README), Kibana becomes available at <a href="http://localhost:5601">http://localhost:5601</a> after some time.</p>
+<p><strong>1.1</strong> shutdown operate</p>
 <p><strong>2.</strong> Open Kibana and enter <strong>Index Management</strong> in the search bar, then click on it.</p>
 <div id="fig-cfg-01" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -677,6 +678,7 @@ Figure&nbsp;7.10: Delete the existing <code>operate-flownode</code> index
 </figure>
 </div>
 <p>The Elasticsearch configuration is now complete. Kibana can be closed.</p>
+<p><strong>13.</strong> Restart Operate to rebuild the deleted index</p>
 </section>
 <section id="configurations-in-grafana" class="level3" data-number="7.5.2">
 <h3 data-number="7.5.2" class="anchored" data-anchor-id="configurations-in-grafana"><span class="header-section-number">7.5.2</span> Configurations in Grafana</h3>
