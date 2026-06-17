@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "The BPA Lab"
+  title: "Business Process Automation Lab"
   subtitle: "Architecture and Documentation of a Demonstration Factory for Business Process Automation and Analytics"
   author:
     - name: "Matthias Zapp"
@@ -29,7 +29,7 @@ book:
   page-footer:
     background: light
     left: |
-      Zapp, Matthias (2026). *The BPA Lab — Architecture and Documentation of a Demonstration Factory for Business Process Automation and Analytics.*
+      Zapp, Matthias (2026). *Business Process Automation Lab — Architecture and Documentation of a Demonstration Factory for Business Process Automation and Analytics.*
       Licence: CC BY-SA 4.0. Online: <https://bpalabthcologne.github.io/bpa_lab_book/>.
     right:
       - icon: github
