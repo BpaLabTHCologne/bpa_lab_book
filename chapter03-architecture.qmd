@@ -57,7 +57,7 @@ The architecture is documented using the **C4 model** [@brown2018c4] — a notat
 
 ### Context diagram
 
-The context diagram shows the BPA Lab in relation to its users and external systems.
+The context diagram shows the BPA Lab in relation to its users and external systems. It is a conceptual diagram that abstracts away from actual technical implementation of interfaces.
 
 ![C4 context diagram](images/c4-contextDiagram.drawio.png){#fig-c4-context fig-align="center"}
 
