@@ -111,6 +111,8 @@ These configurations ensure that the timestamp fields of the event data recorded
 
 **1.** After starting the system via Docker Compose (see the project README), Kibana becomes available at [http://localhost:5601](http://localhost:5601) after some time.
 
+**1.1** shutdown operate
+
 **2.** Open Kibana and enter **Index Management** in the search bar, then click on it.
 
 ![Search for *Index Management* in Kibana](images/wiki/01-kibana-index-management-search.png){#fig-cfg-01 fig-align="center" width="90%"}
@@ -154,6 +156,8 @@ These configurations ensure that the timestamp fields of the event data recorded
 ![Delete the existing `operate-flownode` index](images/wiki/10-kibana-delete-index.png){#fig-cfg-10 fig-align="center" width="55%"}
 
 The Elasticsearch configuration is now complete. Kibana can be closed.
+
+**13.** Restart Operate to rebuild the deleted index
 
 ### Configurations in Grafana
 
