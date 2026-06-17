@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Business Process Automation Lab"
-  subtitle: "Architecture and Documentation of a Demonstration Factory for Business Process Automation and Analytics"
+  subtitle: "Documentation of a Demonstration Factory for Business Process Automation and Analytics"
   author:
     - name: "Matthias Zapp"
       affiliation: "TH Köln (University of Applied Sciences)"
