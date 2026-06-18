@@ -114,7 +114,7 @@
     "href": "chapter02-solution-overview.html",
     "title": "3  Solution Overview",
     "section": "",
-    "text": "3.1 A modular, domain-driven design\nA key design principle in the BPA Lab is modularity. The system aims for aspects of a Domain-Driven Design (DDD) approach so that:\nThe primary criterion for splitting job workers and process models is the business domain:\nThis separation aligns with the bounded contexts familiar from DDD and makes the system easier to reason about, both for teachers explaining it and for students extending it.",
+    "text": "3.1 A modular, domain-driven design\nA key design principle in the BPA Lab is modularity. The system aims for aspects of a Domain-Driven Design (DDD) approach so that:\nThe primary criterion for splitting job workers and process models is the business domain:\nThis separation is inspired by the bounded contexts familiar from DDD and makes the system easier to reason about, both for teachers explaining it and for students extending it.\nThe DDD concept is obviously not implemented to full extend, since the BPA Lab uses a central Business Process Management System instance (running separated processes communicated via messages) to orchestrate the entire process and a central database to ensure data persistence.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Solution Overview</span>"
     ]
