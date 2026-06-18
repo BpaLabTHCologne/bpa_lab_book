@@ -448,7 +448,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Logistics / warehouse operations</li>
 </ul>
 <p>This separation is inspired by the bounded contexts familiar from DDD and makes the system easier to reason about, both for teachers explaining it and for students extending it.</p>
-<p>The DDD concept is obviously not implemented to full extend, since the BPA Lab uses a central Business Process Management System instance (running separated processes communicated via messages) to orchestrate the entire process and a central database to ensure data persistence.</p>
+<p>The DDD concept is not implemented to full extend, since the BPA Lab uses a central Business Process Management System instance (running separated processes communicated via messages) to orchestrate the entire process and a central database to ensure data persistence.</p>
 </section>
 <section id="a-simplified-birds-eye-view" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="a-simplified-birds-eye-view"><span class="header-section-number">3.2</span> A simplified bird’s-eye view</h2>
@@ -463,7 +463,7 @@ Figure&nbsp;3.1: Simplified architecture of the BPA Lab
 </figcaption>
 </figure>
 </div>
-<p>The customer-facing entry point is a <strong>user form</strong> (or <strong>web application</strong>= for order capture. From there, work flows downwards through Camunda 8 and the job workers and eventually reaches the physical Fischertechnik components. Events generated along the way flow back upwards and are persisted in databases for later analysis.</p>
+<p>The customer-facing entry point is a <strong>user form</strong> (or <strong>web application</strong>) for order capture. From there, work flows downwards through Camunda 8 and the job workers and eventually reaches the physical Fischertechnik components. Events generated along the way flow back upwards and are persisted in databases for later analysis.</p>
 </section>
 <section id="three-architectural-layers" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="three-architectural-layers"><span class="header-section-number">3.3</span> Three architectural layers</h2>
