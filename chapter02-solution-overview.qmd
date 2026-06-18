@@ -20,7 +20,7 @@ The primary criterion for splitting job workers and process models is the **busi
 
 This separation is inspired by the bounded contexts familiar from DDD and makes the system easier to reason about, both for teachers explaining it and for students extending it.
 
-The DDD concept is obviously not implemented to full extend, since the BPA Lab uses a central Business Process Management System instance (running  separated processes communicated via messages) to orchestrate the entire process and a central database to ensure data persistence.
+The DDD concept is not implemented to full extend, since the BPA Lab uses a central Business Process Management System instance (running  separated processes communicated via messages) to orchestrate the entire process and a central database to ensure data persistence.
 
 ## A simplified bird's-eye view
 
@@ -28,7 +28,7 @@ The architecture and implementation of the BPA Lab are under continuous developm
 
 ![Simplified architecture of the BPA Lab](images/BPALab_Simplified_Arch_240924.png){#fig-simplified fig-align="center"}
 
-The customer-facing entry point is a **user form** (or **web application**= for order capture. From there, work flows downwards through Camunda 8 and the job workers and eventually reaches the physical Fischertechnik components. Events generated along the way flow back upwards and are persisted in databases for later analysis.
+The customer-facing entry point is a **user form** (or **web application**) for order capture. From there, work flows downwards through Camunda 8 and the job workers and eventually reaches the physical Fischertechnik components. Events generated along the way flow back upwards and are persisted in databases for later analysis.
 
 
 ## Three architectural layers
