@@ -9,7 +9,7 @@ The BPA Lab integrates data from several sources — from **master data** in a r
 
 The following figure gives an overview of the main data sources and the kinds of data they hold:
 
-![Data overview in the BPA Lab](images/data_overview.png){#fig-data-overview fig-align="center"}
+![Data overview in the BPA Lab (Gonzalez 2025)](images/data_overview.png){#fig-data-overview fig-align="center"}
 
 ## The MySQL data model
 

@@ -111,7 +111,7 @@ These configurations ensure that the timestamp fields of the event data recorded
 
 **1.** After starting the system via Docker Compose (see the project README), Kibana becomes available at [http://localhost:5601](http://localhost:5601) after some time.
 
-**1.1** shutdown operate
+**1.1** shutdown operate before starting the following steps
 
 **2.** Open Kibana and enter **Index Management** in the search bar, then click on it.
 
@@ -158,6 +158,8 @@ These configurations ensure that the timestamp fields of the event data recorded
 The Elasticsearch configuration is now complete. Kibana can be closed.
 
 **13.** Restart Operate to rebuild the deleted index
+
+Remark: If after restarting the containers, operate is not starting there might be an issue with data migration caused due to index template change. Please stop containers, remove all (or selecteed) volumens and restart container. Attention: this step will remove all data stored in the volumes, so make sure you have no important data stored so far.
 
 ### Configurations in Grafana
 

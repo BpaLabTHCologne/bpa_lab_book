@@ -16,6 +16,8 @@ The following table gives a quick overview of the projects documented in this ch
 | [Teaching BPA in a Learning Factory](#sec-sotl-cos1326) | Zapp, Gonzalez & Gonzalez | SoTL publication (peer-reviewed) | 2025 | Teaching concept and pilot evaluation of using the BPA Lab as a teaching environment for project- and problem-based learning. |
 | [System Architecture for a Modular BPA Learning Factory](#sec-thesis-iyebi-2023) | J. P. Iyebi Itomb | Master's thesis | 2023 | Modular system architecture for the BPA Lab based on Domain-Driven Design and Camunda 8 |
 | [Data architecture of the BPA Lab](#sec-thesis-gonzalez-2025) | D. Gonzalez | Master's thesis | 2025 | Data-virtualisation layer (Trino), IoT pipeline (Filebeat), and two Grafana dashboards for end-to-end and production-process analysis. |
+| [Integrating IoT Data into Process Mining in an Industry 4.0 Environment](#sec-thesis-kücük-2026) | B. Kücük | Master's thesis | 2026 | requirements catalogue for IoT-enhanced process mining in Industry 4.0, integration approach |
+
 
 ## Teaching Business Process Automation in a Learning Factory (SoTL) {#sec-sotl-cos1326}
 
@@ -113,6 +115,26 @@ This thesis adds the **data architecture** to the BPA Lab that was previously mi
   - a **tactical end-to-end dashboard** with process KPIs and visualisations across the full bicycle ordering process (intended for taking process-improvement decisions),
   - an **operational production dashboard** based on the FT-factory's IoT data, visualised in real time (intended for production-floor decisions).
 - A **systematic requirements catalogue** for data architectures in Industry 4.0 contexts, mapped to the BPA Lab's constraints (small footprint, single host, no high-throughput or strict security requirements). This makes the rationale for design choices traceable and adaptable for follow-up projects.
+
+
+
+## Integrating IoT Data into Process Mining in an Industry 4.0 Environment {#sec-thesis-kücük-2026}
+
+**Author:** B. Kücük · **Supervisor:** Prof. Dr. Matthias Zapp · **Second supervisor:** Prof. Dr. Dietlind Zühlke
+**Type:** Master's thesis, Digital Sciences, TH Köln · **Submitted:** May 2026
+
+### Contribution to the BPA Lab
+
+This thesis adds a proof-of-concept integration pipeline for IoT-enhanced process mining to the BPA Lab. It connects the workflow event data recorded by Camunda with the MQTT-based IoT observations produced by the Fischertechnik factory layer, making physical factory evidence accessible to process mining tools. 
+
+Concretely, the work contributes:
+- A consolidated **requirements catalogue for IoT-enhanced process mining in Industry 4.0** settings, derived from literature and the BPA Lab context, covering event log readiness, semantic interpretation, timestamp validation, case correlation, and traceability.
+- A staged hybrid **integration approach** that preserves a clean workflow-only event log as a baseline while selectively incorporating IoT observations — either as contextual attributes enriching existing workflow events, or as IoT-derived event rows added to the process timeline.
+- Five complementary **event log artefacts**: a cleaned baseline workflow event log, a structured IoT event log, an IoT-enriched workflow event log, a derived IoT event log, and a final combined event log containing both workflow and IoT-derived events with explicit source and correlation metadata.
+- A Python-based **prototype pipeline** (implemented in Jupyter notebooks) that prepares, maps, and integrates workflow and MQTT data; documented in the thesis appendix for reuse in follow-up projects.
+- An **evaluation** in Celonis comparing the workflow-only baseline with the combined event log, demonstrating that IoT data can make production-floor behavior visible and reveal mismatches between workflow execution and physical factory behavior — while also quantifying the limitations introduced by timestamp uncertainty, missing shared case identifiers, and rule-based case correlation.
+
+The evaluation confirms that IoT-enhanced process mining is feasible within the BPA Lab setting and analytically useful, but requires careful semantic interpretation and transparent handling of correlation uncertainty. The thesis builds directly on the data architecture established in the Gonzalez 2025 thesis and provides a foundation for future live-monitoring extensions of the lab.
 
 
 ::: {.callout-tip}
