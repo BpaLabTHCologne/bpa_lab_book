@@ -108,7 +108,10 @@ The configuration has two parts: Elasticsearch (via Kibana) and Grafana.
 ### Configurations in Elasticsearch via Kibana
 
 These configurations ensure that the timestamp fields of the event data recorded by Camunda are correctly mapped into the virtual tables via Trino.
-The problem arises because Trino does not accept formatted data fields. Unfortunately, the following procedure does not always work, since the Camunda exporters perform schema validation and regenerate the index from their JSON templates.
+The problem arises because Trino does not accept formatted data fields.
+
+Unfortunately, the following procedure does not always (since C8.9 not at all)work,
+since the Camunda exporters perform schema validation and regenerate the index from their JSON templates.
 
 **1.** After starting the system via Docker Compose (see the project README), Kibana becomes available at [http://localhost:5601](http://localhost:5601) after some time.
 
