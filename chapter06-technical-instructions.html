@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -44,14 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-5bdd7211597c756a94c21a4efd9bf56a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-23775e1de80466c55b5400f53632bfb6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-5bdd7211597c756a94c21a4efd9bf56a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-461e7254b80bff6e617b6dec7c91ac1f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2e203e51b7e359887de576ddb682004e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-461e7254b80bff6e617b6dec7c91ac1f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b9e9ea53cab392750e2726ae5e04051a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-03f3158307d8c21242665281a2912883.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-b9e9ea53cab392750e2726ae5e04051a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-14313f1e9d01a47c2f7ae0b446776063.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-e77b72e841e4b7eff2da343812fd2845.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-14313f1e9d01a47c2f7ae0b446776063.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -511,21 +511,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="user-guide-for-end-to-end-process-execution" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="user-guide-for-end-to-end-process-execution"><span class="header-section-number">7.4</span> User guide for end-to-end process execution</h2>
 <p>This guide walks through a full end-to-end process instance with production. The actual scenario may vary depending on the input parameters — for example, if the requested products are already in stock, the production step may be skipped. Please also pay attention to the remarks and explanations rendered in each user form.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Test versus productive environment
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The walkthrough applies to both the <strong>test environment</strong> (no physical factory) and the <strong>productive environment</strong> (connected to the physical model factory via MQTT). The most important difference is highlighted in step 4 below.</p>
-</div>
-</div>
-<p><strong>0.</strong> <em>(Productive environment only)</em> If a connection to the physical model factory via the MQTT broker is required, follow the preparations described in <em>Working with the productive environment of the model factory</em> above.</p>
-<p><strong>1.</strong> Start a new instance of the <strong><code>BPALabBikeFactoryOrderManagement</code></strong> process via the Camunda <strong>Tasklist</strong> (<a href="http://localhost:8082">http://localhost:8082</a>, <em>processes</em> view). This process orchestrates the full end-to-end scenario and triggers the other processes as needed. Other processes can also be started separately for testing purposes.</p>
+<p><strong>1.</strong> Start a new instance of the <strong><code>BPALabBikeFactoryOrderManagement</code></strong> process via the Camunda <strong>Tasklist</strong> (<a href="http://localhost:8080/tasklist">http://localhost:8080/tasklist</a>, <em>processes</em> view). This process orchestrates the full end-to-end scenario and triggers the other processes as needed. Other processes can also be started separately for testing purposes.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -536,7 +522,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Regularly clean up old process instances. Use <strong>Operate</strong> at <a href="http://localhost:8081">http://localhost:8081</a> to inspect and cancel running instances.</p>
+<p>Regularly clean up old process instances. Use <strong>Operate</strong> at <a href="http://localhost:808o/operate">http://localhost:8080/operate</a> to inspect and cancel running instances.</p>
 </div>
 </div>
 <p><strong>2.</strong> In the Camunda Tasklist, click on the user task <strong>“choose bikes”</strong>. If the task is not yet assigned, click on <strong>“Assign to me”</strong>. Enter the required parameters and complete the user task by clicking <strong>“Complete Task”</strong>.</p>
