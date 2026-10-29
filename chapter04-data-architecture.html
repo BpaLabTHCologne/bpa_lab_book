@@ -49,9 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-461e7254b80bff6e617b6dec7c91ac1f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-14313f1e9d01a47c2f7ae0b446776063.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e77b72e841e4b7eff2da343812fd2845.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-14313f1e9d01a47c2f7ae0b446776063.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-41fd723bb17215f90b51cad55ff47d82.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-6463046a3f323c8eb8db9edb31782b17.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-41fd723bb17215f90b51cad55ff47d82.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -403,6 +403,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-mysql-data-model" id="toc-the-mysql-data-model" class="nav-link" data-scroll-target="#the-mysql-data-model"><span class="header-section-number">5.2</span> The MySQL data model</a></li>
   <li><a href="#sample-and-master-data" id="toc-sample-and-master-data" class="nav-link" data-scroll-target="#sample-and-master-data"><span class="header-section-number">5.3</span> Sample and master data</a></li>
   <li><a href="#process-data-and-the-foundation-for-process-mining" id="toc-process-data-and-the-foundation-for-process-mining" class="nav-link" data-scroll-target="#process-data-and-the-foundation-for-process-mining"><span class="header-section-number">5.4</span> Process data and the foundation for process mining</a></li>
+  <li><a href="#topics-and-payloads" id="toc-topics-and-payloads" class="nav-link" data-scroll-target="#topics-and-payloads"><span class="header-section-number">5.5</span> Topics and Payloads</a>
+  <ul class="collapse">
+  <li><a href="#messages-send-from-ft-factory" id="toc-messages-send-from-ft-factory" class="nav-link" data-scroll-target="#messages-send-from-ft-factory"><span class="header-section-number">5.5.1</span> Messages send from FT-Factory</a></li>
+  <li><a href="#messages-send-to-ft-factory" id="toc-messages-send-to-ft-factory" class="nav-link" data-scroll-target="#messages-send-to-ft-factory"><span class="header-section-number">5.5.2</span> Messages send to FT-Factory</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/edit/main/chapter04-data-architecture.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/blob/main/chapter04-data-architecture.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -489,8 +494,102 @@ Figure&nbsp;5.2: MySQL data model
 <li><strong>check conformance</strong> between modelled and actual behaviour,</li>
 <li><strong>analyse performance</strong> — durations, bottlenecks, rework loops.</li>
 </ul>
+</section>
+<section id="topics-and-payloads" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="topics-and-payloads"><span class="header-section-number">5.5</span> Topics and Payloads</h2>
+<p>The following list shows the messages accepted or sent by the <strong>Fischertechnik Factory</strong> (not exhaustive)</p>
+<section id="messages-send-from-ft-factory" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="messages-send-from-ft-factory"><span class="header-section-number">5.5.1</span> Messages send from FT-Factory</h3>
+<p><strong>Topic: bpalab/ftfactory/f/i/order</strong></p>
+<pre><code>{"ts": "2025-07-31T10:57:42.953Z",
+"state": "ORDERED",
+"type": "WHITE",
+"processOrderReference": "None"
+}</code></pre>
+<p><strong>Topic: bpalab/ftfactory/f/i/stock</strong></p>
+<pre><code>{"ts":"2023-06-22T12:m12:12.123",
+ "stockItems": 
+    [{"workpiece": { "id":"123456789ABCDE", "type":"WHITE", "state":"RAW" }, "location":"A1"},
+     {"workpiece": { "id":"156789ABCDE", "type":"RED", "state":"RAW" }, "location":"A2"},
+     {"workpiece": { "id":"7765555", "type":"BLUE", "state":"RAW" }, "location":"A3"},
+     { "workpiece":null, "location":"B1"},
+     { "workpiece":null, "location":"B2"},
+     { "workpiece":null, "location":"B3" },
+     { "workpiece":null, "location":"C1"},
+     { "workpiece":null, "location":"C2"},
+     { "workpiece":null, "location":"C3" }] }</code></pre>
+<p><strong>Topic: bpalab/ftfactory/i/ldr</strong></p>
+<pre><code>{"ts": "2025-07-31T10:58:03.299Z",
+"br": 82.2,
+"ldr": 11575
+}</code></pre>
+<p><strong>Topic: bpalab/ftfactory/i/bme680</strong></p>
+<pre><code>{"ts": "2025-07-31T10:57:23.356Z",
+"t": 24.6,
+"rt": 0,
+"h": 39,
+"rh": 0,
+"p": 1000.7,
+"iaq": 3,
+"aq": 3,
+"gr": 0
+}</code></pre>
+<p><strong>Topic: bpalab/ftfactory/f/i/state/vgr</strong></p>
+<pre><code>{"ts": "2025-07-31T10:57:24.089Z",
+"station": "vgr",
+"code": 1,
+"active": 0,
+"target": ""
+}</code></pre>
+<p><strong>Topic: bpalab/ftfactory/f/i/state/dsi</strong></p>
+<pre><code>{"ts": "2025-07-31T10:57:16.647Z",
+"station": "dsi",
+"code": 1,
+"active": 0
+}</code></pre>
+<p><strong>Topic: bpalab/ftfactory/f/i/state/sld</strong></p>
+<pre><code>{"ts": "2025-07-31T10:57:18.509Z",
+"station": "sld",
+"code": 1,
+"active": 0
+}</code></pre>
+<p><strong>Topic: bpalab/ftfactory/f/i/state/dso</strong></p>
+<pre><code>{"ts": "2025-07-31T10:57:24.709Z",
+"station": "dso",
+"code": 1,
+"active": 0
+}</code></pre>
+<p><strong>Topic: bpalab/ftfactory/f/i/state/hbw</strong></p>
+<pre><code>{"ts": "2025-07-31T10:57:25.962Z",
+"station": "hbw",
+"code": 2,
+"active": 1
+}</code></pre>
+<p><strong>Topic: bpalab/ftfactory/f/i/state/sld</strong></p>
+<pre><code>{"ts": "2025-07-31T10:57:28.773Z",
+"station": "sld",
+"code": 1,
+"active": 0
+}</code></pre>
+<p><strong>Topic: bpalab/ftfactory/f/i/state/mpo</strong></p>
+<pre><code>{"ts": "2025-07-31T10:57:34.871Z",
+"station": "mpo",
+"code": 1,
+"active": 0
+}</code></pre>
+</section>
+<section id="messages-send-to-ft-factory" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="messages-send-to-ft-factory"><span class="header-section-number">5.5.2</span> Messages send to FT-Factory</h3>
+<p>Sample BROADCAST publish:</p>
+<p>(send to activate the publisher of FT-Factory)</p>
+<p><strong>Topic: bpalab/ftfactory/o/broadcast</strong></p>
+<pre><code>{"ts":"2023-06-05T15:20:41.613", "message":"keep-alive"}</code></pre>
+<p>Sample ORDER publish:</p>
+<p><strong>Topic: bpalab/ftfactory/f/o/order</strong></p>
+<pre><code>{"ts":"2026-06-18T08:56:50.022Z","type":"RED","processOrderReference":"00000099-99"}</code></pre>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

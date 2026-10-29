@@ -250,6 +250,16 @@
     ]
   },
   {
+    "objectID": "chapter04-data-architecture.html#topics-and-payloads",
+    "href": "chapter04-data-architecture.html#topics-and-payloads",
+    "title": "5  Data Architecture",
+    "section": "5.5 Topics and Payloads",
+    "text": "5.5 Topics and Payloads\nThe following list shows the messages accepted or sent by the Fischertechnik Factory (not exhaustive)\n\n5.5.1 Messages send from FT-Factory\nTopic: bpalab/ftfactory/f/i/order\n{\"ts\": \"2025-07-31T10:57:42.953Z\",\n\"state\": \"ORDERED\",\n\"type\": \"WHITE\",\n\"processOrderReference\": \"None\"\n}\nTopic: bpalab/ftfactory/f/i/stock\n{\"ts\":\"2023-06-22T12:m12:12.123\",\n \"stockItems\": \n    [{\"workpiece\": { \"id\":\"123456789ABCDE\", \"type\":\"WHITE\", \"state\":\"RAW\" }, \"location\":\"A1\"},\n     {\"workpiece\": { \"id\":\"156789ABCDE\", \"type\":\"RED\", \"state\":\"RAW\" }, \"location\":\"A2\"},\n     {\"workpiece\": { \"id\":\"7765555\", \"type\":\"BLUE\", \"state\":\"RAW\" }, \"location\":\"A3\"},\n     { \"workpiece\":null, \"location\":\"B1\"},\n     { \"workpiece\":null, \"location\":\"B2\"},\n     { \"workpiece\":null, \"location\":\"B3\" },\n     { \"workpiece\":null, \"location\":\"C1\"},\n     { \"workpiece\":null, \"location\":\"C2\"},\n     { \"workpiece\":null, \"location\":\"C3\" }] }\nTopic: bpalab/ftfactory/i/ldr\n{\"ts\": \"2025-07-31T10:58:03.299Z\",\n\"br\": 82.2,\n\"ldr\": 11575\n}\nTopic: bpalab/ftfactory/i/bme680\n{\"ts\": \"2025-07-31T10:57:23.356Z\",\n\"t\": 24.6,\n\"rt\": 0,\n\"h\": 39,\n\"rh\": 0,\n\"p\": 1000.7,\n\"iaq\": 3,\n\"aq\": 3,\n\"gr\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/vgr\n{\"ts\": \"2025-07-31T10:57:24.089Z\",\n\"station\": \"vgr\",\n\"code\": 1,\n\"active\": 0,\n\"target\": \"\"\n}\nTopic: bpalab/ftfactory/f/i/state/dsi\n{\"ts\": \"2025-07-31T10:57:16.647Z\",\n\"station\": \"dsi\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/sld\n{\"ts\": \"2025-07-31T10:57:18.509Z\",\n\"station\": \"sld\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/dso\n{\"ts\": \"2025-07-31T10:57:24.709Z\",\n\"station\": \"dso\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/hbw\n{\"ts\": \"2025-07-31T10:57:25.962Z\",\n\"station\": \"hbw\",\n\"code\": 2,\n\"active\": 1\n}\nTopic: bpalab/ftfactory/f/i/state/sld\n{\"ts\": \"2025-07-31T10:57:28.773Z\",\n\"station\": \"sld\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/mpo\n{\"ts\": \"2025-07-31T10:57:34.871Z\",\n\"station\": \"mpo\",\n\"code\": 1,\n\"active\": 0\n}\n\n\n5.5.2 Messages send to FT-Factory\nSample BROADCAST publish:\n(send to activate the publisher of FT-Factory)\nTopic: bpalab/ftfactory/o/broadcast\n{\"ts\":\"2023-06-05T15:20:41.613\", \"message\":\"keep-alive\"}\nSample ORDER publish:\nTopic: bpalab/ftfactory/f/o/order\n{\"ts\":\"2026-06-18T08:56:50.022Z\",\"type\":\"RED\",\"processOrderReference\":\"00000099-99\"}",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Architecture</span>"
+    ]
+  },
+  {
     "objectID": "chapter05-projects.html",
     "href": "chapter05-projects.html",
     "title": "6  Projects",
