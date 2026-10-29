@@ -46,3 +46,126 @@ This event data is the foundation for **process mining** — a central teaching 
 - **discover** the actual flow of processes from event logs (and compare them to the modelled flow),
 - **check conformance** between modelled and actual behaviour,
 - **analyse performance** — durations, bottlenecks, rework loops.
+
+
+## Topics and Payloads
+
+The following list shows the messages accepted or sent by the **Fischertechnik Factory** (not exhaustive)
+
+### Messages send from FT-Factory
+
+**Topic: bpalab/ftfactory/f/i/order**
+
+    {"ts": "2025-07-31T10:57:42.953Z",
+    "state": "ORDERED",
+    "type": "WHITE",
+    "processOrderReference": "None"
+    }
+
+**Topic: bpalab/ftfactory/f/i/stock**
+
+    {"ts":"2023-06-22T12:m12:12.123",
+     "stockItems": 
+        [{"workpiece": { "id":"123456789ABCDE", "type":"WHITE", "state":"RAW" }, "location":"A1"},
+         {"workpiece": { "id":"156789ABCDE", "type":"RED", "state":"RAW" }, "location":"A2"},
+         {"workpiece": { "id":"7765555", "type":"BLUE", "state":"RAW" }, "location":"A3"},
+         { "workpiece":null, "location":"B1"},
+         { "workpiece":null, "location":"B2"},
+         { "workpiece":null, "location":"B3" },
+         { "workpiece":null, "location":"C1"},
+         { "workpiece":null, "location":"C2"},
+         { "workpiece":null, "location":"C3" }] }
+
+**Topic: bpalab/ftfactory/i/ldr**
+
+    {"ts": "2025-07-31T10:58:03.299Z",
+    "br": 82.2,
+    "ldr": 11575
+    }
+
+**Topic: bpalab/ftfactory/i/bme680**
+
+    {"ts": "2025-07-31T10:57:23.356Z",
+    "t": 24.6,
+    "rt": 0,
+    "h": 39,
+    "rh": 0,
+    "p": 1000.7,
+    "iaq": 3,
+    "aq": 3,
+    "gr": 0
+    }
+
+**Topic: bpalab/ftfactory/f/i/state/vgr**
+
+    {"ts": "2025-07-31T10:57:24.089Z",
+    "station": "vgr",
+    "code": 1,
+    "active": 0,
+    "target": ""
+    }
+
+**Topic: bpalab/ftfactory/f/i/state/dsi** 
+
+    {"ts": "2025-07-31T10:57:16.647Z",
+    "station": "dsi",
+    "code": 1,
+    "active": 0
+    }
+
+**Topic: bpalab/ftfactory/f/i/state/sld**
+
+    {"ts": "2025-07-31T10:57:18.509Z",
+    "station": "sld",
+    "code": 1,
+    "active": 0
+    }
+
+**Topic: bpalab/ftfactory/f/i/state/dso**
+
+    {"ts": "2025-07-31T10:57:24.709Z",
+    "station": "dso",
+    "code": 1,
+    "active": 0
+    }
+
+**Topic: bpalab/ftfactory/f/i/state/hbw**
+
+    {"ts": "2025-07-31T10:57:25.962Z",
+    "station": "hbw",
+    "code": 2,
+    "active": 1
+    }
+
+**Topic: bpalab/ftfactory/f/i/state/sld**
+
+    {"ts": "2025-07-31T10:57:28.773Z",
+    "station": "sld",
+    "code": 1,
+    "active": 0
+    }
+
+**Topic: bpalab/ftfactory/f/i/state/mpo**
+
+    {"ts": "2025-07-31T10:57:34.871Z",
+    "station": "mpo",
+    "code": 1,
+    "active": 0
+    }
+
+### Messages send to FT-Factory
+
+Sample BROADCAST publish:
+
+(send to activate the publisher of FT-Factory)
+
+**Topic: bpalab/ftfactory/o/broadcast**
+
+    {"ts":"2023-06-05T15:20:41.613", "message":"keep-alive"}
+
+
+Sample ORDER publish:
+
+**Topic: bpalab/ftfactory/f/o/order**
+
+	{"ts":"2026-06-18T08:56:50.022Z","type":"RED","processOrderReference":"00000099-99"}
