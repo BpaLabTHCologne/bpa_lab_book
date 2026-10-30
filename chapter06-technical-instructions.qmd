@@ -11,7 +11,6 @@ The instructions are organised into four sections:
 1.  **Working with the productive environment** — how to prepare and connect the physical model factory before starting the process applications.
 2.  **Running an end-to-end process instance** — a step-by-step walkthrough of one full order-to-shipment process from the user perspective.
 3.  **First-time configuration of the data architecture** — one-time setup of Elasticsearch and Grafana that is required after an initial installation or reinstallation of the system to enable the data-driven process analysis.
-4.  **Using the data architecture for process analysis and monitoring** — overview of the data architecture and how to access the Grafana dashboards for data-driven process analysis.
 
 ## Installing and running the solution
 
@@ -214,21 +213,3 @@ After configuring Elasticsearch, the remaining setup happens in Grafana so that 
 ![Refresh the panel](images/wiki/20-grafana-panel-refresh.png){#fig-cfg-20 fig-align="center" width="80%"}
 
 The data architecture and dashboards should now be fully configured and ready to use.
-
-### How to open Dashboards in Grafana
-
-::: callout-warning
-The instructions below assume that the *first-time configuration of the data architecture* (see previous section) has already been carried out. If not, perform that configuration first.
-:::
-
-**1.** Once the Docker containers are running and have booted, open Grafana at <http://localhost:3008>.
-
-**2.** Log in with username **`admin`** and password **`admin`**.
-
-**3.** A *Update your password* screen appears.
-
-![Skip the password update](images/wiki/11-grafana-skip-password.png){#fig-use-skip fig-align="center" width="40%"}
-
-**4.** Open the **Dashboards** area via the side menu. The dashboards should already be listed there. Click on any dashboard to open it.
-
-![Open the *Dashboards* area](images/wiki/17-grafana-dashboards-menu.png){#fig-use-dashboards fig-align="center" width="35%"}
