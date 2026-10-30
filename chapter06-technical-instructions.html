@@ -411,7 +411,6 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana" id="toc-only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana" class="nav-link" data-scroll-target="#only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana"><span class="header-section-number">7.5.1</span> [Only required in branches with Elasticsearch] Configurations in Elasticsearch via Kibana</a></li>
   <li><a href="#configurations-in-grafana" id="toc-configurations-in-grafana" class="nav-link" data-scroll-target="#configurations-in-grafana"><span class="header-section-number">7.5.2</span> Configurations in Grafana</a></li>
-  <li><a href="#how-to-open-dashboards-in-grafana" id="toc-how-to-open-dashboards-in-grafana" class="nav-link" data-scroll-target="#how-to-open-dashboards-in-grafana"><span class="header-section-number">7.5.3</span> How to open Dashboards in Grafana</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/edit/main/chapter06-technical-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/blob/main/chapter06-technical-instructions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -447,7 +446,6 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Working with the productive environment</strong> — how to prepare and connect the physical model factory before starting the process applications.</li>
 <li><strong>Running an end-to-end process instance</strong> — a step-by-step walkthrough of one full order-to-shipment process from the user perspective.</li>
 <li><strong>First-time configuration of the data architecture</strong> — one-time setup of Elasticsearch and Grafana that is required after an initial installation or reinstallation of the system to enable the data-driven process analysis.</li>
-<li><strong>Using the data architecture for process analysis and monitoring</strong> — overview of the data architecture and how to access the Grafana dashboards for data-driven process analysis.</li>
 </ol>
 </section>
 <section id="installing-and-running-the-solution" class="level2" data-number="7.2">
@@ -786,46 +784,6 @@ Figure&nbsp;7.20: Refresh the panel
 </figure>
 </div>
 <p>The data architecture and dashboards should now be fully configured and ready to use.</p>
-</section>
-<section id="how-to-open-dashboards-in-grafana" class="level3" data-number="7.5.3">
-<h3 data-number="7.5.3" class="anchored" data-anchor-id="how-to-open-dashboards-in-grafana"><span class="header-section-number">7.5.3</span> How to open Dashboards in Grafana</h3>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The instructions below assume that the <em>first-time configuration of the data architecture</em> (see previous section) has already been carried out. If not, perform that configuration first.</p>
-</div>
-</div>
-<p><strong>1.</strong> Once the Docker containers are running and have booted, open Grafana at <a href="http://localhost:3008" class="uri">http://localhost:3008</a>.</p>
-<p><strong>2.</strong> Log in with username <strong><code>admin</code></strong> and password <strong><code>admin</code></strong>.</p>
-<p><strong>3.</strong> A <em>Update your password</em> screen appears.</p>
-<div id="fig-use-skip" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-use-skip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/wiki/11-grafana-skip-password.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-use-skip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.21: Skip the password update
-</figcaption>
-</figure>
-</div>
-<p><strong>4.</strong> Open the <strong>Dashboards</strong> area via the side menu. The dashboards should already be listed there. Click on any dashboard to open it.</p>
-<div id="fig-use-dashboards" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-use-dashboards-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/wiki/17-grafana-dashboards-menu.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-use-dashboards-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.22: Open the <em>Dashboards</em> area
-</figcaption>
-</figure>
-</div>
 
 
 </section>
