@@ -4,7 +4,7 @@ title: "Projects"
 
 ::: {.callout-note}
 ## Purpose of this chapter
-The BPA Lab is not only an artefact — it is also a vehicle for **research and teaching projects**. This chapter collects  projects conducted with, or around, the BPA Lab. Each entry summarises the project's motivation, approach, and main outcomes. IT is not a complete list of all projects, but rather a curated selection that illustrates the lab's potential as a research and teaching platform.
+The BPA Lab is mainly a vehicle for **research and teaching projects**. This chapter presents projects conducted with, or around, the BPA Lab. Each entry summarises the project's motivation, approach, and main outcomes. It is not a complete list of all projects, but rather a  selection that illustrates the lab's potential as a research and teaching platform.
 :::
 
 ## Overview
