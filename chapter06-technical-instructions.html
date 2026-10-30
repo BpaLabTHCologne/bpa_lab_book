@@ -411,12 +411,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana" id="toc-only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana" class="nav-link" data-scroll-target="#only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana"><span class="header-section-number">7.5.1</span> [Only required in branches with Elasticsearch] Configurations in Elasticsearch via Kibana</a></li>
   <li><a href="#configurations-in-grafana" id="toc-configurations-in-grafana" class="nav-link" data-scroll-target="#configurations-in-grafana"><span class="header-section-number">7.5.2</span> Configurations in Grafana</a></li>
-  </ul></li>
-  <li><a href="#iot-data-provided-by-the-ft-factory" id="toc-iot-data-provided-by-the-ft-factory" class="nav-link" data-scroll-target="#iot-data-provided-by-the-ft-factory"><span class="header-section-number">7.6</span> IOT data provided by the FT factory</a>
-  <ul class="collapse">
-  <li><a href="#data-architecture" id="toc-data-architecture" class="nav-link" data-scroll-target="#data-architecture"><span class="header-section-number">7.6.1</span> Data architecture</a></li>
-  <li><a href="#overview-of-the-available-data-provided-by-the-fischertechnik-factory" id="toc-overview-of-the-available-data-provided-by-the-fischertechnik-factory" class="nav-link" data-scroll-target="#overview-of-the-available-data-provided-by-the-fischertechnik-factory"><span class="header-section-number">7.6.2</span> Overview of the available data provided by the Fischertechnik factory</a></li>
-  <li><a href="#how-to-open-dashboards-in-grafana" id="toc-how-to-open-dashboards-in-grafana" class="nav-link" data-scroll-target="#how-to-open-dashboards-in-grafana"><span class="header-section-number">7.6.3</span> How to open Dashboards in Grafana</a></li>
+  <li><a href="#how-to-open-dashboards-in-grafana" id="toc-how-to-open-dashboards-in-grafana" class="nav-link" data-scroll-target="#how-to-open-dashboards-in-grafana"><span class="header-section-number">7.5.3</span> How to open Dashboards in Grafana</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/edit/main/chapter06-technical-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/blob/main/chapter06-technical-instructions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -792,29 +787,8 @@ Figure&nbsp;7.20: Refresh the panel
 </div>
 <p>The data architecture and dashboards should now be fully configured and ready to use.</p>
 </section>
-</section>
-<section id="iot-data-provided-by-the-ft-factory" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="iot-data-provided-by-the-ft-factory"><span class="header-section-number">7.6</span> IOT data provided by the FT factory</h2>
-<section id="data-architecture" class="level3" data-number="7.6.1">
-<h3 data-number="7.6.1" class="anchored" data-anchor-id="data-architecture"><span class="header-section-number">7.6.1</span> Data architecture</h3>
-<p>The data architecture combines three source systems — process applications (MySQL), the BPMS (Elasticsearch or MySQL), and the FT factory (MQTT broker to ElasticSearch/MySQL) — into a unified, queryable layer based on data virtualisation with Trino. Grafana sits on top and provides the dashboards (see chapter data architecture).</p>
-</section>
-<section id="overview-of-the-available-data-provided-by-the-fischertechnik-factory" class="level3" data-number="7.6.2">
-<h3 data-number="7.6.2" class="anchored" data-anchor-id="overview-of-the-available-data-provided-by-the-fischertechnik-factory"><span class="header-section-number">7.6.2</span> Overview of the available data provided by the Fischertechnik factory</h3>
-<p>The factory publishes a variety of MQTT messages on different topics. A subset of these topics is currently subscribed and stored in Elasticsearch/MySQL:</p>
-<ul>
-<li><code>bpalab/ftfactory/i/bme680</code></li>
-<li><code>bpalab/ftfactory/i/ldr</code></li>
-<li><code>bpalab/ftfactory/f/i/order</code></li>
-<li><code>bpalab/ftfactory/f/i/state/hbw</code></li>
-<li><code>bpalab/ftfactory/f/i/state/vgr</code></li>
-<li><code>bpalab/ftfactory/f/i/state/mpo</code></li>
-<li><code>bpalab/ftfactory/f/i/state/sld</code></li>
-</ul>
-<p>Example logs of the <em>manufacturing</em> and <em>stock in</em> scenarios are available in the <a href="https://github.com/BpaLabTHCologne/bpa_lab_docs/tree/main/Sample_data">sample data folder</a> of the <code>bpa_lab_docs</code> repository.</p>
-</section>
-<section id="how-to-open-dashboards-in-grafana" class="level3" data-number="7.6.3">
-<h3 data-number="7.6.3" class="anchored" data-anchor-id="how-to-open-dashboards-in-grafana"><span class="header-section-number">7.6.3</span> How to open Dashboards in Grafana</h3>
+<section id="how-to-open-dashboards-in-grafana" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="how-to-open-dashboards-in-grafana"><span class="header-section-number">7.5.3</span> How to open Dashboards in Grafana</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
