@@ -4,19 +4,18 @@ title: "Operational Instructions"
 
 ## Purpose of this chapter
 
-This chapter provides selected **operational instructions** for running, configuring, and monitoring the BPA Lab demonstration factory. While the preceding chapters describe *what* the BPA Lab is, this chapter describes *how* to configure anbd use it. The instructions are not complete but rather focus on selected aspects that are particularly relevant for the demonstration factory. 
+This chapter provides selected **operational instructions** for running, configuring, and monitoring the BPA Lab demonstration factory. While the preceding chapters describe *what* the BPA Lab is, this chapter describes *how* to configure anbd use it. The instructions are not complete but rather focus on selected aspects that are particularly relevant for the demonstration factory.
 
 The instructions are organised into four sections:
 
-1. **Working with the productive environment** — how to prepare and connect the physical model factory before starting the process applications.
-2. **Running an end-to-end process instance** — a step-by-step walkthrough of one full order-to-shipment process from the user perspective.
-3. **First-time configuration of the data architecture** — one-time setup of Elasticsearch and Grafana that is required after an initial installation or reinstallation of the system to enable the data-driven process analysis.
-4. **Using the data architecture for process analysis and monitoring** — overview of the data architecture and how to access the Grafana dashboards for data-driven process analysis.
-
+1.  **Working with the productive environment** — how to prepare and connect the physical model factory before starting the process applications.
+2.  **Running an end-to-end process instance** — a step-by-step walkthrough of one full order-to-shipment process from the user perspective.
+3.  **First-time configuration of the data architecture** — one-time setup of Elasticsearch and Grafana that is required after an initial installation or reinstallation of the system to enable the data-driven process analysis.
+4.  **Using the data architecture for process analysis and monitoring** — overview of the data architecture and how to access the Grafana dashboards for data-driven process analysis.
 
 ## Installing and running the solution
 
-The instructions to install and run the BPA Lab solution (software only) are described in the README of the [bpa_lab_demonstration_factory repository](https://github.com/BpaLabTHCologne/bpa_lab_demonstration_factory). 
+The instructions to install and run the BPA Lab solution (software only) are described in the README of the [bpa_lab_demonstration_factory repository](https://github.com/BpaLabTHCologne/bpa_lab_demonstration_factory).
 
 The following instructions in this chapter are building upon those.
 
@@ -26,29 +25,28 @@ The *productive environment* refers to the setup in which the process applicatio
 
 ### Preparations
 
-1. First, switch on the power strip for the **TP-Link (WLAN router)** and the **Raspberry Pi** (which runs the MQTT broker).
+1.  First, switch on the power strip for the **TP-Link (WLAN router)** and the **Raspberry Pi** (which runs the MQTT broker).
 
-2. After a few seconds, switch on the power strip for the **factory**.
+2.  After a few seconds, switch on the power strip for the **factory**.
 
-3. *(Optionally)* Connect the power cable for the **warehouse robot** and switch it on via the TXT controller.
+3.  *(Optionally)* Connect the power cable for the **warehouse robot** and switch it on via the TXT controller.
 
-4. After a short time, check on both TXT controllers whether they have automatically connected to the local network of the BPA Lab.
+4.  After a short time, check on both TXT controllers whether they have automatically connected to the local network of the BPA Lab.
 
     - **TXT controller of the warehouse robot:** use the touchscreen to navigate to **Settings → Network → WLAN-Setup**. The IP address **`10.0.0.12`** should be displayed if the warehouse robot is connected correctly.
     - **TXT controller of the factory:** use the touchscreen to navigate to **Settings → Network**. The item **Wi-Fi** should display **Connected to BPALabLocal**. If this is the case, the factory is correctly connected to the local network.
 
-5. Load and start the program **`ThKBpaLabFactory.py`** on the TXT controller of the factory.
+5.  Load and start the program **`ThKBpaLabFactory.py`** on the TXT controller of the factory.
 
     Use the touchscreen of the TXT controller and go to **File**. Click on the folder **`ThKBpaLabFactory`**, then on the file **`ThKBpaLabFactory.py`**. Afterwards, click **Load**. The program can then be started via the red button on the touchscreen showing **`ThKBpaLabFactory`**.
 
     The program must run **continuously** during execution and should not be switched on and off. If it has to be stopped and restarted, follow the instructions under *Factory does not send MQTT messages* below.
-    
 
-6. Connect the workstation computer to the BPA Lab network:
+6.  Connect the workstation computer to the BPA Lab network:
 
     - **5a. Using the BPA Lab computer:** the computer must be **connected to the local BPA Lab network via WLAN** and must be given **internet access via a LAN connection**. Use the LAN connection box **`A07`**.
 
-       The LAN connection must be activated individually for each computer. At the moment, the LAN connection only works with the BPA Lab computer.
+      The LAN connection must be activated individually for each computer. At the moment, the LAN connection only works with the BPA Lab computer.
 
     - **5b. Using another computer:** two WLAN adapters are recommended. One connects to the **local BPA Lab network**, the second one provides **internet access** (e.g. eduroam).
 
@@ -62,8 +60,9 @@ There may be a problem in the MQTT communication between the `FactoryMainBPALabT
 
 This error can occur if, for example, the program `FactoryMainBPALabThKoeln.py` is stopped and restarted on the TXT controller. This breaks the connection between the program and the Docker container.
 
-::: {.callout-tip}
+::: callout-tip
 ## Solution
+
 **Restart the Docker container `bpa_lab_manufacturing_process`** after restarting the TXT program.
 :::
 
@@ -71,19 +70,21 @@ This error can occur if, for example, the program `FactoryMainBPALabThKoeln.py` 
 
 This guide walks through a full end-to-end process instance with production. The actual scenario may vary depending on the input parameters — for example, if the requested products are already in stock, the production step may be skipped. Please also pay attention to the remarks and explanations rendered in each user form.
 
-**1.** Start a new instance of the **`BPALabBikeFactoryOrderManagement`** process via the Camunda **Tasklist** ([http://localhost:8080/tasklist](http://localhost:8080/tasklist), *processes* view). This process orchestrates the full end-to-end scenario and triggers the other processes as needed. Other processes can also be started separately for testing purposes.
+**1.** Start a new instance of the **`BPALabBikeFactoryOrderManagement`** process via the Camunda **Tasklist** (<http://localhost:8080/tasklist>, *processes* view). This process orchestrates the full end-to-end scenario and triggers the other processes as needed. Other processes can also be started separately for testing purposes.
 
-::: {.callout-tip}
+::: callout-tip
 ## Cleanup recommendation
+
 Regularly clean up old process instances. Use **Operate** at [http://localhost:8080/operate](http://localhost:808o/operate) to inspect and cancel running instances.
 :::
 
 **2.** In the Camunda Tasklist, click on the user task **"choose bikes"**. If the task is not yet assigned, click on **"Assign to me"**. Enter the required parameters and complete the user task by clicking **"Complete Task"**.
 
-**3.** Wait a few seconds, then execute the next user task  (... to be continued)
+**3.** Wait a few seconds, then execute the next user task (... to be continued)
 
-::: {.callout-note}
-## Status of documentation 
+::: callout-note
+## Status of documentation
+
 Update of user guide for the new release is required.
 :::
 
@@ -98,15 +99,15 @@ The following configurations have to be carried out **once** for the data archit
 
 The configuration has two parts: Elasticsearch (via Kibana) and Grafana.
 
-### Configurations in Elasticsearch via Kibana
+### \[Only required in branches with Elasticsearch\] Configurations in Elasticsearch via Kibana
 
-These configurations ensure that the timestamp fields of the event data recorded by Camunda are correctly mapped into the virtual tables via Trino.
-The problem arises because Trino does not accept formatted data fields.
+These configurations are only required for Camunda versions that use Elasticsearch as the database. If your version uses MySQL, you can skip ahead to the Grafana configuration.
 
-Unfortunately, the following procedure does not always (since C8.9 not at all)work,
-since the Camunda exporters perform schema validation and regenerate the index from their JSON templates.
+These configurations ensure that the timestamp fields of the event data recorded by Camunda are correctly mapped into the virtual tables via Trino. The problem arises because Trino does not accept formatted data fields.
 
-**1.** After starting the system via Docker Compose (see the project README), Kibana becomes available at [http://localhost:5601](http://localhost:5601) after some time.
+Unfortunately, the following procedure does not always (since C8.9 not at all)work, since the Camunda exporters perform schema validation and regenerate the index from their JSON templates.
+
+**1.** After starting the system via Docker Compose (see the project README), Kibana becomes available at <http://localhost:5601> after some time.
 
 **1.1** shutdown operate before starting the following steps
 
@@ -162,7 +163,7 @@ Remark: If after restarting the containers, operate is not starting there might 
 
 After configuring Elasticsearch, the remaining setup happens in Grafana so that the existing dashboards can be used.
 
-**1.** Open Grafana at [http://localhost:3008](http://localhost:3008).
+**1.** Open Grafana at <http://localhost:3008>.
 
 **2.** Log in with username **`admin`** and password **`admin`**.
 
@@ -214,18 +215,15 @@ After configuring Elasticsearch, the remaining setup happens in Grafana so that 
 
 The data architecture and dashboards should now be fully configured and ready to use.
 
-## Using the data architecture for process analysis and monitoring
-
+## IOT data provided by the FT factory
 
 ### Data architecture
 
-The data architecture combines three source systems — process applications (MySQL), the BPMS (Elasticsearch), and the FT factory (MQTT broker) — into a unified, queryable layer based on data virtualisation with Trino. Grafana sits on top and provides the dashboards.
+The data architecture combines three source systems — process applications (MySQL), the BPMS (Elasticsearch or MySQL), and the FT factory (MQTT broker to ElasticSearch/MySQL) — into a unified, queryable layer based on data virtualisation with Trino. Grafana sits on top and provides the dashboards (see chapter data architecture).
 
-![Prototype of the BPA Lab data architecture](images/wiki/21-data-architecture-prototype.png){#fig-data-arch fig-align="center" width="70%"}
+### Overview of the available data provided by the Fischertechnik factory
 
-### Overview of the available data
-
-The factory publishes a variety of MQTT messages on different topics. A subset of these topics is currently subscribed to by **Filebeat** (see `filebeat/filebeat.yml`) and stored in Elasticsearch:
+The factory publishes a variety of MQTT messages on different topics. A subset of these topics is currently subscribed and stored in Elasticsearch/MySQL:
 
 - `bpalab/ftfactory/i/bme680`
 - `bpalab/ftfactory/i/ldr`
@@ -237,19 +235,17 @@ The factory publishes a variety of MQTT messages on different topics. A subset o
 
 Example logs of the *manufacturing* and *stock in* scenarios are available in the [sample data folder](https://github.com/BpaLabTHCologne/bpa_lab_docs/tree/main/Sample_data) of the `bpa_lab_docs` repository.
 
-![Data sources, categories, and data objects in the BPA Lab](images/wiki/22-data-overview.png){#fig-data-overview-tech fig-align="center" width="90%"}
+### How to open Dashboards in Grafana
 
-### How to use Grafana
-
-::: {.callout-warning}
+::: callout-warning
 The instructions below assume that the *first-time configuration of the data architecture* (see previous section) has already been carried out. If not, perform that configuration first.
 :::
 
-**1.** Once the Docker containers are running and have booted, open Grafana at [http://localhost:3008](http://localhost:3008).
+**1.** Once the Docker containers are running and have booted, open Grafana at <http://localhost:3008>.
 
 **2.** Log in with username **`admin`** and password **`admin`**.
 
-**3.** A *Update your password* screen appears. Click **Skip**.
+**3.** A *Update your password* screen appears.
 
 ![Skip the password update](images/wiki/11-grafana-skip-password.png){#fig-use-skip fig-align="center" width="40%"}
 
