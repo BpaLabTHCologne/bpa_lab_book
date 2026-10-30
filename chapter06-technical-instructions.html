@@ -409,14 +409,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#user-guide-for-end-to-end-process-execution" id="toc-user-guide-for-end-to-end-process-execution" class="nav-link" data-scroll-target="#user-guide-for-end-to-end-process-execution"><span class="header-section-number">7.4</span> User guide for end-to-end process execution</a></li>
   <li><a href="#first-time-configuration-of-the-data-architecture" id="toc-first-time-configuration-of-the-data-architecture" class="nav-link" data-scroll-target="#first-time-configuration-of-the-data-architecture"><span class="header-section-number">7.5</span> First-time configuration of the data architecture</a>
   <ul class="collapse">
-  <li><a href="#configurations-in-elasticsearch-via-kibana" id="toc-configurations-in-elasticsearch-via-kibana" class="nav-link" data-scroll-target="#configurations-in-elasticsearch-via-kibana"><span class="header-section-number">7.5.1</span> Configurations in Elasticsearch via Kibana</a></li>
+  <li><a href="#only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana" id="toc-only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana" class="nav-link" data-scroll-target="#only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana"><span class="header-section-number">7.5.1</span> [Only required in branches with Elasticsearch] Configurations in Elasticsearch via Kibana</a></li>
   <li><a href="#configurations-in-grafana" id="toc-configurations-in-grafana" class="nav-link" data-scroll-target="#configurations-in-grafana"><span class="header-section-number">7.5.2</span> Configurations in Grafana</a></li>
   </ul></li>
-  <li><a href="#using-the-data-architecture-for-process-analysis-and-monitoring" id="toc-using-the-data-architecture-for-process-analysis-and-monitoring" class="nav-link" data-scroll-target="#using-the-data-architecture-for-process-analysis-and-monitoring"><span class="header-section-number">7.6</span> Using the data architecture for process analysis and monitoring</a>
+  <li><a href="#iot-data-provided-by-the-ft-factory" id="toc-iot-data-provided-by-the-ft-factory" class="nav-link" data-scroll-target="#iot-data-provided-by-the-ft-factory"><span class="header-section-number">7.6</span> IOT data provided by the FT factory</a>
   <ul class="collapse">
   <li><a href="#data-architecture" id="toc-data-architecture" class="nav-link" data-scroll-target="#data-architecture"><span class="header-section-number">7.6.1</span> Data architecture</a></li>
-  <li><a href="#overview-of-the-available-data" id="toc-overview-of-the-available-data" class="nav-link" data-scroll-target="#overview-of-the-available-data"><span class="header-section-number">7.6.2</span> Overview of the available data</a></li>
-  <li><a href="#how-to-use-grafana" id="toc-how-to-use-grafana" class="nav-link" data-scroll-target="#how-to-use-grafana"><span class="header-section-number">7.6.3</span> How to use Grafana</a></li>
+  <li><a href="#overview-of-the-available-data-provided-by-the-fischertechnik-factory" id="toc-overview-of-the-available-data-provided-by-the-fischertechnik-factory" class="nav-link" data-scroll-target="#overview-of-the-available-data-provided-by-the-fischertechnik-factory"><span class="header-section-number">7.6.2</span> Overview of the available data provided by the Fischertechnik factory</a></li>
+  <li><a href="#how-to-open-dashboards-in-grafana" id="toc-how-to-open-dashboards-in-grafana" class="nav-link" data-scroll-target="#how-to-open-dashboards-in-grafana"><span class="header-section-number">7.6.3</span> How to open Dashboards in Grafana</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/edit/main/chapter06-technical-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/blob/main/chapter06-technical-instructions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -511,7 +511,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="user-guide-for-end-to-end-process-execution" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="user-guide-for-end-to-end-process-execution"><span class="header-section-number">7.4</span> User guide for end-to-end process execution</h2>
 <p>This guide walks through a full end-to-end process instance with production. The actual scenario may vary depending on the input parameters — for example, if the requested products are already in stock, the production step may be skipped. Please also pay attention to the remarks and explanations rendered in each user form.</p>
-<p><strong>1.</strong> Start a new instance of the <strong><code>BPALabBikeFactoryOrderManagement</code></strong> process via the Camunda <strong>Tasklist</strong> (<a href="http://localhost:8080/tasklist">http://localhost:8080/tasklist</a>, <em>processes</em> view). This process orchestrates the full end-to-end scenario and triggers the other processes as needed. Other processes can also be started separately for testing purposes.</p>
+<p><strong>1.</strong> Start a new instance of the <strong><code>BPALabBikeFactoryOrderManagement</code></strong> process via the Camunda <strong>Tasklist</strong> (<a href="http://localhost:8080/tasklist" class="uri">http://localhost:8080/tasklist</a>, <em>processes</em> view). This process orchestrates the full end-to-end scenario and triggers the other processes as needed. Other processes can also be started separately for testing purposes.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -550,11 +550,12 @@ ul.task-list li input[type="checkbox"] {
 <li>the Docker volumes of the system have been deleted (this also includes a complete reinstallation of Docker — note that merely deleting the images and reinstalling them does <strong>not</strong> require this configuration).</li>
 </ul>
 <p>The configuration has two parts: Elasticsearch (via Kibana) and Grafana.</p>
-<section id="configurations-in-elasticsearch-via-kibana" class="level3" data-number="7.5.1">
-<h3 data-number="7.5.1" class="anchored" data-anchor-id="configurations-in-elasticsearch-via-kibana"><span class="header-section-number">7.5.1</span> Configurations in Elasticsearch via Kibana</h3>
+<section id="only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="only-required-in-branches-with-elasticsearch-configurations-in-elasticsearch-via-kibana"><span class="header-section-number">7.5.1</span> [Only required in branches with Elasticsearch] Configurations in Elasticsearch via Kibana</h3>
+<p>These configurations are only required for Camunda versions that use Elasticsearch as the database. If your version uses MySQL, you can skip ahead to the Grafana configuration.</p>
 <p>These configurations ensure that the timestamp fields of the event data recorded by Camunda are correctly mapped into the virtual tables via Trino. The problem arises because Trino does not accept formatted data fields.</p>
 <p>Unfortunately, the following procedure does not always (since C8.9 not at all)work, since the Camunda exporters perform schema validation and regenerate the index from their JSON templates.</p>
-<p><strong>1.</strong> After starting the system via Docker Compose (see the project README), Kibana becomes available at <a href="http://localhost:5601">http://localhost:5601</a> after some time.</p>
+<p><strong>1.</strong> After starting the system via Docker Compose (see the project README), Kibana becomes available at <a href="http://localhost:5601" class="uri">http://localhost:5601</a> after some time.</p>
 <p><strong>1.1</strong> shutdown operate before starting the following steps</p>
 <p><strong>2.</strong> Open Kibana and enter <strong>Index Management</strong> in the search bar, then click on it.</p>
 <div id="fig-cfg-01" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -674,7 +675,7 @@ Figure&nbsp;7.10: Delete the existing <code>operate-flownode</code> index
 <section id="configurations-in-grafana" class="level3" data-number="7.5.2">
 <h3 data-number="7.5.2" class="anchored" data-anchor-id="configurations-in-grafana"><span class="header-section-number">7.5.2</span> Configurations in Grafana</h3>
 <p>After configuring Elasticsearch, the remaining setup happens in Grafana so that the existing dashboards can be used.</p>
-<p><strong>1.</strong> Open Grafana at <a href="http://localhost:3008">http://localhost:3008</a>.</p>
+<p><strong>1.</strong> Open Grafana at <a href="http://localhost:3008" class="uri">http://localhost:3008</a>.</p>
 <p><strong>2.</strong> Log in with username <strong><code>admin</code></strong> and password <strong><code>admin</code></strong>.</p>
 <p><strong>3.</strong> A <em>Update your password</em> screen appears. Click <strong>Skip</strong> to continue without changing the password.</p>
 <div id="fig-cfg-11" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -792,25 +793,15 @@ Figure&nbsp;7.20: Refresh the panel
 <p>The data architecture and dashboards should now be fully configured and ready to use.</p>
 </section>
 </section>
-<section id="using-the-data-architecture-for-process-analysis-and-monitoring" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="using-the-data-architecture-for-process-analysis-and-monitoring"><span class="header-section-number">7.6</span> Using the data architecture for process analysis and monitoring</h2>
+<section id="iot-data-provided-by-the-ft-factory" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="iot-data-provided-by-the-ft-factory"><span class="header-section-number">7.6</span> IOT data provided by the FT factory</h2>
 <section id="data-architecture" class="level3" data-number="7.6.1">
 <h3 data-number="7.6.1" class="anchored" data-anchor-id="data-architecture"><span class="header-section-number">7.6.1</span> Data architecture</h3>
-<p>The data architecture combines three source systems — process applications (MySQL), the BPMS (Elasticsearch), and the FT factory (MQTT broker) — into a unified, queryable layer based on data virtualisation with Trino. Grafana sits on top and provides the dashboards.</p>
-<div id="fig-data-arch" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-data-arch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/wiki/21-data-architecture-prototype.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-arch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.21: Prototype of the BPA Lab data architecture
-</figcaption>
-</figure>
-</div>
+<p>The data architecture combines three source systems — process applications (MySQL), the BPMS (Elasticsearch or MySQL), and the FT factory (MQTT broker to ElasticSearch/MySQL) — into a unified, queryable layer based on data virtualisation with Trino. Grafana sits on top and provides the dashboards (see chapter data architecture).</p>
 </section>
-<section id="overview-of-the-available-data" class="level3" data-number="7.6.2">
-<h3 data-number="7.6.2" class="anchored" data-anchor-id="overview-of-the-available-data"><span class="header-section-number">7.6.2</span> Overview of the available data</h3>
-<p>The factory publishes a variety of MQTT messages on different topics. A subset of these topics is currently subscribed to by <strong>Filebeat</strong> (see <code>filebeat/filebeat.yml</code>) and stored in Elasticsearch:</p>
+<section id="overview-of-the-available-data-provided-by-the-fischertechnik-factory" class="level3" data-number="7.6.2">
+<h3 data-number="7.6.2" class="anchored" data-anchor-id="overview-of-the-available-data-provided-by-the-fischertechnik-factory"><span class="header-section-number">7.6.2</span> Overview of the available data provided by the Fischertechnik factory</h3>
+<p>The factory publishes a variety of MQTT messages on different topics. A subset of these topics is currently subscribed and stored in Elasticsearch/MySQL:</p>
 <ul>
 <li><code>bpalab/ftfactory/i/bme680</code></li>
 <li><code>bpalab/ftfactory/i/ldr</code></li>
@@ -821,19 +812,9 @@ Figure&nbsp;7.21: Prototype of the BPA Lab data architecture
 <li><code>bpalab/ftfactory/f/i/state/sld</code></li>
 </ul>
 <p>Example logs of the <em>manufacturing</em> and <em>stock in</em> scenarios are available in the <a href="https://github.com/BpaLabTHCologne/bpa_lab_docs/tree/main/Sample_data">sample data folder</a> of the <code>bpa_lab_docs</code> repository.</p>
-<div id="fig-data-overview-tech" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-data-overview-tech-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/wiki/22-data-overview.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-overview-tech-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.22: Data sources, categories, and data objects in the BPA Lab
-</figcaption>
-</figure>
-</div>
 </section>
-<section id="how-to-use-grafana" class="level3" data-number="7.6.3">
-<h3 data-number="7.6.3" class="anchored" data-anchor-id="how-to-use-grafana"><span class="header-section-number">7.6.3</span> How to use Grafana</h3>
+<section id="how-to-open-dashboards-in-grafana" class="level3" data-number="7.6.3">
+<h3 data-number="7.6.3" class="anchored" data-anchor-id="how-to-open-dashboards-in-grafana"><span class="header-section-number">7.6.3</span> How to open Dashboards in Grafana</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -847,16 +828,16 @@ Warning
 <p>The instructions below assume that the <em>first-time configuration of the data architecture</em> (see previous section) has already been carried out. If not, perform that configuration first.</p>
 </div>
 </div>
-<p><strong>1.</strong> Once the Docker containers are running and have booted, open Grafana at <a href="http://localhost:3008">http://localhost:3008</a>.</p>
+<p><strong>1.</strong> Once the Docker containers are running and have booted, open Grafana at <a href="http://localhost:3008" class="uri">http://localhost:3008</a>.</p>
 <p><strong>2.</strong> Log in with username <strong><code>admin</code></strong> and password <strong><code>admin</code></strong>.</p>
-<p><strong>3.</strong> A <em>Update your password</em> screen appears. Click <strong>Skip</strong>.</p>
+<p><strong>3.</strong> A <em>Update your password</em> screen appears.</p>
 <div id="fig-use-skip" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-use-skip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/wiki/11-grafana-skip-password.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-use-skip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.23: Skip the password update
+Figure&nbsp;7.21: Skip the password update
 </figcaption>
 </figure>
 </div>
@@ -867,7 +848,7 @@ Figure&nbsp;7.23: Skip the password update
 <img src="images/wiki/17-grafana-dashboards-menu.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-use-dashboards-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.24: Open the <em>Dashboards</em> area
+Figure&nbsp;7.22: Open the <em>Dashboards</em> area
 </figcaption>
 </figure>
 </div>
