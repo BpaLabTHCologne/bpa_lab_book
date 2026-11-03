@@ -28,7 +28,7 @@ The FT-Factory (and other IOT devices) publishes data as messages through an MQT
 
 The following figure gives an overview of the main data sources and the kinds of data they hold:
 
-![Data overview in the BPA Lab (based on Gonzalez 2025)](images/Data_objects_261103.svg){#fig-data-overview fig-align="center"}
+![Data overview in the BPA Lab (based on Gonzalez 2025)](images/Data_objects_261103.png){#fig-data-overview fig-align="center"}
 
 ## The MySQL data model
 
