@@ -26,7 +26,7 @@ The following figure gives an overview of the main data sources and the kinds of
 
 ![Data overview in the BPA Lab (based on Gonzalez 2025)](images/Data_objects_261103.png){#fig-data-overview fig-align="center"}
 
-## The MySQL data model
+## The application data model 
 
 The following diagram shows the concrete data model of the application schema in the MySQL database, including the entities and attributes of the current implementation:
 
@@ -40,32 +40,9 @@ The database serves as the central store for:
 - **Orders** — customer orders, production orders, purchase orders — together with their status history,
 - **Vendor data**.
 
-## Sample and master data
+## MQTT topics and payloads
 
-Documentation and sample data of the Fischertechnik factory are available in the [`Sample_data`](https://github.com/BpaLabTHCologne/bpa_lab_docs/tree/main/Sample_data) folder of the documentation repository. This data serves as:
-
-- **initial master data** when setting up a new instance of the BPA Lab,
-- **test data** for developing new components,
-- a **demonstration baseline** for teaching sessions and presentations.
-
-## Process data and the foundation for process mining
-
-In addition to persistent master data, the running processes generate substantial amounts of **process data**:
-
-- **Camunda 8** stores process instance data, variables, tokens, and lifecycle events.
-- **MQTT messages** record the communication between job workers and controllers.
-- **Job worker logs** capture technical operations and exceptions.
-
-This event data is the foundation for **process mining** — a central teaching and demonstration component of the BPA Lab. Process mining allows students to:
-
-- **discover** the actual flow of processes from event logs (and compare them to the modelled flow),
-- **check conformance** between modelled and actual behaviour,
-- **analyse performance** — durations, bottlenecks, rework loops.
-
-
-## Topics and Payloads
-
-The following list shows the messages accepted or sent by the **Fischertechnik Factory** (not exhaustive)
+The following list shows the messages accepted or sent by the **Fischertechnik Factory** (not exhaustive) and stored in the MongoDB database.
 
 ### Messages send from FT-Factory
 
