@@ -13,9 +13,9 @@ In its demonstration role, the lab shows how:
 
 - a fictional business scenario can be represented in **process and decision models**,
 - a **Business Process Management System** orchestrates human task and service in an end-to-end business processes,
-- modular **job workers** (services) implement the actual work including the integration with IOT devices,
-- **Internet of Things (IoT)** devices and data can be integrated into process execution,
-- **process mining** can be used to analyse process executions and identify improvement opportunities.
+- modular **job workers** (services) implement further applicatioon logic and the integration with IOT devices,
+- **Internet of Things (IoT)** devices (mainly the Fischertechnik Factory) and data can be integrated into process execution and are providing data for process analysis and process mining,
+- **Process analysis dashboards** and **process mining** can be used to analyse process executions and identify improvement opportunities.
 
 Especially, by bringing together software and hardware in one running system, abstract concepts become more tangible.
 
@@ -50,7 +50,7 @@ This book s structured as follows:
 1. **Business scenario:** The end-to-end bicycle ordering, manufacturing, and shipment process, broken down into its sub-processes (order management, production control, purchasing, manufacturing, shipment, warehouse operations).
 2. **Solution overview:** Why a demonstration factory, and the three architectural layers — controllers, process applications, workflow engine.
 3. **Software architecture:** Requirements, a C4 view of the system, and the architecture decisions taken so far.
-4. **Data and data sources:** Data model, data flows, and persistence in the BPA Lab.
+4. **Data architecture:** Data models and data flows in the BPA Lab.
 5. **Projects:** Research and teaching projects conducted using the BPA Lab.
 6. **Technical instructions:** Operational instructions for running the demonstration factory, executing end-to-end processes, and configuring and using the data architecture.
 
