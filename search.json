@@ -220,41 +220,21 @@
     ]
   },
   {
-    "objectID": "chapter04-data-architecture.html#the-mysql-data-model",
-    "href": "chapter04-data-architecture.html#the-mysql-data-model",
+    "objectID": "chapter04-data-architecture.html#the-application-data-model",
+    "href": "chapter04-data-architecture.html#the-application-data-model",
     "title": "5  Data Architecture",
-    "section": "5.2 The MySQL data model",
-    "text": "5.2 The MySQL data model\nThe following diagram shows the concrete data model of the application schema in the MySQL database, including the entities and attributes of the current implementation:\n\n\n\n\n\n\nFigure 5.2: MySQL data model\n\n\n\nThe database serves as the central store for:\n\nProduct master data — bicycle models and their components,\nCustomer data and delivery addresses,\nStock levels for components and finished goods,\nOrders — customer orders, production orders, purchase orders — together with their status history,\nVendor data.",
+    "section": "5.2 The application data model",
+    "text": "5.2 The application data model\nThe following diagram shows the concrete data model of the application schema in the MySQL database, including the entities and attributes of the current implementation:\n\n\n\n\n\n\nFigure 5.2: MySQL data model\n\n\n\nThe database serves as the central store for:\n\nProduct master data — bicycle models and their components,\nCustomer data and delivery addresses,\nStock levels for components and finished goods,\nOrders — customer orders, production orders, purchase orders — together with their status history,\nVendor data.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Architecture</span>"
     ]
   },
   {
-    "objectID": "chapter04-data-architecture.html#sample-and-master-data",
-    "href": "chapter04-data-architecture.html#sample-and-master-data",
+    "objectID": "chapter04-data-architecture.html#mqtt-topics-and-payloads",
+    "href": "chapter04-data-architecture.html#mqtt-topics-and-payloads",
     "title": "5  Data Architecture",
-    "section": "5.3 Sample and master data",
-    "text": "5.3 Sample and master data\nDocumentation and sample data of the Fischertechnik factory are available in the Sample_data folder of the documentation repository. This data serves as:\n\ninitial master data when setting up a new instance of the BPA Lab,\ntest data for developing new components,\na demonstration baseline for teaching sessions and presentations.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Architecture</span>"
-    ]
-  },
-  {
-    "objectID": "chapter04-data-architecture.html#process-data-and-the-foundation-for-process-mining",
-    "href": "chapter04-data-architecture.html#process-data-and-the-foundation-for-process-mining",
-    "title": "5  Data Architecture",
-    "section": "5.4 Process data and the foundation for process mining",
-    "text": "5.4 Process data and the foundation for process mining\nIn addition to persistent master data, the running processes generate substantial amounts of process data:\n\nCamunda 8 stores process instance data, variables, tokens, and lifecycle events.\nMQTT messages record the communication between job workers and controllers.\nJob worker logs capture technical operations and exceptions.\n\nThis event data is the foundation for process mining — a central teaching and demonstration component of the BPA Lab. Process mining allows students to:\n\ndiscover the actual flow of processes from event logs (and compare them to the modelled flow),\ncheck conformance between modelled and actual behaviour,\nanalyse performance — durations, bottlenecks, rework loops.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Architecture</span>"
-    ]
-  },
-  {
-    "objectID": "chapter04-data-architecture.html#topics-and-payloads",
-    "href": "chapter04-data-architecture.html#topics-and-payloads",
-    "title": "5  Data Architecture",
-    "section": "5.5 Topics and Payloads",
-    "text": "5.5 Topics and Payloads\nThe following list shows the messages accepted or sent by the Fischertechnik Factory (not exhaustive)\n\n5.5.1 Messages send from FT-Factory\nTopic: bpalab/ftfactory/f/i/order\n{\"ts\": \"2025-07-31T10:57:42.953Z\",\n\"state\": \"ORDERED\",\n\"type\": \"WHITE\",\n\"processOrderReference\": \"None\"\n}\nTopic: bpalab/ftfactory/f/i/stock\n{\"ts\":\"2023-06-22T12:m12:12.123\",\n \"stockItems\": \n    [{\"workpiece\": { \"id\":\"123456789ABCDE\", \"type\":\"WHITE\", \"state\":\"RAW\" }, \"location\":\"A1\"},\n     {\"workpiece\": { \"id\":\"156789ABCDE\", \"type\":\"RED\", \"state\":\"RAW\" }, \"location\":\"A2\"},\n     {\"workpiece\": { \"id\":\"7765555\", \"type\":\"BLUE\", \"state\":\"RAW\" }, \"location\":\"A3\"},\n     { \"workpiece\":null, \"location\":\"B1\"},\n     { \"workpiece\":null, \"location\":\"B2\"},\n     { \"workpiece\":null, \"location\":\"B3\" },\n     { \"workpiece\":null, \"location\":\"C1\"},\n     { \"workpiece\":null, \"location\":\"C2\"},\n     { \"workpiece\":null, \"location\":\"C3\" }] }\nTopic: bpalab/ftfactory/i/ldr\n{\"ts\": \"2025-07-31T10:58:03.299Z\",\n\"br\": 82.2,\n\"ldr\": 11575\n}\nTopic: bpalab/ftfactory/i/bme680\n{\"ts\": \"2025-07-31T10:57:23.356Z\",\n\"t\": 24.6,\n\"rt\": 0,\n\"h\": 39,\n\"rh\": 0,\n\"p\": 1000.7,\n\"iaq\": 3,\n\"aq\": 3,\n\"gr\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/vgr\n{\"ts\": \"2025-07-31T10:57:24.089Z\",\n\"station\": \"vgr\",\n\"code\": 1,\n\"active\": 0,\n\"target\": \"\"\n}\nTopic: bpalab/ftfactory/f/i/state/dsi\n{\"ts\": \"2025-07-31T10:57:16.647Z\",\n\"station\": \"dsi\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/sld\n{\"ts\": \"2025-07-31T10:57:18.509Z\",\n\"station\": \"sld\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/dso\n{\"ts\": \"2025-07-31T10:57:24.709Z\",\n\"station\": \"dso\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/hbw\n{\"ts\": \"2025-07-31T10:57:25.962Z\",\n\"station\": \"hbw\",\n\"code\": 2,\n\"active\": 1\n}\nTopic: bpalab/ftfactory/f/i/state/sld\n{\"ts\": \"2025-07-31T10:57:28.773Z\",\n\"station\": \"sld\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/mpo\n{\"ts\": \"2025-07-31T10:57:34.871Z\",\n\"station\": \"mpo\",\n\"code\": 1,\n\"active\": 0\n}\n\n\n5.5.2 Messages send to FT-Factory\nSample BROADCAST publish:\n(send to activate the publisher of FT-Factory)\nTopic: bpalab/ftfactory/o/broadcast\n{\"ts\":\"2023-06-05T15:20:41.613\", \"message\":\"keep-alive\"}\nSample ORDER publish:\nTopic: bpalab/ftfactory/f/o/order\n{\"ts\":\"2026-06-18T08:56:50.022Z\",\"type\":\"RED\",\"processOrderReference\":\"00000099-99\"}",
+    "section": "5.3 MQTT topics and payloads",
+    "text": "5.3 MQTT topics and payloads\nThe following list shows the messages accepted or sent by the Fischertechnik Factory (not exhaustive) and stored in the MongoDB database.\n\n5.3.1 Messages send from FT-Factory\nTopic: bpalab/ftfactory/f/i/order\n{\"ts\": \"2025-07-31T10:57:42.953Z\",\n\"state\": \"ORDERED\",\n\"type\": \"WHITE\",\n\"processOrderReference\": \"None\"\n}\nTopic: bpalab/ftfactory/f/i/stock\n{\"ts\":\"2023-06-22T12:m12:12.123\",\n \"stockItems\": \n    [{\"workpiece\": { \"id\":\"123456789ABCDE\", \"type\":\"WHITE\", \"state\":\"RAW\" }, \"location\":\"A1\"},\n     {\"workpiece\": { \"id\":\"156789ABCDE\", \"type\":\"RED\", \"state\":\"RAW\" }, \"location\":\"A2\"},\n     {\"workpiece\": { \"id\":\"7765555\", \"type\":\"BLUE\", \"state\":\"RAW\" }, \"location\":\"A3\"},\n     { \"workpiece\":null, \"location\":\"B1\"},\n     { \"workpiece\":null, \"location\":\"B2\"},\n     { \"workpiece\":null, \"location\":\"B3\" },\n     { \"workpiece\":null, \"location\":\"C1\"},\n     { \"workpiece\":null, \"location\":\"C2\"},\n     { \"workpiece\":null, \"location\":\"C3\" }] }\nTopic: bpalab/ftfactory/i/ldr\n{\"ts\": \"2025-07-31T10:58:03.299Z\",\n\"br\": 82.2,\n\"ldr\": 11575\n}\nTopic: bpalab/ftfactory/i/bme680\n{\"ts\": \"2025-07-31T10:57:23.356Z\",\n\"t\": 24.6,\n\"rt\": 0,\n\"h\": 39,\n\"rh\": 0,\n\"p\": 1000.7,\n\"iaq\": 3,\n\"aq\": 3,\n\"gr\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/vgr\n{\"ts\": \"2025-07-31T10:57:24.089Z\",\n\"station\": \"vgr\",\n\"code\": 1,\n\"active\": 0,\n\"target\": \"\"\n}\nTopic: bpalab/ftfactory/f/i/state/dsi\n{\"ts\": \"2025-07-31T10:57:16.647Z\",\n\"station\": \"dsi\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/sld\n{\"ts\": \"2025-07-31T10:57:18.509Z\",\n\"station\": \"sld\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/dso\n{\"ts\": \"2025-07-31T10:57:24.709Z\",\n\"station\": \"dso\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/hbw\n{\"ts\": \"2025-07-31T10:57:25.962Z\",\n\"station\": \"hbw\",\n\"code\": 2,\n\"active\": 1\n}\nTopic: bpalab/ftfactory/f/i/state/sld\n{\"ts\": \"2025-07-31T10:57:28.773Z\",\n\"station\": \"sld\",\n\"code\": 1,\n\"active\": 0\n}\nTopic: bpalab/ftfactory/f/i/state/mpo\n{\"ts\": \"2025-07-31T10:57:34.871Z\",\n\"station\": \"mpo\",\n\"code\": 1,\n\"active\": 0\n}\n\n\n5.3.2 Messages send to FT-Factory\nSample BROADCAST publish:\n(send to activate the publisher of FT-Factory)\nTopic: bpalab/ftfactory/o/broadcast\n{\"ts\":\"2023-06-05T15:20:41.613\", \"message\":\"keep-alive\"}\nSample ORDER publish:\nTopic: bpalab/ftfactory/f/o/order\n{\"ts\":\"2026-06-18T08:56:50.022Z\",\"type\":\"RED\",\"processOrderReference\":\"00000099-99\"}",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Architecture</span>"
     ]

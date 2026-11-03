@@ -406,13 +406,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview-of-data-sources" id="toc-overview-of-data-sources" class="nav-link active" data-scroll-target="#overview-of-data-sources"><span class="header-section-number">5.1</span> Overview of data sources</a></li>
-  <li><a href="#the-mysql-data-model" id="toc-the-mysql-data-model" class="nav-link" data-scroll-target="#the-mysql-data-model"><span class="header-section-number">5.2</span> The MySQL data model</a></li>
-  <li><a href="#sample-and-master-data" id="toc-sample-and-master-data" class="nav-link" data-scroll-target="#sample-and-master-data"><span class="header-section-number">5.3</span> Sample and master data</a></li>
-  <li><a href="#process-data-and-the-foundation-for-process-mining" id="toc-process-data-and-the-foundation-for-process-mining" class="nav-link" data-scroll-target="#process-data-and-the-foundation-for-process-mining"><span class="header-section-number">5.4</span> Process data and the foundation for process mining</a></li>
-  <li><a href="#topics-and-payloads" id="toc-topics-and-payloads" class="nav-link" data-scroll-target="#topics-and-payloads"><span class="header-section-number">5.5</span> Topics and Payloads</a>
+  <li><a href="#the-application-data-model" id="toc-the-application-data-model" class="nav-link" data-scroll-target="#the-application-data-model"><span class="header-section-number">5.2</span> The application data model</a></li>
+  <li><a href="#mqtt-topics-and-payloads" id="toc-mqtt-topics-and-payloads" class="nav-link" data-scroll-target="#mqtt-topics-and-payloads"><span class="header-section-number">5.3</span> MQTT topics and payloads</a>
   <ul class="collapse">
-  <li><a href="#messages-send-from-ft-factory" id="toc-messages-send-from-ft-factory" class="nav-link" data-scroll-target="#messages-send-from-ft-factory"><span class="header-section-number">5.5.1</span> Messages send from FT-Factory</a></li>
-  <li><a href="#messages-send-to-ft-factory" id="toc-messages-send-to-ft-factory" class="nav-link" data-scroll-target="#messages-send-to-ft-factory"><span class="header-section-number">5.5.2</span> Messages send to FT-Factory</a></li>
+  <li><a href="#messages-send-from-ft-factory" id="toc-messages-send-from-ft-factory" class="nav-link" data-scroll-target="#messages-send-from-ft-factory"><span class="header-section-number">5.3.1</span> Messages send from FT-Factory</a></li>
+  <li><a href="#messages-send-to-ft-factory" id="toc-messages-send-to-ft-factory" class="nav-link" data-scroll-target="#messages-send-to-ft-factory"><span class="header-section-number">5.3.2</span> Messages send to FT-Factory</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/edit/main/chapter04-data-architecture.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/blob/main/chapter04-data-architecture.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -459,8 +457,8 @@ Figure&nbsp;5.1: Data overview in the BPA Lab (based on Gonzalez 2025)
 </figure>
 </div>
 </section>
-<section id="the-mysql-data-model" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="the-mysql-data-model"><span class="header-section-number">5.2</span> The MySQL data model</h2>
+<section id="the-application-data-model" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="the-application-data-model"><span class="header-section-number">5.2</span> The application data model</h2>
 <p>The following diagram shows the concrete data model of the application schema in the MySQL database, including the entities and attributes of the current implementation:</p>
 <div id="fig-mysql" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -481,35 +479,11 @@ Figure&nbsp;5.2: MySQL data model
 <li><strong>Vendor data</strong>.</li>
 </ul>
 </section>
-<section id="sample-and-master-data" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="sample-and-master-data"><span class="header-section-number">5.3</span> Sample and master data</h2>
-<p>Documentation and sample data of the Fischertechnik factory are available in the <a href="https://github.com/BpaLabTHCologne/bpa_lab_docs/tree/main/Sample_data"><code>Sample_data</code></a> folder of the documentation repository. This data serves as:</p>
-<ul>
-<li><strong>initial master data</strong> when setting up a new instance of the BPA Lab,</li>
-<li><strong>test data</strong> for developing new components,</li>
-<li>a <strong>demonstration baseline</strong> for teaching sessions and presentations.</li>
-</ul>
-</section>
-<section id="process-data-and-the-foundation-for-process-mining" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="process-data-and-the-foundation-for-process-mining"><span class="header-section-number">5.4</span> Process data and the foundation for process mining</h2>
-<p>In addition to persistent master data, the running processes generate substantial amounts of <strong>process data</strong>:</p>
-<ul>
-<li><strong>Camunda 8</strong> stores process instance data, variables, tokens, and lifecycle events.</li>
-<li><strong>MQTT messages</strong> record the communication between job workers and controllers.</li>
-<li><strong>Job worker logs</strong> capture technical operations and exceptions.</li>
-</ul>
-<p>This event data is the foundation for <strong>process mining</strong> — a central teaching and demonstration component of the BPA Lab. Process mining allows students to:</p>
-<ul>
-<li><strong>discover</strong> the actual flow of processes from event logs (and compare them to the modelled flow),</li>
-<li><strong>check conformance</strong> between modelled and actual behaviour,</li>
-<li><strong>analyse performance</strong> — durations, bottlenecks, rework loops.</li>
-</ul>
-</section>
-<section id="topics-and-payloads" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="topics-and-payloads"><span class="header-section-number">5.5</span> Topics and Payloads</h2>
-<p>The following list shows the messages accepted or sent by the <strong>Fischertechnik Factory</strong> (not exhaustive)</p>
-<section id="messages-send-from-ft-factory" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="messages-send-from-ft-factory"><span class="header-section-number">5.5.1</span> Messages send from FT-Factory</h3>
+<section id="mqtt-topics-and-payloads" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="mqtt-topics-and-payloads"><span class="header-section-number">5.3</span> MQTT topics and payloads</h2>
+<p>The following list shows the messages accepted or sent by the <strong>Fischertechnik Factory</strong> (not exhaustive) and stored in the MongoDB database.</p>
+<section id="messages-send-from-ft-factory" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="messages-send-from-ft-factory"><span class="header-section-number">5.3.1</span> Messages send from FT-Factory</h3>
 <p><strong>Topic: bpalab/ftfactory/f/i/order</strong></p>
 <pre><code>{"ts": "2025-07-31T10:57:42.953Z",
 "state": "ORDERED",
@@ -588,8 +562,8 @@ Figure&nbsp;5.2: MySQL data model
 "active": 0
 }</code></pre>
 </section>
-<section id="messages-send-to-ft-factory" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="messages-send-to-ft-factory"><span class="header-section-number">5.5.2</span> Messages send to FT-Factory</h3>
+<section id="messages-send-to-ft-factory" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="messages-send-to-ft-factory"><span class="header-section-number">5.3.2</span> Messages send to FT-Factory</h3>
 <p>Sample BROADCAST publish:</p>
 <p>(send to activate the publisher of FT-Factory)</p>
 <p><strong>Topic: bpalab/ftfactory/o/broadcast</strong></p>
