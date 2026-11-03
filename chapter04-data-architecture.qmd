@@ -5,26 +5,22 @@ title: "Data Architecture"
 
 ## Overview of data sources
 
-The data in the BPA Lab comes from three source systems: the process applications (multiple), the business process management system (BPMS) Camunda 8, and the FT-Factory, a physical model factory. The data is stored in two database management systems and can be grouped into data categories. 
+The data in the BPA Lab comes from three source systems: the process applications (multiple), the business process management system (BPMS) Camunda 8, and the FT-Factory, a physical model factory. The data is stored in two database management systems and can be grouped logically into data categories. 
 
-Data in MySQL database management system:
+MySQL database management system: Inside MySQL, two separate database schemas keep process application data apart from process execution data from the BPMS:
 
-Inside MySQL, two separate database schemas keep process application data apart from process execution data from the BPMS:
-
-Application schema. This schema stores the data that the process applications create and use. It has three categories:
+Application schema. This schema stores the data that the process applications create and use. Data can be differentiated into three categories:
 - Transactional data records business transactions, namely customer orders, production orders and purchasing orders.
 - Stock data holds the inventory levels of component stock and product stock.
 - Master data holds reference data that changes rarely, such as vendors.
 
 BPMS schema. This schema stores the data that Camunda 8 produces while it runs process instances. Data can be logically differentiated into two categories:
-- Event data records the execution history of process instances, for example of the logistics process, the purchasing process and other sub-processes. This data is the basis for process mining and process analytics.
+- Event data records the execution history of process instances, for example of the logistics process, the purchasing process and other sub-processes including events and timestamps. This data is especially interesting for process mining.
 - In addition, process variables, that process instances carry and change at runtime is available here.
 
-Data in teh MongoDB database management system;
-
-The FT-Factory (and other IOT devices) publishes data as messages through an MQTT broker. These messages are stored in the document-oriented database MongoDB, which suits the semi-structured, high-frequency nature of IoT data. These messsages contains among other aspects:
-- Status data describes the current state of the factory, including station status, environmental status (for example sensor readings) and the overall factory production status.
-- Stock data records the inventory of the factory’s high-bay warehouse.
+MongoDB database management system: The FT-Factory (and other IOT devices) publishes data as messages through an MQTT broker. These messages are stored in the document-oriented database MongoDB, which suits the semi-structured, high-frequency nature of IoT data. These messsages contains among other aspects:
+- Status messages describing the current state of the factory, including station status, environmental status (for example sensor readings) and the status of the order processing
+- Stock information of the high-bay warehouse
 
 The following figure gives an overview of the main data sources and the kinds of data they hold:
 
@@ -32,7 +28,7 @@ The following figure gives an overview of the main data sources and the kinds of
 
 ## The MySQL data model
 
-The following diagram shows the concrete data model of the MySQL database, including the entities and attributes of the current implementation:
+The following diagram shows the concrete data model of the application schema in the MySQL database, including the entities and attributes of the current implementation:
 
 ![MySQL data model](images/mysql_data_model.png){#fig-mysql fig-align="center"}
 
