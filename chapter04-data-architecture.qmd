@@ -18,7 +18,7 @@ BPMS schema. This schema stores the data that Camunda 8 produces while it runs p
 - Event data records the execution history of process instances, for example of the logistics process, the purchasing process and other sub-processes including events and timestamps. This data is especially interesting for process mining.
 - In addition, process variables, that process instances carry and change at runtime is available here.
 
-MongoDB database management system: The FT-Factory (and other IOT devices) publishes data as messages through an MQTT broker. These messages are stored in the document-oriented database MongoDB, which suits the semi-structured, high-frequency nature of IoT data. These messsages contains among other aspects:
+MongoDB database management system: The FT-Factory (and other IOT devices) publishes data as messages through an MQTT broker. These messages are stored in the document-oriented database MongoDB, which suits the semi-structured, high-frequency nature of IoT data. These messsages contains among other aspects (see topics and payloads below):
 - Status messages describing the current state of the factory, including station status, environmental status (for example sensor readings) and the status of the order processing
 - Stock information of the high-bay warehouse
 
