@@ -250,6 +250,16 @@
     ]
   },
   {
+    "objectID": "chapter04-data-architecture.html#the-camunda-secondary-storage-model",
+    "href": "chapter04-data-architecture.html#the-camunda-secondary-storage-model",
+    "title": "5  Data Architecture",
+    "section": "5.5 The Camunda secondary storage model",
+    "text": "5.5 The Camunda secondary storage model\nThe following diagram shows tables from Camundas secondary storage for process data\n\n\n\nIoT Data model",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Architecture</span>"
+    ]
+  },
+  {
     "objectID": "chapter05-projects.html",
     "href": "chapter05-projects.html",
     "title": "6  Projects",

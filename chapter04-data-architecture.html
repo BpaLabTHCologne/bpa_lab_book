@@ -50,9 +50,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-0f516f423799029fdea17289fc75c63c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-62ce539cda5b969c01a864a4928a1f88.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-bfdfac3c533b361b32f20719c8c6845d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-62ce539cda5b969c01a864a4928a1f88.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-65d6f8f84267a9bb0f556fad35be990c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-20bcf0d46ea176dd057d5762ff9d9a4e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-65d6f8f84267a9bb0f556fad35be990c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -413,6 +413,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#messages-send-to-ft-factory" id="toc-messages-send-to-ft-factory" class="nav-link" data-scroll-target="#messages-send-to-ft-factory"><span class="header-section-number">5.3.2</span> Messages send to FT-Factory</a></li>
   </ul></li>
   <li><a href="#the-ftfactory-iot-data-model" id="toc-the-ftfactory-iot-data-model" class="nav-link" data-scroll-target="#the-ftfactory-iot-data-model"><span class="header-section-number">5.4</span> The FTFactory IoT data model</a></li>
+  <li><a href="#the-camunda-secondary-storage-model" id="toc-the-camunda-secondary-storage-model" class="nav-link" data-scroll-target="#the-camunda-secondary-storage-model"><span class="header-section-number">5.5</span> The Camunda secondary storage model</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/edit/main/chapter04-data-architecture.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/BpaLabTHCologne/bpa_lab_book/blob/main/chapter04-data-architecture.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -620,6 +621,16 @@ Table
 Table
     "mqttEventOrder"</code></pre>
 <p><strong>mqttEventVgr</strong>, <strong>mqttEventLdr</strong>, <strong>mqttEventBme680</strong> have been omitted for brevity, but follow the same schema.</p>
+</section>
+<section id="the-camunda-secondary-storage-model" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="the-camunda-secondary-storage-model"><span class="header-section-number">5.5</span> The Camunda secondary storage model</h2>
+<p>The following diagram shows tables from Camundas <strong>secondary storage</strong> for process data</p>
+<div id="C8-secondary-storage" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/C8-secondary-storage.png" class="img-fluid figure-img"></p>
+<figcaption>IoT Data model</figcaption>
+</figure>
+</div>
 
 
 </section>
