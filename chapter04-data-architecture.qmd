@@ -230,3 +230,10 @@ Table
 ```
 
 **mqttEventVgr**, **mqttEventLdr**, **mqttEventBme680** have been omitted for brevity, but follow the same schema.
+
+## The Camunda secondary storage model
+
+The following diagram shows tables from Camundas **secondary storage** for process data
+
+![IoT Data model](images/C8-secondary-storage.png){#C8-secondary-storage fig-align="center"}
+
